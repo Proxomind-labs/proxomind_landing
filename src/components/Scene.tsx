@@ -5,9 +5,9 @@ import * as THREE from 'three';
 function Particles({ count = 2500 }) {
   const mesh = useRef<THREE.Points>(null);
   
-  const particles = useMemo(() => {
-    const positions = new Float32Array(count * 3);
-    const colors = new Float32Array(count * 3);
+  const [positions, colors] = useMemo(() => {
+    const pos = new Float32Array(count * 3);
+    const col = new Float32Array(count * 3);
     
     const color1 = new THREE.Color('#6366f1');
     const color2 = new THREE.Color('#8b5cf6');
@@ -16,18 +16,18 @@ function Particles({ count = 2500 }) {
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;
       
-      positions[i3] = (Math.random() - 0.5) * 60;
-      positions[i3 + 1] = (Math.random() - 0.5) * 60;
-      positions[i3 + 2] = (Math.random() - 0.5) * 60;
+      pos[i3] = (Math.random() - 0.5) * 60;
+      pos[i3 + 1] = (Math.random() - 0.5) * 60;
+      pos[i3 + 2] = (Math.random() - 0.5) * 60;
       
       const mix = Math.random();
       const color = mix < 0.33 ? color1 : mix < 0.66 ? color2 : color3;
-      colors[i3] = color.r;
-      colors[i3 + 1] = color.g;
-      colors[i3 + 2] = color.b;
+      col[i3] = color.r;
+      col[i3 + 1] = color.g;
+      col[i3 + 2] = color.b;
     }
     
-    return { positions, colors };
+    return [pos, col];
   }, [count]);
 
   useFrame((state) => {
@@ -40,18 +40,8 @@ function Particles({ count = 2500 }) {
   return (
     <points ref={mesh}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particles.positions.length / 3}
-          array={particles.positions}
-          itemSize={3}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          count={particles.colors.length / 3}
-          array={particles.colors}
-          itemSize={3}
-        />
+        <bufferAttribute args={[positions, 3]} attach="attributes-position" />
+        <bufferAttribute args={[colors, 3]} attach="attributes-color" />
       </bufferGeometry>
       <pointsMaterial
         size={0.06}
@@ -74,18 +64,17 @@ function FloatingShapes() {
         (Math.random() - 0.5) * 35,
         (Math.random() - 0.5) * 25,
         (Math.random() - 0.5) * 25 - 8,
-      ],
-      rotation: [Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI],
+      ] as [number, number, number],
+      rotation: [Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI] as [number, number, number],
       scale: Math.random() * 0.4 + 0.15,
       type: i % 3 === 0 ? 'octahedron' : i % 3 === 1 ? 'icosahedron' : 'dodecahedron',
       color: ['#6366f1', '#8b5cf6', '#ec4899'][i % 3],
-      speed: Math.random() * 0.5 + 0.3,
     }));
   }, []);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (group.current) {
-      group.current.rotation.y = state.clock.elapsedTime * 0.02;
+      group.current.rotation.y += 0.002;
     }
   });
 
@@ -94,12 +83,13 @@ function FloatingShapes() {
       {shapes.map((shape, i) => (
         <mesh 
           key={i} 
-          position={shape.position as [number, number, number]}
-          rotation={shape.rotation as [number, number, number]}
+          position={shape.position}
+          rotation={shape.rotation}
+          scale={shape.scale}
         >
-          {shape.type === 'octahedron' && <octahedronGeometry args={[shape.scale]} />}
-          {shape.type === 'icosahedron' && <icosahedronGeometry args={[shape.scale]} />}
-          {shape.type === 'dodecahedron' && <dodecahedronGeometry args={[shape.scale]} />}
+          {shape.type === 'octahedron' && <octahedronGeometry />}
+          {shape.type === 'icosahedron' && <icosahedronGeometry />}
+          {shape.type === 'dodecahedron' && <dodecahedronGeometry />}
           <meshStandardMaterial
             color={shape.color}
             emissive={shape.color}
@@ -117,33 +107,42 @@ function FloatingShapes() {
 function NeuralNetwork() {
   const group = useRef<THREE.Group>(null);
   
-  const nodes = useMemo(() => {
-    return Array.from({ length: 35 }, () => ({
+  const { nodes, linePositions } = useMemo(() => {
+    const nodeData = Array.from({ length: 35 }, () => ({
       position: [
         (Math.random() - 0.5) * 25,
         (Math.random() - 0.5) * 20,
         (Math.random() - 0.5) * 15 - 5,
-      ],
+      ] as [number, number, number],
       scale: Math.random() * 0.12 + 0.04,
     }));
-  }, []);
 
-  const lines = useMemo(() => {
-    const lineData: { start: number[]; end: number[] }[] = [];
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
+    const lines: { start: [number, number, number]; end: [number, number, number] }[] = [];
+    for (let i = 0; i < nodeData.length; i++) {
+      for (let j = i + 1; j < nodeData.length; j++) {
         const dist = Math.sqrt(
-          Math.pow(nodes[i].position[0] - nodes[j].position[0], 2) +
-          Math.pow(nodes[i].position[1] - nodes[j].position[1], 2) +
-          Math.pow(nodes[i].position[2] - nodes[j].position[2], 2)
+          Math.pow(nodeData[i].position[0] - nodeData[j].position[0], 2) +
+          Math.pow(nodeData[i].position[1] - nodeData[j].position[1], 2) +
+          Math.pow(nodeData[i].position[2] - nodeData[j].position[2], 2)
         );
         if (dist < 7) {
-          lineData.push({ start: nodes[i].position, end: nodes[j].position });
+          lines.push({ start: nodeData[i].position, end: nodeData[j].position });
         }
       }
     }
-    return lineData;
-  }, [nodes]);
+
+    const linePos = new Float32Array(lines.length * 6);
+    lines.forEach((line, i) => {
+      linePos[i * 6] = line.start[0];
+      linePos[i * 6 + 1] = line.start[1];
+      linePos[i * 6 + 2] = line.start[2];
+      linePos[i * 6 + 3] = line.end[0];
+      linePos[i * 6 + 4] = line.end[1];
+      linePos[i * 6 + 5] = line.end[2];
+    });
+
+    return { nodes: nodeData, linePositions: linePos };
+  }, []);
 
   useFrame((state) => {
     if (group.current) {
@@ -155,7 +154,7 @@ function NeuralNetwork() {
   return (
     <group ref={group}>
       {nodes.map((node, i) => (
-        <mesh key={`node-${i}`} position={node.position as [number, number, number]}>
+        <mesh key={`node-${i}`} position={node.position}>
           <sphereGeometry args={[node.scale, 12, 12]} />
           <meshStandardMaterial
             color="#6366f1"
@@ -164,19 +163,12 @@ function NeuralNetwork() {
           />
         </mesh>
       ))}
-      {lines.map((line, i) => (
-        <line key={`line-${i}`}>
-          <bufferGeometry>
-            <bufferAttribute
-              attach="attributes-position"
-              count={2}
-              array={new Float32Array([...line.start, ...line.end])}
-              itemSize={3}
-            />
-          </bufferGeometry>
-          <lineBasicMaterial color="#6366f1" transparent opacity={0.15} />
-        </line>
-      ))}
+      <lineSegments>
+        <bufferGeometry>
+          <bufferAttribute args={[linePositions, 3]} attach="attributes-position" />
+        </bufferGeometry>
+        <lineBasicMaterial color="#6366f1" transparent opacity={0.15} />
+      </lineSegments>
     </group>
   );
 }
@@ -228,32 +220,6 @@ function CentralSphere() {
   );
 }
 
-function GradientBackground() {
-  return (
-    <mesh position={[0, 0, -50]} scale={[200, 200, 1]}>
-      <planeGeometry />
-      <shaderMaterial
-        vertexShader={`
-          varying vec2 vUv;
-          void main() {
-            vUv = uv;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-        `}
-        fragmentShader={`
-          varying vec2 vUv;
-          void main() {
-            vec3 color1 = vec3(0.012, 0.012, 0.03);
-            vec3 color2 = vec3(0.012, 0.012, 0.03);
-            vec3 color = mix(color1, color2, vUv.y);
-            gl_FragColor = vec4(color, 1.0);
-          }
-        `}
-      />
-    </mesh>
-  );
-}
-
 function Scene() {
   return (
     <div className="canvas-container">
@@ -269,7 +235,6 @@ function Scene() {
         <FloatingShapes />
         <NeuralNetwork />
         <CentralSphere />
-        <GradientBackground />
       </Canvas>
     </div>
   );
