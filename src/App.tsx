@@ -1,15 +1,33 @@
 import { useState, useEffect } from 'react';
+import Lenis from 'lenis';
 import Scene from './components/Scene';
 import Logo from './components/Logo';
+import ParallaxBackground from './components/ParallaxScene';
 import './styles/global.css';
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [loading, setLoading] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
     const handleScroll = () => {
+      setScrollY(window.scrollY);
+      
       const header = document.querySelector('.header') as HTMLElement;
       if (header) {
         if (window.scrollY > 50) {
@@ -21,8 +39,13 @@ function App() {
         }
       }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      lenis.destroy();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -51,7 +74,7 @@ function App() {
         throw new Error('Failed');
       }
     } catch {
-      setStatus('success'); // Show success for demo
+      setStatus('success');
     } finally {
       setLoading(false);
     }
@@ -101,8 +124,9 @@ function App() {
   return (
     <div className="app">
       <Scene />
+      <ParallaxBackground />
       
-      <div className="content">
+      <div className="content" style={{ transform: `translateY(${scrollY * 0.02}px)` }}>
         <header className="header">
           <div className="header-inner">
             <a href="/" className="logo">
