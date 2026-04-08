@@ -7,7 +7,7 @@ A beautiful, modern website for ProxoMind, an AI SaaS company specializing in ad
 - Stunning 3D visualizations using Three.js and React Three Fiber
 - Responsive design that works on all devices
 - Smooth animations and transitions
-- Contact form with email sending capability (emails sent to anand@proxomind.com)
+- Contact form with email sending capability
 - Modern UI with gradient effects and glass morphism
 - Sections for Home, Features, About, Projects, and Contact
 
