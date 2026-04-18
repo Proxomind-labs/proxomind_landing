@@ -1407,3 +1407,45 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============ PAGE HERO (inner pages) ============ */
+.page-hero {
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem;
+  position: relative;
+}
+
+.page-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+}
+
+.page-hero-content .section-label {
+  margin-bottom: 1.25rem;
+}
+
+/* ============ ACTIVE NAV LINK ============ */
+.nav-link-active {
+  color: var(--text) !important;
+  background: rgba(99, 102, 241, 0.12) !important;
+}
+
+/* ============ PROJECTS FULL GRID ============ */
+.projects-grid-full {
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 0 1.5rem;
+  }
+
+  .page-hero-content {
+    padding-top: 7rem;
+  }
+}
