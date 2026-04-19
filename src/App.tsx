@@ -1,8 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/MainLayout';
 import HomePage from './pages/HomePage';
-import ProjectsPage from './pages/ProjectsPage';
-import ServicesPage from './pages/ServicesPage';
+import AIConsultingPage from './pages/AIConsultingPage';
 import ContactPage from './pages/ContactPage';
 import './styles/global.css';
 
@@ -12,8 +11,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/ai-consulting" element={<AIConsultingPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
       </Routes>

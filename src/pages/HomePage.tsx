@@ -11,24 +11,6 @@ export default function HomePage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const testimonials = [
-    {
-      text: "ProxoMind transformed our document processing workflow. What used to take 40 hours now takes 2. Their LLM expertise is unmatched.",
-      name: "Rajesh Kumar",
-      role: "CTO, LegalTech India"
-    },
-    {
-      text: "The computer vision solution they built for our manufacturing line exceeded all expectations. 99.9% accuracy is incredible.",
-      name: "Priya Sharma",
-      role: "VP Operations, AutoParts Manufacturing"
-    },
-    {
-      text: "Their team understood our needs perfectly. The AI consulting saved us months of trial and error. Highly recommended.",
-      name: "Michael Chen",
-      role: "Head of Innovation, FinServ Corp"
-    }
-  ];
-
   return (
     <div style={{ transform: `translateY(${scrollY * 0.02}px)` }}>
       {/* Hero */}
@@ -46,11 +28,11 @@ export default function HomePage() {
             From concept to production, we turn complex AI challenges into powerful solutions.
           </p>
           <div className="hero-buttons">
-            <button onClick={() => navigate('/contact')} className="btn-primary">
-              Start Your Project
+            <button onClick={() => navigate('/ai-consulting')} className="btn-primary">
+              AI Consulting
             </button>
-            <button onClick={() => navigate('/projects')} className="btn-secondary">
-              View Our Work
+            <button onClick={() => navigate('/contact')} className="btn-secondary">
+              Contact Us
             </button>
           </div>
         </div>
@@ -151,68 +133,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="section">
-        <div className="section-inner">
-          <div className="section-header">
-            <span className="section-label">Impact</span>
-            <h2 className="section-title">Our Results</h2>
-          </div>
-          <div className="stats-row">
-            <div className="stat-item">
-              <div className="stat-number">50+</div>
-              <div className="stat-label">Projects Delivered</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">15+</div>
-              <div className="stat-label">Industries Served</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">98%</div>
-              <div className="stat-label">Client Satisfaction</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">24/7</div>
-              <div className="stat-label">Support Available</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="section">
-        <div className="section-inner">
-          <div className="section-header">
-            <span className="section-label">Testimonials</span>
-            <h2 className="section-title">What Clients Say</h2>
-          </div>
-          <div className="testimonials-grid">
-            {testimonials.map((t, i) => (
-              <div key={i} className="testimonial-card">
-                <p className="testimonial-text">"{t.text}"</p>
-                <div className="testimonial-author">
-                  <div className="testimonial-avatar">
-                    {t.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <div className="testimonial-info">
-                    <h5>{t.name}</h5>
-                    <p>{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="cta-section" style={{ marginBottom: '4rem' }}>
         <div className="cta-inner">
           <h2>Ready to Start Your AI Journey?</h2>
           <p>Let's discuss how we can help transform your business with cutting-edge AI solutions.</p>
-          <button onClick={() => navigate('/contact')} className="btn-primary">
-            Schedule a Consultation
-          </button>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button onClick={() => navigate('/ai-consulting')} className="btn-primary">
+              AI Consulting Assessment
+            </button>
+            <button onClick={() => navigate('/contact')} className="btn-secondary">
+              Contact Sales
+            </button>
+          </div>
         </div>
       </section>
     </div>

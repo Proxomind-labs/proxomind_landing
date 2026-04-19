@@ -37,13 +37,9 @@ export default function Navbar() {
             className={`nav-link${isActive('/') ? ' nav-link-active' : ''}`}
           >Home</button>
           <button
-            onClick={() => navigate('/projects')}
-            className={`nav-link${isActive('/projects') ? ' nav-link-active' : ''}`}
-          >Projects</button>
-          <button
-            onClick={() => navigate('/services')}
-            className={`nav-link${isActive('/services') ? ' nav-link-active' : ''}`}
-          >Services</button>
+            onClick={() => navigate('/ai-consulting')}
+            className={`nav-link${isActive('/ai-consulting') ? ' nav-link-active' : ''}`}
+          >AI Consulting</button>
           <button
             onClick={() => navigate('/contact')}
             className={`nav-link${isActive('/contact') ? ' nav-link-active' : ''}`}
