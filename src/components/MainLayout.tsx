@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Lenis from 'lenis';
-import Scene from './Scene';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -24,7 +23,6 @@ export default function MainLayout() {
 
   return (
     <div className="app">
-      <Scene />
       <div className="content">
         <Navbar />
         <main>

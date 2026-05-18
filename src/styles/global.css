@@ -28,7 +28,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: transparent; /* Background is handled by Scene radial gradient */
+  background-color: #050711;
   color: var(--text);
   overflow-x: hidden;
   line-height: 1.6;
@@ -737,3 +737,169 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
+
+/* ============ MEDICAL IMAGE BACKGROUNDS (NO THREE.JS) ============ */
+:root {
+  --img-radiology-review: url('https://images.pexels.com/photos/8770713/pexels-photo-8770713.jpeg?auto=compress&cs=tinysrgb&w=2200');
+  --img-mri-center: url('https://images.pexels.com/photos/7089293/pexels-photo-7089293.jpeg?auto=compress&cs=tinysrgb&w=2200');
+  --img-xray-doctor: url('https://images.pexels.com/photos/32351199/pexels-photo-32351199.jpeg?auto=compress&cs=tinysrgb&w=1800');
+  --img-xray-team: url('https://images.pexels.com/photos/7446990/pexels-photo-7446990.jpeg?auto=compress&cs=tinysrgb&w=1800');
+  --img-xray-office: url('https://images.pexels.com/photos/4989189/pexels-photo-4989189.jpeg?auto=compress&cs=tinysrgb&w=1800');
+}
+
+.content::before {
+  background:
+    linear-gradient(180deg, rgba(5, 7, 17, 0.94), rgba(5, 7, 17, 0.86)),
+    var(--img-mri-center) center / cover fixed;
+  opacity: 1;
+}
+
+.hero,
+.page-hero,
+.split-section,
+.cta-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero::before,
+.page-hero::before,
+.split-section::before,
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.38;
+  filter: saturate(0.72) contrast(1.08);
+}
+
+.hero::after,
+.page-hero::after,
+.split-section::after,
+.cta-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(5, 7, 17, 0.96) 0%, rgba(5, 7, 17, 0.86) 48%, rgba(5, 7, 17, 0.72) 100%),
+    rgba(5, 7, 17, 0.58);
+}
+
+.med-hero::before {
+  background-image: var(--img-radiology-review);
+}
+
+.product-page-hero::before,
+.product-hero-strip::before {
+  background-image: var(--img-xray-doctor);
+}
+
+.dealer-page-hero::before,
+.split-section::before {
+  background-image: var(--img-mri-center);
+}
+
+.contact-page-hero::before,
+.cta-section::before {
+  background-image: var(--img-xray-team);
+}
+
+.product-hero-strip,
+.medical-hero-panel,
+.dealer-copy-card,
+.contact-visual-card {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.product-hero-strip::before,
+.medical-hero-panel::after,
+.dealer-copy-card::after,
+.contact-visual-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  filter: grayscale(0.15) contrast(1.08);
+}
+
+.product-hero-strip::after,
+.medical-hero-panel .panel-image-overlay,
+.dealer-copy-card::before,
+.contact-visual-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(5, 7, 17, 0.74);
+}
+
+.medical-hero-panel::after {
+  background-image: var(--img-xray-doctor);
+}
+
+.dealer-copy-card::after {
+  background-image: var(--img-mri-center);
+}
+
+.contact-visual-card::after {
+  background-image: var(--img-xray-office);
+}
+
+.radiology-wall {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 0.8rem;
+}
+
+.film-tile,
+.film-brain,
+.film-spine,
+.professional-scan {
+  background-size: cover !important;
+  background-position: center !important;
+  box-shadow: inset 0 0 0 1px rgba(120, 104, 230, 0.18), inset 0 -90px 90px rgba(5, 7, 17, 0.72) !important;
+}
+
+.film-brain {
+  background-image: var(--img-radiology-review) !important;
+}
+
+.film-chest,
+.professional-scan {
+  background-image: var(--img-xray-doctor) !important;
+}
+
+.film-spine {
+  background-image: var(--img-xray-team) !important;
+}
+
+.professional-scan::before,
+.film-tile::before,
+.xray-film::before {
+  border-radius: 18px;
+  inset: 12px;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.medical-hero-panel {
+  z-index: 0;
+}
+
+.product-hero-strip {
+  z-index: 0;
+}
+
+.canvas-container,
+.clinical-canvas {
+  display: none !important;
+}
