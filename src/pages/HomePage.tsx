@@ -2,231 +2,96 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const products = [
-  {
-    name: 'ProxoPACS',
-    status: 'Live',
-    title: 'Cloud PACS for imaging centers',
-    copy: 'Web-based DICOM viewing, study access, reporting workflow, and multi-site imaging support for MRI, CT, X-ray, ultrasound, and more.',
-  },
-  {
-    name: 'ProxoAI',
-    status: 'Live',
-    title: 'Medical AI agent for radiology teams',
-    copy: 'AI support for report analysis, image analysis, clinical summarization, and faster review of imaging workflows.',
-  },
-  {
-    name: 'ProxoLIMS',
-    status: 'Upcoming',
-    title: 'Lab operations layer',
-    copy: 'Planned LIMS tools for sample tracking, lab workflow coordination, diagnostics operations, and connected reporting.',
-  },
-  {
-    name: 'ProxoRIS',
-    status: 'Upcoming',
-    title: 'Radiology department workflow',
-    copy: 'Planned RIS tools for appointments, worklists, resource coordination, radiology operations, and center-level visibility.',
-  },
-  {
-    name: 'TeleReporting',
-    status: 'Coming',
-    title: 'Remote reporting network',
-    copy: 'A remote reporting workflow for diagnostic centers, radiologists, hospitals, and dealer-supported installations.',
-  },
+  { name: 'ProxoPACS', status: 'Live', title: 'Cloud PACS', copy: 'DICOM upload, browser viewer, study list, reporting workflow, secure sharing, and multi-center access.' },
+  { name: 'ProxoAI', status: 'Live', title: 'Medical AI Assistant', copy: 'AI-assisted report review, image analysis support, clinical summaries, and workflow acceleration.' },
+  { name: 'ProxoLIMS', status: 'Upcoming', title: 'Lab Workflow', copy: 'Sample lifecycle, lab orders, reports, barcode-ready workflows, and diagnostics coordination.' },
+  { name: 'ProxoRIS', status: 'Upcoming', title: 'Radiology Operations', copy: 'Appointments, modality worklists, radiologist assignment, utilization views, and department flow.' },
+  { name: 'TeleReporting', status: 'Coming', title: 'Remote Reads', copy: 'Remote reporting, case assignment, radiologist network, urgent routing, and secure report delivery.' },
 ];
 
-const productSnapshot = [
-  ['ProxoPACS', 'Live cloud PACS'],
-  ['ProxoAI', 'Live medical AI'],
-  ['ProxoLIMS', 'Upcoming labs'],
-  ['ProxoRIS', 'Upcoming radiology ops'],
-  ['TeleReporting', 'Coming remote reads'],
+const audiences = [
+  ['Diagnostic Centers', 'Cloud study access, organized patient imaging records, remote radiologist sharing, and lower IT complexity.'],
+  ['Hospitals', 'Centralized imaging visibility, doctor/radiologist collaboration, cloud archive, and future RIS/LIMS expansion.'],
+  ['Radiologists', 'Browser viewer access, report improvement assistance, case summaries, and remote-ready review workflows.'],
+  ['Dealers', 'A complete PACS + AI software story to bundle with imaging equipment and grow recurring revenue.'],
 ];
-
-function ProductBadge({ status }: { status: string }) {
-  const isLive = status === 'Live';
-  return (
-    <div className={`glass-badge ${isLive ? 'live' : 'upcoming'}`}>
-      {isLive && <span className="status-dot animate-pulse"></span>}
-      <span>{status}</span>
-    </div>
-  );
-}
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as any } }
+  hidden: { opacity: 0, y: 34 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' as const } },
 };
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
-};
+function StatusBadge({ status }: { status: string }) {
+  return <span className={`pm-status ${status === 'Live' ? 'live' : ''}`}>{status}</span>;
+}
 
 export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="page-container">
-      <section className="hero-section">
-        <div className="hero-content">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }} 
-            animate={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="hero-badge-glass"
-          >
-            <span className="hero-badge-dot" />
-            Proxomind Labs
+    <div className="pm-page">
+      <section className="pm-hero pm-image-hero">
+        <div className="pm-hero-copy">
+          <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-kicker">
+            Proxomind Labs healthcare cloud platform
           </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="hero-title-main"
-          >
-            Intelligence for <br/> <span className="gradient-text-glow">modern diagnostics</span>.
+          <motion.h1 initial="hidden" animate="visible" variants={fadeInUp}>
+            Cloud PACS + Medical AI for the next generation of diagnostic centers.
           </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="hero-subtitle-main"
-          >
-            Building the next generation of clinical tools. ProxoPACS, ProxoAI, and unified 
-            operations for radiology centers, hospitals, and medical teams.
+          <motion.p initial="hidden" animate="visible" variants={fadeInUp}>
+            Proxomind brings cloud imaging, DICOM workflow, AI-assisted report analysis, image review support, RIS, LIMS, and remote reporting into one connected healthcare software platform.
           </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="hero-actions"
-          >
-            <button onClick={() => navigate('/products')} className="btn-glass-primary">
-              Explore Platform
-              <span className="btn-glow"></span>
-            </button>
-            <button onClick={() => navigate('/contact')} className="btn-glass-secondary">
-              Book Demo
-            </button>
+          <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-actions">
+            <button onClick={() => navigate('/contact')} className="pm-btn primary">Book a Demo</button>
+            <button onClick={() => navigate('/dealers')} className="pm-btn secondary">Become a Dealer</button>
+            <button onClick={() => navigate('/products')} className="pm-btn ghost">Explore Products</button>
           </motion.div>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-          className="hero-dashboard-preview"
-        >
-          <div className="glass-panel main-dashboard-panel">
-            <div className="panel-header">
-              <div className="window-controls">
-                <span/> <span/> <span/>
-              </div>
-              <div className="panel-title">Proxomind Ecosystem</div>
+        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="pm-dashboard-mock">
+          <div className="pm-window-bar"><span/><span/><span/><strong>ProxoPACS Worklist</strong></div>
+          <div className="pm-dashboard-grid">
+            <div className="pm-study-list">
+              {['MR Brain', 'CT Chest', 'XR Spine', 'US Abdomen'].map((item) => <span key={item}>{item}<em>Ready</em></span>)}
             </div>
-            <div className="panel-body product-snapshot-grid">
-              {productSnapshot.map(([name, copy], i) => (
-                <div key={name} className="snapshot-card" style={{ animationDelay: `${i * 0.1}s` }}>
-                  <h4>{name}</h4>
-                  <p>{copy}</p>
-                </div>
-              ))}
+            <div className="pm-scan-preview"><img src="https://images.pexels.com/photos/7446990/pexels-photo-7446990.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Radiology scan review" /></div>
+            <div className="pm-ai-panel">
+              <strong>ProxoAI Summary</strong>
+              <p>Assistive report review, clinical context extraction, and workflow acceleration.</p>
+              <small>Dealer deployment ready</small>
             </div>
           </div>
         </motion.div>
       </section>
 
-      <section className="features-section">
-        <motion.div 
-          className="section-inner"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeInUp} className="section-header-center">
-            <span className="accent-label">Product Family</span>
-            <h2 className="section-title-xl">One unified <span className="gradient-text">clinical stack</span>.</h2>
-            <p className="section-desc">
-              We replace fragmented medical software with a cohesive, AI-native platform designed around the diagnostic workflow.
-            </p>
-          </motion.div>
-
-          <motion.div variants={staggerContainer} className="glass-grid-3">
-            {products.map((product) => (
-              <motion.article variants={fadeInUp} className="glass-card hover-lift" key={product.name}>
-                <div className="card-glow-bg"></div>
-                <ProductBadge status={product.status} />
-                <h3 className="card-title-lg">{product.name}</h3>
-                <h4 className="card-subtitle">{product.title}</h4>
-                <p className="card-copy">{product.copy}</p>
-              </motion.article>
-            ))}
-          </motion.div>
-        </motion.div>
+      <section className="pm-section pm-product-strip">
+        {products.map((product) => (
+          <article key={product.name} className="pm-product-tile">
+            <img src="/proxopacs-mark.svg" alt="" />
+            <StatusBadge status={product.status} />
+            <h3>{product.name}</h3>
+            <strong>{product.title}</strong>
+            <p>{product.copy}</p>
+          </article>
+        ))}
       </section>
 
-      <section className="workflow-section">
-        <motion.div 
-          className="section-inner"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeInUp} className="glass-panel split-panel">
-            <div className="panel-content">
-              <span className="accent-label">For Equipment Partners</span>
-              <h2>A stronger software layer for every modality sale.</h2>
-              <p>
-                Proxomind helps dealers support customers beyond hardware delivery. Pair your MRI, CT, or X-ray installations with our cloud PACS, AI tools, and reporting workflows.
-              </p>
-              <button onClick={() => navigate('/contact')} className="btn-glass-primary mt-6">
-                Partner with us
-              </button>
-            </div>
-            <div className="panel-visual glass-list">
-              {['Cloud PACS deployment', 'AI-assisted reporting', 'Modality integration', 'Operational roadmap'].map((point, i) => (
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.15 }}
-                  viewport={{ once: true }}
-                  className="glass-list-item" 
-                  key={point}
-                >
-                  <div className="check-icon">✓</div>
-                  <span>{point}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      <section className="cta-section-glass">
-        <motion.div 
-          className="glass-panel cta-panel text-center"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2>Ready to upgrade your workflow?</h2>
-          <p>Join imaging centers already using ProxoPACS and ProxoAI.</p>
-          <div className="cta-actions">
-            <button onClick={() => navigate('/products')} className="btn-glass-secondary">View Platform</button>
-            <button onClick={() => navigate('/contact')} className="btn-glass-primary">Get Started</button>
-          </div>
-        </motion.div>
+      <section className="pm-section pm-split pm-image-section">
+        <div>
+          <span className="pm-kicker">Serious healthcare SaaS</span>
+          <h2>One company. Five products. A full diagnostic workflow roadmap.</h2>
+          <p>Proxomind is focused on diagnostic software: ProxoPACS and ProxoAI are live today, with ProxoRIS, ProxoLIMS, and TeleReporting expanding the platform into a complete diagnostic operating system.</p>
+          <button onClick={() => navigate('/products')} className="pm-btn primary">View Full Platform</button>
+        </div>
+        <div className="pm-audience-grid">
+          {audiences.map(([title, copy]) => (
+            <article key={title}>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </article>
+          ))}
+        </div>
       </section>
     </div>
   );
 }
-

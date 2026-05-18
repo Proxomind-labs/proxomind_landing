@@ -1,198 +1,150 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const productRows = [
+const productCards = [
   {
-    name: 'ProxoPACS',
-    status: 'Live',
-    headline: 'Cloud PACS for modern imaging centers',
-    summary: 'A browser-first PACS experience for DICOM viewing, study access, reporting workflow, multi-site access, and deployment support.',
-    bullets: ['Cloud study access', 'DICOM viewer workflow', 'Reporting support', 'Multi-center operations'],
+    name: 'ProxoPACS', status: 'Live', headline: 'Browser-first cloud PACS for diagnostic centers.',
+    description: 'DICOM upload, study access, viewing, reporting workflow, multi-site operations, secure sharing, and cloud storage.',
+    features: ['DICOM upload workflow', 'Browser DICOM viewer', 'Study list and patient access', 'Cloud storage integration', 'Multi-center support', 'Radiologist access', 'Report workflow support', 'Dealer-assisted deployment', 'Secure sharing', 'Role-based access', 'Study search and filtering', 'Upload monitoring'],
   },
   {
-    name: 'ProxoAI',
-    status: 'Live',
-    headline: 'Medical AI agent for report and image analysis',
-    summary: 'An AI layer for report review, image analysis assistance, clinical context extraction, and faster diagnostic workflow support.',
-    bullets: ['Report analysis', 'Image analysis support', 'Clinical summaries', 'Workflow assistance'],
+    name: 'ProxoAI', status: 'Live', headline: 'Medical AI assistant layer for review and workflow acceleration.',
+    description: 'AI-assisted report review, image analysis support, clinical summaries, findings extraction, and decision-support workflows.',
+    features: ['Report analysis', 'Image analysis assistance', 'Clinical context extraction', 'Impression drafting support', 'Finding summarization', 'Report quality review', 'Prior report comparison support', 'AI-generated clinical summary', 'Doctor-assist workflow', 'Radiologist productivity support', 'Decision-support layer'],
   },
   {
-    name: 'ProxoLIMS',
-    status: 'Upcoming',
-    headline: 'Laboratory information workflow',
-    summary: 'Upcoming tools for labs that need sample tracking, diagnostics coordination, report flow, and connected center operations.',
-    bullets: ['Sample lifecycle', 'Lab coordination', 'Diagnostics workflow', 'Connected reporting'],
+    name: 'ProxoLIMS', status: 'Upcoming', headline: 'Laboratory workflow connected to diagnostic operations.',
+    description: 'Laboratory information workflow for sample tracking, diagnostics coordination, report flow, and connected center operations.',
+    features: ['Sample lifecycle tracking', 'Lab order management', 'Test workflow coordination', 'Report generation support', 'Center-to-lab communication', 'Barcode-ready architecture', 'Patient sample status', 'Diagnostics dashboard'],
   },
   {
-    name: 'ProxoRIS',
-    status: 'Upcoming',
-    headline: 'Radiology information system layer',
-    summary: 'Upcoming RIS tooling for scheduling, modality utilization, department coordination, and imaging center visibility.',
-    bullets: ['Appointments', 'Worklists', 'Resource planning', 'Department flow'],
+    name: 'ProxoRIS', status: 'Upcoming', headline: 'Radiology information system for department coordination.',
+    description: 'Appointments, modality scheduling, worklists, department coordination, and imaging center visibility.',
+    features: ['Appointment scheduling', 'Modality worklists', 'Department dashboard', 'Resource planning', 'Radiologist assignment', 'Patient flow tracking', 'Center utilization view', 'Reporting coordination'],
   },
   {
-    name: 'TeleReporting',
-    status: 'Coming',
-    headline: 'Remote radiology reporting workflow',
-    summary: 'A planned reporting network for diagnostic centers, radiologists, and hospitals that need secure remote read operations.',
-    bullets: ['Remote reads', 'Radiologist network', 'Center coordination', 'Report delivery'],
+    name: 'TeleReporting', status: 'Coming', headline: 'Secure remote radiology reporting workflow.',
+    description: 'Remote reporting workflow for diagnostic centers, hospitals, and radiologists who need secure remote read operations.',
+    features: ['Remote reads', 'Radiologist network', 'Center coordination', 'Case assignment', 'Report delivery', 'Urgent study routing', 'Multi-location reads', 'Secure cloud access'],
   },
 ];
 
-const modalities = ['MRI', 'CT', 'X-Ray', 'Ultrasound', 'Mammography', 'PET/CT'];
+const impact = ['Cloud study access', 'Multi-center workflow', 'AI-assisted reporting', 'Browser-first viewer', 'Dealer deployment support', 'Remote reporting ready', 'Scalable cloud storage', 'DICOM workflow support'];
+const problems = ['Local PACS is hard to maintain', 'Images are difficult to share', 'Radiologists need remote access', 'Reports take time to review', 'Dealers need easy deployment', 'Centers need multi-branch visibility', 'Labs and radiology departments work in silos', 'AI tools are disconnected from daily workflow'];
+const workflow = ['Modality', 'Local Uploader', 'Cloud PACS', 'DICOM Viewer', 'AI Assistance', 'Report Review', 'Doctor / Center', 'Dealer Support'];
+const pacsFeatures = ['DICOM upload from local machine', 'Local uploader / bridge app', 'Cloud study access', 'Browser DICOM viewer', 'X-ray, CT, MRI, US support', 'Study search', 'Patient-wise access', 'Center-wise dashboard', 'Multi-user login', 'Viewer-only access', 'Radiologist access', 'Secure sharing links', 'Report attachment', 'Study status', 'Upload retry handling', 'Cloud storage backend', 'Audit trail ready', 'Backup-ready architecture', 'Dealer onboarding support', 'Future DICOM print support', 'Future modality worklist support'];
+const aiGroups = [
+  ['Report Intelligence', ['Report review', 'Summary generation', 'Impression cleanup', 'Finding extraction', 'Clinical language improvement', 'Follow-up suggestion assistance', 'Report comparison']],
+  ['Image Assistance', ['Image review support', 'X-ray/CT/MRI/US interpretation assistance', 'Visual abnormality explanation support', 'Region-focused observation support', 'Assistive triage notes']],
+  ['Workflow Intelligence', ['Case summary', 'Doctor-friendly explanation', 'Patient-friendly summary', 'Report quality checks', 'Faster review process', 'Context extraction from previous reports']],
+];
+const dealerBenefits = ['Easy demo story', 'Cloud-first deployment', 'Recurring revenue model', 'Dealer-friendly onboarding', 'Multi-center sales opportunity', 'PACS + AI bundle', 'Future RIS/LIMS upsell', 'Training and deployment support', 'Sales material support', 'White-label-ready roadmap', 'Local uploader support', 'Fast center activation', 'Support documentation', 'Demo environment', 'Dealer margin model', 'Regional partner opportunity'];
+const centerBenefits = ['Access studies from anywhere', 'Reduce dependency on one local machine', 'Share studies with radiologists', 'Keep organized patient imaging records', 'Improve reporting coordination', 'Use AI-assisted report review', 'Manage multiple branches', 'Get dealer-supported setup', 'Lower infrastructure complexity', 'Prepare for future RIS/LIMS integration'];
+const hospitalBenefits = ['Centralized imaging access', 'Department-level workflow', 'Multi-user access', 'Doctor/radiologist collaboration', 'Cloud study archive', 'AI-assisted review support', 'Future RIS integration', 'Future LIMS integration', 'Secure access model', 'Scalable deployment'];
+const radiologistBenefits = ['Browser viewer access', 'Remote study review', 'AI summary support', 'Report improvement assistance', 'Faster context understanding', 'Prior report comparison support', 'Structured workflow', 'TeleReporting-ready future', 'Less dependency on physical center systems'];
+const security = ['Secure login', 'Role-based access roadmap', 'Encrypted cloud communication', 'Controlled study access', 'Audit-ready architecture', 'Center-wise separation', 'Dealer-controlled onboarding', 'Backup-ready cloud storage', 'Private study access', 'No public DICOM exposure', 'Data retention policy support', 'Admin-level access control'];
+const useCases = ['Small X-ray center', 'Multi-branch diagnostic chain', 'Hospital radiology department', 'Independent radiologist', 'Dealer/reseller network', 'Remote reporting group', 'Lab + imaging center', 'Franchise diagnostic network'];
+const roadmap = ['ProxoPACS Live', 'ProxoAI Live', 'ProxoRIS Upcoming', 'ProxoLIMS Upcoming', 'TeleReporting Coming', 'Dealer dashboard', 'White-label partner panel', 'Full diagnostic cloud OS'];
+const pricing = ['Starter Center Plan', 'Growth Center Plan', 'Multi-Center Plan', 'Dealer Partner Plan', 'Enterprise / Hospital Plan'];
+const faqs = ['What is ProxoPACS?', 'Can I upload DICOM images from my X-ray machine?', 'Does it work in browser?', 'Can radiologists view remotely?', 'Is ProxoAI a replacement for doctors?', 'Can dealers sell this?', 'Can it support multiple centers?', 'Is RIS available?', 'Is LIMS available?', 'Can it be deployed for hospitals?', 'Can it integrate with existing workflow?', 'Is data stored in cloud?', 'Can we get custom branding?', 'Can Proxomind support onboarding?'];
 
-function ProductBadge({ status }: { status: string }) {
-  const isLive = status === 'Live';
-  return (
-    <div className={`glass-badge ${isLive ? 'live' : 'upcoming'}`}>
-      {isLive && <span className="status-dot animate-pulse"></span>}
-      <span>{status}</span>
-    </div>
-  );
+function StatusBadge({ status }: { status: string }) {
+  return <span className={`pm-status ${status === 'Live' ? 'live' : ''}`}>{status}</span>;
 }
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as any } }
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-};
+function FeatureList({ items }: { items: string[] }) {
+  return <div className="pm-chip-grid">{items.map((item) => <span key={item}>{item}</span>)}</div>;
+}
 
 export default function ProductsPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="page-container">
-      <section className="hero-section" style={{ minHeight: '60vh', paddingTop: '10rem', paddingBottom: '4rem' }}>
-        <div className="hero-content">
-          <motion.span 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            className="accent-label"
-          >
-            Products
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="hero-title-main"
-          >
-            The <span className="gradient-text">Proxomind Labs</span> <br/> software family.
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-subtitle-main"
-          >
-            ProxoPACS and ProxoAI are available now. ProxoLIMS, ProxoRIS, and TeleReporting expand the platform into a full diagnostic operations stack.
-          </motion.p>
+    <div className="pm-page pm-product-page">
+      <section className="pm-hero pm-product-hero">
+        <div className="pm-hero-copy wide">
+          <span className="pm-kicker">Proxomind Labs healthcare product ecosystem</span>
+          <h1>Cloud PACS + Medical AI for the Next Generation of Diagnostic Centers</h1>
+          <p>Proxomind brings cloud imaging, DICOM workflow, AI-assisted report analysis, image review support, RIS, LIMS, and remote reporting into one connected healthcare platform.</p>
+          <div className="pm-actions">
+            <button onClick={() => navigate('/contact')} className="pm-btn primary">Book a Demo</button>
+            <button onClick={() => navigate('/dealers')} className="pm-btn secondary">Become a Dealer</button>
+            <button className="pm-btn ghost">Explore ProxoPACS</button>
+            <button className="pm-btn ghost">View ProxoAI</button>
+          </div>
+          <div className="pm-badge-row">
+            {['Live: ProxoPACS', 'Live: ProxoAI', 'Upcoming: RIS + LIMS', 'Coming: TeleReporting', 'Dealer Friendly', 'Cloud Ready', 'Multi-Center Ready'].map((badge) => <span key={badge}>{badge}</span>)}
+          </div>
+        </div>
+        <div className="pm-dashboard-mock product-dashboard">
+          <div className="pm-window-bar"><span/><span/><span/><strong>DICOM Cloud Console</strong></div>
+          <div className="pm-dashboard-grid">
+            <div className="pm-study-list">{['Study upload 92%', 'Multi-center access', 'Dealer deployment', 'Report pending'].map((x) => <span key={x}>{x}<em>Live</em></span>)}</div>
+            <div className="pm-scan-preview"><img src="https://images.pexels.com/photos/8770713/pexels-photo-8770713.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Radiologists reviewing X-ray image" /></div>
+            <div className="pm-ai-panel"><strong>AI Report Summary</strong><p>Assistive report review, clinical context extraction, and image analysis support.</p><small>Decision-support layer</small></div>
+          </div>
         </div>
       </section>
 
-      <section className="features-section" style={{ paddingTop: '2rem' }}>
-        <motion.div 
-          className="section-inner"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeInUp} className="glass-panel split-panel" style={{ marginBottom: '4rem' }}>
-            <div className="panel-content">
-              <ProductBadge status="Live" />
-              <h2 className="section-title">ProxoPACS + ProxoAI</h2>
-              <p className="section-desc" style={{ marginBottom: 0 }}>Cloud imaging workflow with report analysis, image analysis, and dealer-friendly deployment support.</p>
-            </div>
-            <div className="panel-visual" style={{ background: 'rgba(99, 102, 241, 0.05)' }}>
-              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-                {[1, 2, 3].map((i) => (
-                  <motion.div 
-                    key={i}
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, delay: i * 0.5, ease: "easeInOut" }}
-                    style={{ width: '80px', height: '100px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }}
-                  />
-                ))}
-              </div>
-            </div>
-          </motion.div>
+      <section className="pm-impact-strip">{impact.map((item, index) => <div key={item}><strong>{String(index + 1).padStart(2, '0')}</strong><span>{item}</span></div>)}</section>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            {productRows.map((product) => (
-              <motion.article 
-                variants={fadeInUp} 
-                className="glass-card hover-lift" 
-                key={product.name}
-                style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', padding: '3rem' }}
-              >
-                <div>
-                  <div className="card-glow-bg"></div>
-                  <ProductBadge status={product.status} />
-                  <h2 className="card-title-lg" style={{ fontSize: '2.5rem', marginTop: '1rem' }}>{product.name}</h2>
-                  <h3 className="card-subtitle" style={{ fontSize: '1.25rem' }}>{product.headline}</h3>
-                  <p className="card-copy" style={{ fontSize: '1.1rem' }}>{product.summary}</p>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <div className="glass-list">
-                    {product.bullets.map((bullet) => (
-                      <div className="glass-list-item" key={bullet} style={{ padding: '0.75rem 1.25rem' }}>
-                        <div className="check-icon" style={{ width: '20px', height: '20px' }}>✓</div>
-                        <span style={{ fontSize: '0.95rem' }}>{bullet}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </motion.div>
+      <section className="pm-section">
+        <div className="pm-section-head"><span className="pm-kicker">The Problem</span><h2>Diagnostic centers are growing, but imaging workflow is still fragmented.</h2></div>
+        <div className="pm-grid four">{problems.map((item) => <article className="pm-card compact" key={item}>{item}</article>)}</div>
       </section>
 
-      <section className="workflow-section">
-        <motion.div 
-          className="section-inner"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeInUp} className="glass-panel text-center" style={{ padding: '5rem 2rem' }}>
-            <span className="accent-label">Modality Support</span>
-            <h2 className="section-title">Built around imaging software, <br/> not hardware sales.</h2>
-            <p className="section-desc">
-              Proxomind supports diagnostic workflows around existing modalities. We help centers and equipment partners connect imaging, reporting, AI assistance, and operational tools.
-            </p>
-            
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '3rem' }}>
-              {modalities.map((modality, i) => (
-                <motion.div 
-                  key={modality}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '0.75rem 1.5rem', borderRadius: '100px', fontWeight: 500 }}
-                >
-                  {modality}
-                </motion.div>
-              ))}
-            </div>
-
-            <button onClick={() => navigate('/contact')} className="btn-glass-primary" style={{ marginTop: '4rem' }}>
-              Request Product Call
-            </button>
-          </motion.div>
-        </motion.div>
+      <section className="pm-section pm-solution-section">
+        <div className="pm-section-head"><span className="pm-kicker">The Solution</span><h2>One connected platform for imaging, reporting, AI, labs, and remote reads.</h2><p>Proxomind connects imaging centers, hospitals, radiologists, and dealers through a cloud-first diagnostic workflow.</p></div>
+        <div className="pm-workflow">{workflow.map((step) => <div key={step}>{step}</div>)}</div>
       </section>
+
+      <section className="pm-section">
+        <div className="pm-section-head"><span className="pm-kicker">Product Ecosystem</span><h2>One platform. Five products. Endless diagnostic workflow possibilities.</h2></div>
+        <div className="pm-product-ecosystem">
+          {productCards.map((product) => (
+            <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="pm-card pm-ecosystem-card" key={product.name}>
+              <img src="/proxopacs-mark.svg" alt="" />
+              <StatusBadge status={product.status} />
+              <h3>{product.name}</h3>
+              <strong>{product.headline}</strong>
+              <p>{product.description}</p>
+              <FeatureList items={product.features} />
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="pm-section pm-deep-section pacs">
+        <div className="pm-section-head"><span className="pm-kicker">Deep Dive</span><h2>ProxoPACS: Everything an imaging center needs to move from local to cloud.</h2></div>
+        <div className="pm-deep-grid"><FeatureList items={pacsFeatures} /><div className="pm-ui-mock"><div className="pm-study-list">{['PAT-2041 MR Brain', 'PAT-8820 CT Chest', 'PAT-1182 XR Knee'].map((x) => <span key={x}>{x}<em>Open</em></span>)}</div><div className="pm-scan-preview"><img src="https://images.pexels.com/photos/32351199/pexels-photo-32351199.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Doctor analyzing X-ray image" /></div><div className="pm-ai-panel"><strong>Patient + Report</strong><p>Study details, attachment, status, and AI-assisted summary panel.</p></div></div></div>
+      </section>
+
+      <section className="pm-section pm-ai-deep">
+        <div className="pm-section-head"><span className="pm-kicker">ProxoAI</span><h2>Medical AI assistance inside the diagnostic workflow.</h2><p>ProxoAI is designed as a radiologist productivity and decision-support layer, not a replacement for professional judgment.</p></div>
+        <div className="pm-grid cols-3">{aiGroups.map(([title, items]) => <article className="pm-card" key={title as string}><h3>{title}</h3><FeatureList items={items as string[]} /></article>)}</div>
+        <p className="pm-disclaimer">ProxoAI is an assistive workflow tool. Final diagnosis and clinical decision-making must always be performed by qualified medical professionals.</p>
+      </section>
+
+      <section className="pm-section pm-dealer-section">
+        <div className="pm-section-head"><span className="pm-kicker">Dealers / Resellers</span><h2>Built for dealers who want to sell modern healthcare software.</h2><p>Proxomind gives dealers a complete cloud imaging + AI solution they can take to diagnostic centers without building software from scratch.</p></div>
+        <FeatureList items={dealerBenefits} />
+        <div className="pm-dealer-reasons"><h3>Why dealers can sell this easily</h3><FeatureList items={['Every imaging center needs better image access', 'Radiologists want remote viewing', 'Centers want cloud backup', 'AI gives a strong demo impact', 'PACS + AI + RIS + LIMS creates long-term account value', 'Monthly subscription creates recurring revenue']} /></div>
+        <button onClick={() => navigate('/contact')} className="pm-btn primary">Become a Proxomind Dealer</button>
+      </section>
+
+      <section className="pm-section pm-audience-section"><div className="pm-grid cols-3"><article className="pm-card"><h3>For Diagnostic Centers</h3><FeatureList items={centerBenefits} /></article><article className="pm-card"><h3>For Hospitals</h3><FeatureList items={hospitalBenefits} /></article><article className="pm-card"><h3>For Radiologists</h3><FeatureList items={radiologistBenefits} /></article></div></section>
+
+      <section className="pm-section pm-architecture"><div className="pm-section-head"><span className="pm-kicker">Deployment</span><h2>Simple deployment. Powerful backend.</h2></div><div className="pm-workflow architecture">{['X-ray / CT / MRI', 'Local Proxo uploader', 'Secure cloud upload', 'Cloud storage', 'ProxoPACS viewer', 'ProxoAI analysis layer', 'Doctor / Center admin', 'Dealer support'].map((step) => <div key={step}>{step}</div>)}</div><FeatureList items={['Single center deployment', 'Multi-center deployment', 'Dealer-managed deployment', 'Hospital deployment', 'Cloud-only setup', 'Hybrid local uploader + cloud viewer setup']} /></section>
+
+      <section className="pm-section"><div className="pm-section-head"><span className="pm-kicker">Security</span><h2>Designed with healthcare data responsibility in mind.</h2><p>Compliance features can be configured based on customer requirements and regional healthcare regulations.</p></div><FeatureList items={security} /></section>
+
+      <section className="pm-section"><div className="pm-section-head"><span className="pm-kicker">Comparison</span><h2>Why choose Proxomind over old local PACS?</h2></div><div className="pm-comparison"><div><h3>Old Local PACS</h3><FeatureList items={['Limited to local machine', 'Hard to access remotely', 'Manual sharing', 'Dealer support difficult', 'No AI layer', 'No future RIS/LIMS integration', 'Difficult multi-center visibility']} /></div><div><h3>Proxomind</h3><FeatureList items={['Cloud-first access', 'Browser viewer', 'Multi-center ready', 'AI-assisted workflow', 'Dealer-friendly deployment', 'Future RIS/LIMS ecosystem', 'Remote reporting roadmap', 'Scalable subscription model']} /></div></div></section>
+
+      <section className="pm-section"><div className="pm-section-head"><span className="pm-kicker">Use Cases</span><h2>Built for real diagnostic business models.</h2></div><div className="pm-grid four">{useCases.map((x) => <article className="pm-card compact" key={x}>{x}</article>)}</div></section>
+      <section className="pm-section"><div className="pm-section-head"><span className="pm-kicker">Roadmap</span><h2>From PACS to full diagnostic operating system.</h2></div><div className="pm-roadmap">{roadmap.map((x, i) => <div key={x}><span>{String(i + 1).padStart(2, '0')}</span><strong>{x}</strong></div>)}</div></section>
+      <section className="pm-section"><div className="pm-section-head"><span className="pm-kicker">Pricing Preview</span><h2>Choose a plan path. Contact for demo pricing.</h2></div><div className="pm-grid five">{pricing.map((x) => <article className="pm-card compact" key={x}><h3>{x}</h3><p>Contact for demo pricing</p></article>)}</div></section>
+      <section className="pm-section"><div className="pm-section-head"><span className="pm-kicker">FAQ</span><h2>Common questions</h2></div><div className="pm-faq">{faqs.map((q) => <details key={q}><summary>{q}</summary><p>Talk to Proxomind Labs for deployment details, module availability, onboarding, and integration requirements.</p></details>)}</div></section>
+      <section className="pm-final-cta"><h2>Bring your diagnostic center into the cloud era.</h2><p>Cloud PACS is only the beginning. From DICOM upload to AI-assisted reporting, Proxomind connects the full diagnostic workflow.</p><div className="pm-actions"><button onClick={() => navigate('/contact')} className="pm-btn primary">Book Live Demo</button><button onClick={() => navigate('/dealers')} className="pm-btn secondary">Become a Dealer</button><button onClick={() => navigate('/contact')} className="pm-btn ghost">Talk to Proxomind</button></div></section>
     </div>
   );
 }
-

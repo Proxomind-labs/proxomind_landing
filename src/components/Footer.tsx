@@ -21,13 +21,15 @@ export default function Footer() {
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>ProxoAI</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>ProxoLIMS</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>ProxoRIS</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>TeleReporting</a></li>
             </ul>
           </div>
           <div className="footer-col">
-            <h4>Company</h4>
+            <h4>Audience</h4>
             <ul>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>Products</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>Diagnostic Centers</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>Hospitals</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>Radiologists</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/dealers'); }}>Dealers</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/contact'); }}>Contact</a></li>
             </ul>
@@ -36,7 +38,7 @@ export default function Footer() {
             <h4>Contact</h4>
             <ul>
               <li><a href="mailto:contact@proxomind.com">contact@proxomind.com</a></li>
-              <li><a href="#">India</a></li>
+              <li><a href="https://proxomind.com">proxomind.com</a></li>
             </ul>
           </div>
         </div>
