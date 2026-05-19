@@ -13,8 +13,6 @@ const dealerBenefits = [
   'Training and support documentation',
   'Demo environment for prospects',
   'Regional partner opportunity',
-  'Local uploader support',
-  'Long-term diagnostic account value',
 ];
 
 const salesFlow = [
@@ -33,6 +31,11 @@ const dealerProducts = [
   ['TeleReporting', 'Coming remote reads, case assignment, urgent routing, and report delivery.'],
 ];
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' as const } },
+};
+
 function ChipList({ items }: { items: string[] }) {
   return <div className="pm-chip-grid">{items.map((item) => <span key={item}>{item}</span>)}</div>;
 }
@@ -44,23 +47,27 @@ export default function DealersPage() {
     <div className="pm-page">
       <section className="pm-hero pm-dealer-hero">
         <div className="pm-hero-copy">
-          <span className="pm-kicker">Dealer / reseller program</span>
-          <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.span initial="hidden" animate="visible" variants={fadeInUp} className="pm-kicker">
+            Dealer / reseller program
+          </motion.span>
+          <motion.h1 initial="hidden" animate="visible" variants={fadeInUp}>
             Sell a serious diagnostic software platform around every imaging center conversation.
           </motion.h1>
-          <p>
-            Proxomind gives dealers a clean cloud PACS + medical AI story today, with RIS, LIMS, and TeleReporting roadmap modules that increase long-term customer value.
-          </p>
-          <div className="pm-actions">
+          <motion.p initial="hidden" animate="visible" variants={fadeInUp}>
+            Proxomind gives dealers a clean cloud PACS + medical AI story today, with RIS, LIMS, and TeleReporting modules that grow long-term customer value.
+          </motion.p>
+          <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-actions">
             <button onClick={() => navigate('/contact')} className="pm-btn primary">Become a Dealer</button>
             <button onClick={() => navigate('/products')} className="pm-btn secondary">View Platform</button>
-          </div>
-          <div className="pm-badge-row">
-            {['Dealer friendly', 'Cloud ready', 'PACS + AI live', 'Recurring revenue', 'Future RIS/LIMS upsell'].map((badge) => <span key={badge}>{badge}</span>)}
-          </div>
+          </motion.div>
         </div>
-        <div className="pm-dashboard-mock dealer-board">
-          <div className="pm-window-bar"><span/><span/><span/><strong>Dealer Growth Console</strong></div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="pm-dashboard-mock dealer-board"
+        >
+          <div className="pm-window-bar"><span /><span /><span /><strong>Dealer Growth Console</strong></div>
           <div className="pm-dealer-metrics">
             {['Demo centers', 'Live deployments', 'AI-assisted workflow', 'Expansion roadmap'].map((metric, index) => (
               <article key={metric}>
@@ -69,21 +76,27 @@ export default function DealersPage() {
               </article>
             ))}
           </div>
-          <img src="/images/pacs-workstation.avif" alt="Dealer-ready ProxoPACS DICOM workstation visual" />
-        </div>
+          <img src="/images/pacs-workstation.avif" alt="Dealer-ready ProxoPACS DICOM workstation" />
+        </motion.div>
       </section>
 
       <section className="pm-section">
         <div className="pm-section-head">
           <span className="pm-kicker">Dealer product stack</span>
-          <h2>One company, multiple products your customers can grow into.</h2>
+          <h2>One company. Multiple products your customers can grow into.</h2>
         </div>
         <div className="pm-product-ecosystem">
           {dealerProducts.map(([name, copy]) => (
-            <article className="pm-card pm-ecosystem-card" key={name}>
+            <motion.article
+              key={name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="pm-card pm-ecosystem-card"
+            >
               <h3><ProductName name={name} /></h3>
               <p>{copy}</p>
-            </article>
+            </motion.article>
           ))}
         </div>
       </section>
@@ -93,7 +106,7 @@ export default function DealersPage() {
           <span className="pm-kicker">Why dealers can sell this</span>
           <h2>Every imaging center needs better access, backup, sharing, and remote reads.</h2>
           <p>
-            ProxoPACS makes the operational pain obvious in a demo. ProxoAI adds a strong assistive workflow layer. The upcoming RIS/LIMS/TeleReporting modules make the account expandable after the first deployment.
+            ProxoPACS makes the operational pain obvious in a demo. ProxoAI adds a strong AI workflow layer. The upcoming RIS, LIMS, and TeleReporting modules make the account expandable after the first deployment.
           </p>
           <button onClick={() => navigate('/contact')} className="pm-btn primary">Start Dealer Conversation</button>
         </div>
@@ -110,6 +123,15 @@ export default function DealersPage() {
         </div>
         <div className="pm-workflow dealer-flow">
           {salesFlow.map((step) => <div key={step}>{step}</div>)}
+        </div>
+      </section>
+
+      <section className="pm-final-cta">
+        <h2>Ready to sell the next generation of diagnostic software?</h2>
+        <p>Proxomind provides demo environment, training, and ongoing support for dealer partners.</p>
+        <div className="pm-actions">
+          <button onClick={() => navigate('/contact')} className="pm-btn primary">Start Dealer Conversation</button>
+          <button onClick={() => navigate('/products')} className="pm-btn ghost">View Full Platform</button>
         </div>
       </section>
     </div>

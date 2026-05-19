@@ -28,10 +28,10 @@ export default function HomePage() {
       <section className="pm-hero pm-image-hero">
         <div className="pm-hero-copy">
           <motion.h1 initial="hidden" animate="visible" variants={fadeInUp}>
-            Cloud PACS and medical AI for serious diagnostic networks.
+            Cloud PACS and medical AI for modern diagnostic networks.
           </motion.h1>
           <motion.p initial="hidden" animate="visible" variants={fadeInUp}>
-            ProxoPACS and ProxoAI are live today, with ProxoRIS, ProxoLIMS, and TeleReporting expanding into one dealer-ready healthcare software stack.
+            ProxoPACS and ProxoAI are live today, with ProxoRIS, ProxoLIMS, and TeleReporting completing one dealer-ready healthcare platform.
           </motion.p>
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-actions">
             <button onClick={() => navigate('/contact')} className="pm-btn primary">Book a Demo</button>
@@ -61,7 +61,7 @@ export default function HomePage() {
         <div className="pm-ai-command-copy">
           <span className="pm-kicker">ProxoAI command layer</span>
           <h2>AI assistance that sits beside PACS, reports, and radiologist review.</h2>
-          <p>ProxoAI helps teams move from raw imaging context to cleaner report review, faster summaries, and better handoff between diagnostic centers, doctors, and radiologists.</p>
+          <p>ProxoAI moves teams from raw imaging context to cleaner report review, faster summaries, and smoother coordination between centers, doctors, and radiologists.</p>
           <div className="pm-ai-command-grid">
             {[
               ['Report Intelligence', 'Summaries, impression cleanup, finding extraction, and report quality review.'],
