@@ -2,7 +2,7 @@ import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 const inquiryTopics = [
-  'Dealer Inquiry',
+  'Partner Enquiry',
   'ProxoPACS Demo',
   'ProxoAI Workflow',
   'Hospital / Diagnostic Center Deployment',
@@ -11,7 +11,7 @@ const inquiryTopics = [
 ];
 
 const defaultItems = [
-  'Dealer / Reseller programs',
+  'Channel partner / reseller programs',
   'ProxoPACS demo and trial',
   'ProxoAI workflow integration',
   'Hospital and multi-center deployment',
@@ -36,7 +36,7 @@ export default function InquiryPanel({
   const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
   const [formData, setFormData] = useState({
-    name: '', email: '', organization: '', subject: 'Dealer Inquiry', message: '',
+    name: '', email: '', organization: '', subject: 'Partner Enquiry', message: '',
   });
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [loading, setLoading] = useState(false);
@@ -55,7 +55,7 @@ export default function InquiryPanel({
       }, PUBLIC_KEY);
       if (result.status === 200) {
         setStatus('success');
-        setFormData({ name: '', email: '', organization: '', subject: 'Dealer Inquiry', message: '' });
+        setFormData({ name: '', email: '', organization: '', subject: 'Partner Enquiry', message: '' });
       } else {
         throw new Error('Failed');
       }
@@ -94,7 +94,7 @@ export default function InquiryPanel({
               value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
           </div>
           <div className="pm-form-row">
-            <input className="pm-input" type="text" placeholder="Organization / Dealer Name"
+            <input className="pm-input" type="text" placeholder="Organization / Partner Name"
               value={formData.organization} onChange={(e) => setFormData({ ...formData, organization: e.target.value })} />
             <select className="pm-select" value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })} required>

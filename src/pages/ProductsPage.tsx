@@ -56,7 +56,7 @@ export default function ProductsPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="pm-page">
+    <div className="pm-page pm-product-page">
       <section className="pm-section pm-products-top">
         <div className="pm-section-head">
           <span className="pm-kicker">Product Ecosystem</span>
@@ -103,7 +103,7 @@ export default function ProductsPage() {
         <div className="pm-section-head">
           <span className="pm-kicker">ProxoAI</span>
           <h2>Medical AI assistance inside the diagnostic workflow.</h2>
-          <p>Designed as a radiologist productivity and decision-support layer — not a replacement for professional judgment.</p>
+          <p>Designed as a radiologist productivity and decision-support layer, not a replacement for professional judgment.</p>
         </div>
         <div className="pm-ai-layout">
           <div className="pm-image-card proxoai-console-card">
@@ -119,7 +119,7 @@ export default function ProductsPage() {
           </div>
         </div>
         <p className="pm-disclaimer">
-          ProxoAI is an assistive workflow tool. Final diagnosis and clinical decisions must always be made by qualified medical professionals.
+          ProxoAI supports review and workflow acceleration. Final diagnosis and clinical decisions remain with qualified medical professionals.
         </p>
       </section>
 
@@ -127,9 +127,9 @@ export default function ProductsPage() {
         <h2>Turn local imaging into cloud-connected diagnostic networks.</h2>
         <p>From DICOM upload to AI-assisted reporting, Proxomind connects the full diagnostic workflow.</p>
         <div className="pm-actions">
-          <button onClick={() => navigate('/contact')} className="pm-btn primary">Book Live Demo</button>
+          <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn primary">Book Live Demo</button>
           <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open ProxoPACS</a>
-          <button onClick={() => navigate('/dealers')} className="pm-btn ghost">Become a Dealer</button>
+          <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn ghost">Partner With Us</button>
         </div>
       </section>
     </div>

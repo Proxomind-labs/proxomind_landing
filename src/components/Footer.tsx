@@ -14,7 +14,7 @@ export default function Footer() {
             <a href="/" className="logo" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
               <Logo />
             </a>
-            <p>Proxomind Labs builds medical imaging software for hospitals, diagnostic centers, radiology teams, and equipment dealers.</p>
+            <p>Proxomind Labs builds medical imaging software for hospitals, diagnostic centers, radiology teams, and equipment partners.</p>
           </div>
           <div className="footer-col">
             <h4>Products</h4>
@@ -44,13 +44,14 @@ export default function Footer() {
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>Diagnostic Centers</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>Hospitals</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>Radiologists</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/dealers'); }}>Dealers</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/contact'); }}>Contact</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/partners'); }}>Partners</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/partners#partner-inquiry'); }}>Enquiry</a></li>
             </ul>
           </div>
           <div className="footer-col">
-            <h4>Contact</h4>
+            <h4>Talk To Us</h4>
             <ul>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/partners#partner-inquiry'); }}>Partner Enquiry</a></li>
               <li><a href="mailto:contact@proxomind.com">contact@proxomind.com</a></li>
               <li><a href="https://proxomind.com">proxomind.com</a></li>
             </ul>

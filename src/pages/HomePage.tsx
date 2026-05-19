@@ -31,11 +31,11 @@ export default function HomePage() {
             Cloud PACS and medical AI for modern diagnostic networks.
           </motion.h1>
           <motion.p initial="hidden" animate="visible" variants={fadeInUp}>
-            ProxoPACS and ProxoAI are live today, with ProxoRIS, ProxoLIMS, and TeleReporting completing one dealer-ready healthcare platform.
+            ProxoPACS and ProxoAI are live today, with ProxoRIS, ProxoLIMS, and TeleReporting completing one partner-ready healthcare platform.
           </motion.p>
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-actions">
-            <button onClick={() => navigate('/contact')} className="pm-btn primary">Book a Demo</button>
-            <button onClick={() => navigate('/dealers')} className="pm-btn secondary">Become a Dealer</button>
+            <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn primary">Book a Demo</button>
+            <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn secondary">Partner With Us</button>
             <button onClick={() => navigate('/products')} className="pm-btn ghost">Explore Products</button>
           </motion.div>
         </div>

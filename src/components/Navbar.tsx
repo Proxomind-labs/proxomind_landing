@@ -24,10 +24,10 @@ export default function Navbar() {
 
   const isActive = (path: string) => location.pathname === path;
   const nextTheme = theme === 'light' ? 'dark' : 'light';
-  const goToDealerInquiry = () => {
-    navigate('/dealers#dealer-inquiry');
+  const goToPartnerInquiry = () => {
+    navigate('/partners#partner-inquiry');
     window.setTimeout(() => {
-      document.getElementById('dealer-inquiry')?.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('partner-inquiry')?.scrollIntoView({ behavior: 'smooth' });
     }, 80);
   };
 
@@ -48,14 +48,10 @@ export default function Navbar() {
             className={`nav-link${isActive('/products') ? ' nav-link-active' : ''}`}
           >Products</button>
           <button
-            onClick={() => navigate('/dealers')}
-            className={`nav-link${isActive('/dealers') ? ' nav-link-active' : ''}`}
-          >Dealers</button>
-          <button
-            onClick={() => navigate('/contact')}
-            className={`nav-link${isActive('/contact') ? ' nav-link-active' : ''}`}
-          >Contact</button>
-          <button className="cta-btn" onClick={goToDealerInquiry}>Dealer Inquiry</button>
+            onClick={() => navigate('/partners')}
+            className={`nav-link${isActive('/partners') ? ' nav-link-active' : ''}`}
+          >Partners</button>
+          <button className="cta-btn" onClick={goToPartnerInquiry}>Partner Enquiry</button>
         </nav>
         <button
           type="button"
