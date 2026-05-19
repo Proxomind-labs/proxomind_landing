@@ -86,27 +86,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="pm-ai-command-visual">
-          <div className="pm-ai-console">
-            <div className="pm-ai-console-head"><span/><span/><span/><strong>ProxoAI Review Layer</strong></div>
-            <div className="pm-ai-console-body">
-              <div className="pm-ai-console-scan">
-                <i/>
-                <b/>
-                <small>CT / XR / MR context</small>
-              </div>
-              <div className="pm-ai-console-report">
-                <strong>Report Review</strong>
-                <p>Findings extracted, impression cleaned, clinical summary prepared.</p>
-                <ul>
-                  <li>Prior report context</li>
-                  <li>Assistive triage note</li>
-                  <li>Doctor-friendly summary</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="pm-ai-floating-card one"><strong>Clinical context</strong><span>Extract key details before review</span></div>
-          <div className="pm-ai-floating-card two"><strong>Assistive only</strong><span>Final judgment stays with clinicians</span></div>
+          <img className="pm-ai-dashboard-image" src="/images/proxoai-report-console.png" alt="ProxoPACS reporting console powered by ProxoAI" />
         </div>
       </section>
     </div>
