@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 import ProductName from './ProductName';
+import { PROXOPACS_URL } from '../constants';
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -20,7 +21,17 @@ export default function Footer() {
             <ul>
               {['ProxoPACS', 'ProxoAI', 'ProxoLIMS', 'ProxoRIS', 'TeleReporting'].map((name) => (
                 <li key={name}>
-                  <a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>
+                  <a
+                    href={name === 'ProxoPACS' ? PROXOPACS_URL : '#'}
+                    target={name === 'ProxoPACS' ? '_blank' : undefined}
+                    rel={name === 'ProxoPACS' ? 'noopener noreferrer' : undefined}
+                    onClick={(e) => {
+                      if (name !== 'ProxoPACS') {
+                        e.preventDefault();
+                        navigate('/products');
+                      }
+                    }}
+                  >
                     <ProductName name={name} className="footer-product-name" />
                   </a>
                 </li>

@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ProductName from '../components/ProductName';
+import { PROXOPACS_URL } from '../constants';
 
 const products = [
-  { name: 'ProxoPACS', status: 'Live', title: 'Cloud PACS', copy: 'DICOM upload, browser viewer, study list, reporting workflow, secure sharing, and multi-center access.' },
+  { name: 'ProxoPACS', status: 'Live', title: 'Cloud PACS', href: PROXOPACS_URL, copy: 'DICOM upload, browser viewer, study list, reporting workflow, secure sharing, and multi-center access.' },
   { name: 'ProxoAI', status: 'Live', title: 'Medical AI Assistant', copy: 'AI-assisted report review, image analysis support, clinical summaries, and workflow acceleration.' },
   { name: 'ProxoLIMS', status: 'Upcoming', title: 'Lab Workflow', copy: 'Sample lifecycle, lab orders, reports, barcode-ready workflows, and diagnostics coordination.' },
   { name: 'ProxoRIS', status: 'Upcoming', title: 'Radiology Operations', copy: 'Appointments, modality worklists, radiologist assignment, utilization views, and department flow.' },
@@ -59,11 +60,12 @@ export default function HomePage() {
 
       <section className="pm-section pm-product-strip">
         {products.map((product) => (
-          <article key={product.name} className="pm-product-tile">
+          <article key={product.name} className={`pm-product-tile${product.href ? ' pm-linked-tile' : ''}`}>
             <StatusBadge status={product.status} />
             <h3><ProductName name={product.name} /></h3>
             <strong>{product.title}</strong>
             <p>{product.copy}</p>
+            {product.href && <a href={product.href} target="_blank" rel="noopener noreferrer" className="pm-card-link">Open ProxoPACS</a>}
           </article>
         ))}
       </section>
@@ -85,15 +87,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="pm-section pm-split pm-ai-showcase">
-        <div className="pm-image-card">
-          <img src="/images/ai-report-panel.svg" alt="ProxoAI assistive report review panel with radiology scan" />
+      <section className="pm-section pm-ai-command">
+        <div className="pm-ai-command-copy">
+          <span className="pm-kicker">ProxoAI command layer</span>
+          <h2>AI assistance that sits beside PACS, reports, and radiologist review.</h2>
+          <p>ProxoAI helps teams move from raw imaging context to cleaner report review, faster summaries, and better handoff between diagnostic centers, doctors, and radiologists.</p>
+          <div className="pm-ai-command-grid">
+            {[
+              ['Report Intelligence', 'Summaries, impression cleanup, finding extraction, and report quality review.'],
+              ['Image Review Support', 'Assistive scan context, region-focused observations, and triage notes.'],
+              ['Workflow Acceleration', 'Patient-friendly summaries, prior report context, and decision-support notes.'],
+            ].map(([title, copy]) => (
+              <article key={title}>
+                <strong>{title}</strong>
+                <span>{copy}</span>
+              </article>
+            ))}
+          </div>
+          <div className="pm-actions">
+            <button onClick={() => navigate('/products')} className="pm-btn primary">Explore ProxoAI</button>
+            <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open ProxoPACS</a>
+          </div>
         </div>
-        <div>
-          <span className="pm-kicker">ProxoAI inside the workflow</span>
-          <h2>Report review, image assistance, and clinical summaries without replacing doctors.</h2>
-          <p>AI assistance sits next to the PACS viewer as a decision-support layer for faster context review, cleaner reports, and better handoff between centers and radiologists.</p>
-          <button onClick={() => navigate('/products')} className="pm-btn secondary">Explore ProxoAI</button>
+        <div className="pm-ai-command-visual">
+          <img src="/images/ai-report-panel.svg" alt="ProxoAI assistive report review panel with radiology scan" />
+          <div className="pm-ai-floating-card one"><strong>Clinical context</strong><span>Extract key details before review</span></div>
+          <div className="pm-ai-floating-card two"><strong>Assistive only</strong><span>Final judgment stays with clinicians</span></div>
         </div>
       </section>
     </div>
