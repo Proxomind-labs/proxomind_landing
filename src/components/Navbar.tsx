@@ -13,7 +13,6 @@ export default function Navbar() {
         <a href="/" className="logo" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
           <Logo />
         </a>
-        <div className="nav-punchline">Bring every diagnostic center into the cloud era.</div>
         <nav className="nav">
           <button
             onClick={() => navigate('/')}
