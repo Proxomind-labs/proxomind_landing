@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 980" role="img" aria-label="DICOM workstation with study list and CT scan viewers">
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#15161b"/>
+      <stop offset="1" stop-color="#030304"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ff5555"/>
+      <stop offset="1" stop-color="#b80000"/>
+    </linearGradient>
+    <radialGradient id="scan" cx="50%" cy="50%" r="52%">
+      <stop stop-color="#f7f7f7"/>
+      <stop offset="0.45" stop-color="#90949b"/>
+      <stop offset="0.68" stop-color="#17191e"/>
+      <stop offset="1" stop-color="#050506"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="35" stdDeviation="30" flood-color="#000" flood-opacity="0.75"/>
+    </filter>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1400" height="980" fill="transparent"/>
+  <g filter="url(#soft)">
+    <rect x="622" y="70" width="540" height="600" rx="18" fill="#050506" stroke="#272a30" stroke-width="5"/>
+    <rect x="646" y="95" width="492" height="550" rx="8" fill="url(#screen)" stroke="#33363c"/>
+    <rect x="660" y="112" width="466" height="42" fill="#24262c"/>
+    <g fill="#d7dae0" opacity="0.72">
+      <rect x="674" y="126" width="18" height="8" rx="2"/><rect x="702" y="126" width="18" height="8" rx="2"/><rect x="730" y="126" width="18" height="8" rx="2"/>
+      <rect x="770" y="121" width="64" height="18" rx="3"/><rect x="846" y="121" width="64" height="18" rx="3"/><rect x="922" y="121" width="64" height="18" rx="3"/>
+    </g>
+    <g transform="translate(670 170)">
+      <rect width="130" height="455" fill="#0d0e12" stroke="#22252b"/>
+      <rect x="14" y="20" width="96" height="72" rx="6" fill="#11141a" stroke="#333842"/>
+      <rect x="26" y="32" width="58" height="40" rx="12" fill="url(#scan)" opacity="0.75"/>
+      <rect x="14" y="116" width="96" height="72" rx="6" fill="#11141a" stroke="#333842"/>
+      <circle cx="62" cy="152" r="27" fill="url(#scan)" opacity="0.85"/>
+      <rect x="14" y="212" width="96" height="72" rx="6" fill="#11141a" stroke="#333842"/>
+      <path d="M32 270 C40 220,86 220,94 270" stroke="#e6e6e6" stroke-width="8" fill="none" opacity="0.7"/>
+      <rect x="18" y="320" width="88" height="8" fill="#68717f" opacity="0.55"/>
+      <rect x="18" y="344" width="70" height="8" fill="#68717f" opacity="0.45"/>
+      <rect x="18" y="368" width="82" height="8" fill="#68717f" opacity="0.35"/>
+    </g>
+    <g transform="translate(818 170)">
+      <rect width="300" height="455" fill="#030304" stroke="#20242b"/>
+      <g opacity="0.8">
+        <ellipse cx="150" cy="142" rx="112" ry="68" fill="url(#scan)"/>
+        <ellipse cx="150" cy="142" rx="48" ry="30" fill="#111317"/>
+        <circle cx="150" cy="142" r="25" fill="#f0f0f0" opacity="0.6"/>
+        <path d="M55 278 C85 220,220 218,250 278 C226 360,75 360,55 278Z" fill="url(#scan)" opacity="0.9"/>
+        <path d="M104 263 C118 238,136 238,149 260 C164 238,184 239,198 263" stroke="#0b0c0f" stroke-width="18" stroke-linecap="round" fill="none"/>
+      </g>
+      <g fill="#b9e8ff" opacity="0.55" font-family="monospace" font-size="12">
+        <text x="18" y="24">AXIAL CT SERIES</text><text x="205" y="24">W:350 L:40</text>
+        <text x="18" y="416">PAT-2041 / CHEST</text><text x="18" y="436">DICOM CLOUD VIEWER</text>
+      </g>
+    </g>
+    <rect x="845" y="670" width="90" height="70" fill="#c9c9c9"/><rect x="790" y="738" width="205" height="22" rx="4" fill="#e8e8e8"/>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="84" y="410" width="820" height="395" rx="18" fill="#050506" stroke="#252832" stroke-width="5"/>
+    <rect x="108" y="438" width="772" height="330" rx="8" fill="url(#screen)" stroke="#30333b"/>
+    <rect x="126" y="458" width="110" height="288" fill="#111218" stroke="#242833"/>
+    <g opacity="0.42" fill="#858b98">
+      <rect x="142" y="486" width="70" height="8"/><rect x="142" y="512" width="52" height="8"/><rect x="142" y="538" width="78" height="8"/><rect x="142" y="590" width="62" height="8"/><rect x="142" y="616" width="78" height="8"/><rect x="142" y="642" width="54" height="8"/><rect x="142" y="694" width="82" height="8"/>
+    </g>
+    <rect x="250" y="458" width="610" height="42" fill="#232630"/>
+    <text x="266" y="485" fill="#ffffff" font-family="Inter, Arial" font-size="19" font-weight="700">Worklist</text>
+    <g transform="translate(260 516)">
+      <rect width="590" height="220" fill="#0c0d12"/>
+      <g fill="#b7f7c5" opacity="0.82"><rect x="0" y="0" width="72" height="18"/><rect x="88" y="0" width="126" height="18"/><rect x="230" y="0" width="80" height="18"/><rect x="326" y="0" width="104" height="18"/><rect x="446" y="0" width="120" height="18"/></g>
+      <g font-family="Inter, Arial" font-size="13" fill="#d7dae0" opacity="0.63">
+        <text x="0" y="48">S</text><text x="88" y="48">Meera Shah</text><text x="230" y="48">MR</text><text x="326" y="48">Brain</text><text x="446" y="48">Ready</text>
+        <text x="0" y="82">S</text><text x="88" y="82">Mark Huberman</text><text x="230" y="82">CT</text><text x="326" y="82">Chest</text><text x="446" y="82">AI Review</text>
+        <text x="0" y="116">S</text><text x="88" y="116">Arjun Rao</text><text x="230" y="116">XR</text><text x="326" y="116">Spine</text><text x="446" y="116">Report</text>
+        <text x="0" y="150">S</text><text x="88" y="150">Priya Nair</text><text x="230" y="150">US</text><text x="326" y="150">Abdomen</text><text x="446" y="150">Uploaded</text>
+        <text x="0" y="184">S</text><text x="88" y="184">R. Kumar</text><text x="230" y="184">CT</text><text x="326" y="184">Angio</text><text x="446" y="184">Remote Read</text>
+      </g>
+      <rect x="75" y="69" width="10" height="10" fill="url(#red)" filter="url(#glow)"/><rect x="75" y="137" width="10" height="10" fill="url(#red)" filter="url(#glow)"/>
+      <g stroke="#272c36" opacity="0.82"><path d="M0 27H590"/><path d="M0 61H590"/><path d="M0 95H590"/><path d="M0 129H590"/><path d="M0 163H590"/><path d="M0 197H590"/></g>
+    </g>
+    <rect x="390" y="805" width="90" height="70" fill="#c9c9c9"/><rect x="330" y="873" width="215" height="22" rx="4" fill="#e8e8e8"/>
+  </g>
+  <g filter="url(#soft)">
+    <rect x="908" y="420" width="300" height="405" rx="16" fill="#050506" stroke="#252832" stroke-width="5"/>
+    <rect x="930" y="444" width="256" height="355" rx="8" fill="#030304" stroke="#30333b"/>
+    <circle cx="1058" cy="558" r="98" fill="url(#scan)" opacity="0.92"/>
+    <ellipse cx="1026" cy="558" rx="44" ry="28" fill="#08090d" opacity="0.9"/>
+    <ellipse cx="1090" cy="558" rx="44" ry="28" fill="#08090d" opacity="0.9"/>
+    <circle cx="1058" cy="558" r="21" fill="#ffffff" opacity="0.72"/>
+    <path d="M962 710 C990 650,1126 648,1154 710 C1128 766,990 766,962 710Z" fill="url(#scan)" opacity="0.88"/>
+    <text x="948" y="476" fill="#b9e8ff" font-family="monospace" font-size="12" opacity="0.62">SERIES: CT CHEST</text>
+    <text x="948" y="782" fill="#b9e8ff" font-family="monospace" font-size="12" opacity="0.62">SECURE CLOUD ACCESS</text>
+  </g>
+</svg>

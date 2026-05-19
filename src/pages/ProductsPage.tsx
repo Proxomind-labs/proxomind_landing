@@ -76,12 +76,13 @@ export default function ProductsPage() {
             {['Live: ProxoPACS', 'Live: ProxoAI', 'Upcoming: RIS + LIMS', 'Coming: TeleReporting', 'Dealer Friendly', 'Cloud Ready', 'Multi-Center Ready'].map((badge) => <span key={badge}>{badge}</span>)}
           </div>
         </div>
-        <div className="pm-dashboard-mock product-dashboard">
-          <div className="pm-window-bar"><span/><span/><span/><strong>DICOM Cloud Console</strong></div>
-          <div className="pm-dashboard-grid">
-            <div className="pm-study-list">{['Study upload 92%', 'Multi-center access', 'Dealer deployment', 'Report pending'].map((x) => <span key={x}>{x}<em>Live</em></span>)}</div>
-            <div className="pm-scan-preview"><img src="https://images.pexels.com/photos/8770713/pexels-photo-8770713.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Radiologists reviewing X-ray image" /></div>
-            <div className="pm-ai-panel"><strong>AI Report Summary</strong><p>Assistive report review, clinical context extraction, and image analysis support.</p><small>Decision-support layer</small></div>
+        <div className="pm-workstation-hero product-dashboard">
+          <img src="/images/dicom-workstation.svg" alt="DICOM viewer workstation with worklist and CT scan panels" />
+          <div className="pm-hero-metrics">
+            <span><strong>92%</strong> upload queue</span>
+            <span><strong>Multi-center</strong> access</span>
+            <span><strong>AI-assisted</strong> report review</span>
+            <span><strong>Dealer</strong> deployment ready</span>
           </div>
         </div>
       </section>
@@ -116,12 +117,12 @@ export default function ProductsPage() {
 
       <section className="pm-section pm-deep-section pacs">
         <div className="pm-section-head"><span className="pm-kicker">Deep Dive</span><h2>ProxoPACS: Everything an imaging center needs to move from local to cloud.</h2></div>
-        <div className="pm-deep-grid"><FeatureList items={pacsFeatures} /><div className="pm-ui-mock"><div className="pm-study-list">{['PAT-2041 MR Brain', 'PAT-8820 CT Chest', 'PAT-1182 XR Knee'].map((x) => <span key={x}>{x}<em>Open</em></span>)}</div><div className="pm-scan-preview"><img src="https://images.pexels.com/photos/32351199/pexels-photo-32351199.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Doctor analyzing X-ray image" /></div><div className="pm-ai-panel"><strong>Patient + Report</strong><p>Study details, attachment, status, and AI-assisted summary panel.</p></div></div></div>
+        <div className="pm-deep-grid"><FeatureList items={pacsFeatures} /><div className="pm-image-card"><img src="/images/dicom-workstation.svg" alt="ProxoPACS workstation with DICOM worklist and scan viewers" /></div></div>
       </section>
 
       <section className="pm-section pm-ai-deep">
         <div className="pm-section-head"><span className="pm-kicker">ProxoAI</span><h2>Medical AI assistance inside the diagnostic workflow.</h2><p>ProxoAI is designed as a radiologist productivity and decision-support layer, not a replacement for professional judgment.</p></div>
-        <div className="pm-grid cols-3">{aiGroups.map(([title, items]) => <article className="pm-card" key={title as string}><h3>{title}</h3><FeatureList items={items as string[]} /></article>)}</div>
+        <div className="pm-ai-layout"><div className="pm-image-card"><img src="/images/ai-report-panel.svg" alt="ProxoAI assistive report review panel" /></div><div className="pm-grid cols-3">{aiGroups.map(([title, items]) => <article className="pm-card" key={title as string}><h3>{title}</h3><FeatureList items={items as string[]} /></article>)}</div></div>
         <p className="pm-disclaimer">ProxoAI is an assistive workflow tool. Final diagnosis and clinical decision-making must always be performed by qualified medical professionals.</p>
       </section>
 

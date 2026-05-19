@@ -740,11 +740,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ============ MEDICAL IMAGE BACKGROUNDS (NO THREE.JS) ============ */
 :root {
-  --img-radiology-review: url('https://images.pexels.com/photos/8770713/pexels-photo-8770713.jpeg?auto=compress&cs=tinysrgb&w=2200');
-  --img-mri-center: url('https://images.pexels.com/photos/7089293/pexels-photo-7089293.jpeg?auto=compress&cs=tinysrgb&w=2200');
-  --img-xray-doctor: url('https://images.pexels.com/photos/32351199/pexels-photo-32351199.jpeg?auto=compress&cs=tinysrgb&w=1800');
-  --img-xray-team: url('https://images.pexels.com/photos/7446990/pexels-photo-7446990.jpeg?auto=compress&cs=tinysrgb&w=1800');
-  --img-xray-office: url('https://images.pexels.com/photos/4989189/pexels-photo-4989189.jpeg?auto=compress&cs=tinysrgb&w=1800');
+  --img-radiology-review: url('/images/dicom-workstation.svg');
+  --img-mri-center: url('/images/dicom-workstation.svg');
+  --img-xray-doctor: url('/images/ai-report-panel.svg');
+  --img-xray-team: url('/images/ai-report-panel.svg');
+  --img-xray-office: url('/images/dicom-workstation.svg');
 }
 
 .content::before {
@@ -911,6 +911,11 @@ h1, h2, h3, h4, h5, h6 {
   --accent: #7dd3fc;
   --glass-glow: rgba(255, 51, 51, 0.16);
   --glass-glow-strong: rgba(255, 51, 51, 0.26);
+  --img-radiology-review: url('/images/dicom-workstation.svg');
+  --img-mri-center: url('/images/dicom-workstation.svg');
+  --img-xray-doctor: url('/images/ai-report-panel.svg');
+  --img-xray-team: url('/images/ai-report-panel.svg');
+  --img-xray-office: url('/images/dicom-workstation.svg');
   --pm-bg: #030303;
   --pm-panel: rgba(9, 9, 11, 0.84);
   --pm-panel-strong: rgba(13, 13, 16, 0.94);
@@ -924,11 +929,11 @@ h1, h2, h3, h4, h5, h6 {
   --pm-green: #37d399;
   --pm-blue: #7dd3fc;
   --pm-radius: 22px;
-  --img-rad: url('https://images.pexels.com/photos/8770713/pexels-photo-8770713.jpeg?auto=compress&cs=tinysrgb&w=2200');
-  --img-mri: url('https://images.pexels.com/photos/7089293/pexels-photo-7089293.jpeg?auto=compress&cs=tinysrgb&w=2200');
-  --img-xray: url('https://images.pexels.com/photos/32351199/pexels-photo-32351199.jpeg?auto=compress&cs=tinysrgb&w=1800');
-  --img-team: url('https://images.pexels.com/photos/7446990/pexels-photo-7446990.jpeg?auto=compress&cs=tinysrgb&w=1800');
-  --img-office: url('https://images.pexels.com/photos/4989189/pexels-photo-4989189.jpeg?auto=compress&cs=tinysrgb&w=1800');
+  --img-rad: url('/images/dicom-workstation.svg');
+  --img-mri: url('/images/dicom-workstation.svg');
+  --img-xray: url('/images/ai-report-panel.svg');
+  --img-team: url('/images/ai-report-panel.svg');
+  --img-office: url('/images/dicom-workstation.svg');
 }
 
 body {
@@ -941,11 +946,12 @@ body {
 .pm-page,
 .page-container {
   background:
-    linear-gradient(90deg, rgba(255, 51, 51, 0.045) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px),
-    radial-gradient(circle at 72% -8%, rgba(255, 51, 51, 0.2), transparent 30%),
+    linear-gradient(90deg, rgba(255, 51, 51, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 78% -12%, rgba(255, 51, 51, 0.18), transparent 28%),
+    radial-gradient(circle at 6% 20%, rgba(124, 99, 255, 0.12), transparent 24%),
     #030303;
-  background-size: 84px 84px, 84px 84px, auto, auto;
+  background-size: 92px 92px, 92px 92px, auto, auto, auto;
 }
 
 .hero-title-main {
@@ -973,10 +979,10 @@ body {
 }
 
 .brand-mark {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(255, 51, 51, 0.45));
+  filter: drop-shadow(0 0 12px rgba(124, 99, 255, 0.48));
 }
 
 .brand-copy {
@@ -1054,8 +1060,8 @@ body {
 .pm-hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(460px, 1.05fr);
-  gap: 28px;
+  grid-template-columns: minmax(0, 0.82fr) minmax(520px, 1.18fr);
+  gap: 34px;
   align-items: center;
   min-height: 100vh;
   padding: 120px max(32px, calc((100vw - 1280px) / 2)) 80px;
@@ -1067,11 +1073,13 @@ body {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-image: var(--img-rad);
+  background:
+    linear-gradient(115deg, rgba(3, 3, 3, 0.92), rgba(3, 3, 3, 0.74)),
+    var(--img-rad);
   background-size: cover;
   background-position: center;
-  opacity: 0.4;
-  filter: saturate(0.72) contrast(1.1);
+  opacity: 0.34;
+  filter: saturate(0.85) contrast(1.12);
 }
 
 .pm-hero::after {
@@ -1103,10 +1111,10 @@ body {
 .pm-hero h1 {
   color: #ffffff;
   font-family: Inter, sans-serif;
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: clamp(38px, 4.5vw, 64px);
   font-weight: 950;
-  letter-spacing: -0.055em;
-  line-height: 1;
+  letter-spacing: -0.05em;
+  line-height: 1.02;
   margin: 0;
 }
 
@@ -1171,6 +1179,62 @@ body {
 .pm-dashboard-mock {
   overflow: hidden;
   padding: 16px;
+}
+
+.pm-workstation-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 560px;
+}
+
+.pm-workstation-hero::before {
+  content: '';
+  position: absolute;
+  inset: 7% 5% 5%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 51, 51, 0.18), transparent 46%),
+    radial-gradient(circle at 28% 28%, rgba(124, 99, 255, 0.16), transparent 34%);
+  filter: blur(16px);
+}
+
+.pm-workstation-hero img {
+  display: block;
+  filter: drop-shadow(0 42px 68px rgba(0, 0, 0, 0.76));
+  height: auto;
+  margin-inline: auto;
+  max-width: min(820px, 100%);
+  transform: translateX(2%);
+  width: 100%;
+}
+
+.pm-hero-metrics {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: -28px auto 0;
+  max-width: 720px;
+  position: relative;
+  z-index: 2;
+}
+
+.pm-hero-metrics span {
+  border: 1px solid var(--pm-line);
+  background: rgba(8, 8, 10, 0.84);
+  border-radius: 16px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 14px 16px;
+}
+
+.pm-hero-metrics strong {
+  color: var(--pm-red);
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
 }
 
 .dealer-board img {
@@ -1469,6 +1533,31 @@ body {
   grid-template-columns: 0.9fr 1.1fr;
 }
 
+.pm-image-card {
+  border: 1px solid var(--pm-line);
+  background:
+    radial-gradient(circle at 74% 20%, rgba(255, 51, 51, 0.13), transparent 35%),
+    rgba(8, 8, 10, 0.82);
+  border-radius: 28px;
+  box-shadow: 0 34px 110px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  padding: 14px;
+}
+
+.pm-image-card img {
+  border-radius: 20px;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.pm-ai-layout {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 0.82fr 1.18fr;
+  align-items: center;
+}
+
 .pm-ui-mock {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr 0.85fr;
@@ -1606,12 +1695,12 @@ body {
 
 .pm-image-section {
   background:
-    linear-gradient(90deg, rgba(3, 3, 3, 0.92), rgba(3, 3, 3, 0.76)),
-    var(--img-team) center / cover fixed;
+    linear-gradient(90deg, rgba(3, 3, 3, 0.96), rgba(3, 3, 3, 0.82)),
+    url('/images/ai-report-panel.svg') right center / min(56vw, 820px) no-repeat fixed;
 }
 
 .pm-dealer-hero::before {
-  background-image: var(--img-office);
+  background-image: url('/images/dicom-workstation.svg');
 }
 
 .pm-image-section h2 {
@@ -1644,6 +1733,7 @@ body {
 @media (max-width: 1180px) {
   .pm-hero,
   .pm-deep-grid,
+  .pm-ai-layout,
   .pm-split,
   .pm-image-section,
   .pm-comparison {
@@ -1653,6 +1743,10 @@ body {
   .pm-dashboard-grid,
   .pm-ui-mock {
     grid-template-columns: 1fr;
+  }
+
+  .pm-workstation-hero {
+    min-height: auto;
   }
 
   .pm-product-ecosystem,

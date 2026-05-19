@@ -33,13 +33,13 @@ export default function HomePage() {
       <section className="pm-hero pm-image-hero">
         <div className="pm-hero-copy">
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-kicker">
-            Proxomind Labs healthcare cloud platform
+            Proxomind Labs diagnostic cloud platform
           </motion.div>
           <motion.h1 initial="hidden" animate="visible" variants={fadeInUp}>
-            Cloud PACS + Medical AI for the next generation of diagnostic centers.
+            Cloud PACS and medical AI for serious diagnostic networks.
           </motion.h1>
           <motion.p initial="hidden" animate="visible" variants={fadeInUp}>
-            Proxomind brings cloud imaging, DICOM workflow, AI-assisted report analysis, image review support, RIS, LIMS, and remote reporting into one connected healthcare software platform.
+            ProxoPACS and ProxoAI are live today, with ProxoRIS, ProxoLIMS, and TeleReporting expanding into one dealer-ready healthcare software stack.
           </motion.p>
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-actions">
             <button onClick={() => navigate('/contact')} className="pm-btn primary">Book a Demo</button>
@@ -48,18 +48,13 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="pm-dashboard-mock">
-          <div className="pm-window-bar"><span/><span/><span/><strong>ProxoPACS Worklist</strong></div>
-          <div className="pm-dashboard-grid">
-            <div className="pm-study-list">
-              {['MR Brain', 'CT Chest', 'XR Spine', 'US Abdomen'].map((item) => <span key={item}>{item}<em>Ready</em></span>)}
-            </div>
-            <div className="pm-scan-preview"><img src="https://images.pexels.com/photos/7446990/pexels-photo-7446990.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Radiology scan review" /></div>
-            <div className="pm-ai-panel">
-              <strong>ProxoAI Summary</strong>
-              <p>Assistive report review, clinical context extraction, and workflow acceleration.</p>
-              <small>Dealer deployment ready</small>
-            </div>
+        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="pm-workstation-hero">
+          <img src="/images/dicom-workstation.svg" alt="ProxoPACS DICOM workstation showing worklist and CT scan viewers" />
+          <div className="pm-hero-metrics">
+            <span><strong>Live</strong> ProxoPACS</span>
+            <span><strong>Live</strong> ProxoAI</span>
+            <span><strong>Upcoming</strong> RIS + LIMS</span>
+            <span><strong>Coming</strong> TeleReporting</span>
           </div>
         </motion.div>
       </section>
@@ -90,6 +85,18 @@ export default function HomePage() {
               <p>{copy}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="pm-section pm-split pm-ai-showcase">
+        <div className="pm-image-card">
+          <img src="/images/ai-report-panel.svg" alt="ProxoAI assistive report review panel with radiology scan" />
+        </div>
+        <div>
+          <span className="pm-kicker">ProxoAI inside the workflow</span>
+          <h2>Report review, image assistance, and clinical summaries without replacing doctors.</h2>
+          <p>AI assistance sits next to the PACS viewer as a decision-support layer for faster context review, cleaner reports, and better handoff between centers and radiologists.</p>
+          <button onClick={() => navigate('/products')} className="pm-btn secondary">Explore ProxoAI</button>
         </div>
       </section>
     </div>
