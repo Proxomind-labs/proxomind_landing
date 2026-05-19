@@ -138,7 +138,7 @@ export default function ProductsPage() {
 
       <section className="pm-section pm-ai-deep">
         <div className="pm-section-head"><span className="pm-kicker">ProxoAI</span><h2>Medical AI assistance inside the diagnostic workflow.</h2><p>ProxoAI is designed as a radiologist productivity and decision-support layer, not a replacement for professional judgment.</p></div>
-        <div className="pm-ai-layout"><div className="pm-image-card"><img src="/images/ai-report-panel.svg" alt="ProxoAI assistive report review panel" /></div><div className="pm-grid cols-3">{aiGroups.map(([title, items]) => <article className="pm-card" key={title as string}><h3>{title}</h3><FeatureList items={items as string[]} /></article>)}</div></div>
+        <div className="pm-ai-layout"><div className="pm-ai-console compact"><div className="pm-ai-console-head"><span/><span/><span/><strong>ProxoAI Review Layer</strong></div><div className="pm-ai-console-body"><div className="pm-ai-console-scan"><i/><b/><small>Imaging context</small></div><div className="pm-ai-console-report"><strong>Assistive Summary</strong><p>Report intelligence, image review support, and workflow context prepared for clinician review.</p><ul><li>Findings extraction</li><li>Impression cleanup</li><li>Prior report comparison</li></ul></div></div></div><div className="pm-grid cols-3">{aiGroups.map(([title, items]) => <article className="pm-card" key={title as string}><h3>{title}</h3><FeatureList items={items as string[]} /></article>)}</div></div>
         <p className="pm-disclaimer">ProxoAI is an assistive workflow tool. Final diagnosis and clinical decision-making must always be performed by qualified medical professionals.</p>
       </section>
 

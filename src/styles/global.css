@@ -742,8 +742,8 @@ h1, h2, h3, h4, h5, h6 {
 :root {
   --img-radiology-review: url('/images/pacs-workstation.avif');
   --img-mri-center: url('/images/pacs-workstation.avif');
-  --img-xray-doctor: url('/images/ai-report-panel.svg');
-  --img-xray-team: url('/images/ai-report-panel.svg');
+  --img-xray-doctor: url('/images/pacs-workstation.avif');
+  --img-xray-team: url('/images/pacs-workstation.avif');
   --img-xray-office: url('/images/pacs-workstation.avif');
 }
 
@@ -913,8 +913,8 @@ h1, h2, h3, h4, h5, h6 {
   --glass-glow-strong: rgba(255, 51, 51, 0.26);
   --img-radiology-review: url('/images/pacs-workstation.avif');
   --img-mri-center: url('/images/pacs-workstation.avif');
-  --img-xray-doctor: url('/images/ai-report-panel.svg');
-  --img-xray-team: url('/images/ai-report-panel.svg');
+  --img-xray-doctor: url('/images/pacs-workstation.avif');
+  --img-xray-team: url('/images/pacs-workstation.avif');
   --img-xray-office: url('/images/pacs-workstation.avif');
   --pm-bg: #030303;
   --pm-panel: rgba(9, 9, 11, 0.84);
@@ -931,8 +931,8 @@ h1, h2, h3, h4, h5, h6 {
   --pm-radius: 22px;
   --img-rad: url('/images/pacs-workstation.avif');
   --img-mri: url('/images/pacs-workstation.avif');
-  --img-xray: url('/images/ai-report-panel.svg');
-  --img-team: url('/images/ai-report-panel.svg');
+  --img-xray: url('/images/pacs-workstation.avif');
+  --img-team: url('/images/pacs-workstation.avif');
   --img-office: url('/images/pacs-workstation.avif');
 }
 
@@ -1721,13 +1721,6 @@ body {
   box-shadow: 0 38px 120px rgba(0, 0, 0, 0.55);
 }
 
-.pm-ai-command-visual img {
-  border-radius: 24px;
-  display: block;
-  filter: drop-shadow(0 28px 54px rgba(0, 0, 0, 0.68));
-  width: 100%;
-}
-
 .pm-ai-floating-card {
   border: 1px solid rgba(255, 51, 51, 0.28);
   background: rgba(5, 5, 7, 0.86);
@@ -1760,6 +1753,131 @@ body {
   color: var(--pm-muted);
   font-size: 12px;
   line-height: 1.45;
+}
+
+.pm-ai-console {
+  border: 1px solid var(--pm-line);
+  background:
+    radial-gradient(circle at 70% 15%, rgba(255, 51, 51, 0.18), transparent 34%),
+    #050506;
+  border-radius: 26px;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.58);
+  min-height: 470px;
+  overflow: hidden;
+}
+
+.pm-ai-console.compact {
+  min-height: 430px;
+}
+
+.pm-ai-console-head {
+  align-items: center;
+  border-bottom: 1px solid var(--pm-line);
+  background: rgba(255, 255, 255, 0.045);
+  display: flex;
+  gap: 8px;
+  padding: 14px 16px;
+}
+
+.pm-ai-console-head span {
+  background: var(--pm-red);
+  border-radius: 999px;
+  height: 9px;
+  width: 9px;
+}
+
+.pm-ai-console-head strong {
+  color: var(--pm-muted);
+  font-size: 12px;
+  margin-left: auto;
+  text-transform: uppercase;
+}
+
+.pm-ai-console-body {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr 0.95fr;
+  padding: 16px;
+}
+
+.pm-ai-console-scan,
+.pm-ai-console-report {
+  border: 1px solid var(--pm-line);
+  background: rgba(255, 255, 255, 0.035);
+  border-radius: 20px;
+  min-height: 360px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pm-ai-console-scan {
+  display: grid;
+  place-items: center;
+}
+
+.pm-ai-console-scan i {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.92), rgba(150, 154, 164, 0.68) 22%, rgba(16, 18, 24, 0.96) 52%, #030304 74%);
+  border-radius: 50%;
+  display: block;
+  height: 230px;
+  width: 230px;
+}
+
+.pm-ai-console-scan b {
+  border: 1px solid rgba(255, 51, 51, 0.45);
+  border-radius: 24px;
+  box-shadow: 0 0 32px rgba(255, 51, 51, 0.24);
+  height: 118px;
+  position: absolute;
+  width: 150px;
+}
+
+.pm-ai-console-scan small {
+  bottom: 18px;
+  color: var(--pm-muted);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.pm-ai-console-report {
+  padding: 22px;
+}
+
+.pm-ai-console-report strong {
+  color: #ffffff;
+  display: block;
+  font-size: 24px;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.pm-ai-console-report p {
+  color: var(--pm-muted);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 16px 0 0;
+}
+
+.pm-ai-console-report ul {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+}
+
+.pm-ai-console-report li {
+  border: 1px solid var(--pm-line);
+  background: rgba(255, 51, 51, 0.07);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 850;
+  padding: 12px;
 }
 
 .pm-ui-mock {
@@ -1898,7 +2016,7 @@ body {
 .pm-image-section {
   background:
     linear-gradient(90deg, rgba(3, 3, 3, 0.96), rgba(3, 3, 3, 0.82)),
-    url('/images/ai-report-panel.svg') right center / min(56vw, 820px) no-repeat fixed;
+    url('/images/pacs-workstation.avif') right center / min(56vw, 820px) no-repeat fixed;
 }
 
 .pm-dealer-hero::before {

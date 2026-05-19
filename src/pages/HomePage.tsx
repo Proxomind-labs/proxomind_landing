@@ -11,13 +11,6 @@ const products = [
   { name: 'TeleReporting', status: 'Coming', title: 'Remote Reads', copy: 'Remote reporting, case assignment, radiologist network, urgent routing, and secure report delivery.' },
 ];
 
-const audiences = [
-  ['Diagnostic Centers', 'Cloud study access, organized patient imaging records, remote radiologist sharing, and lower IT complexity.'],
-  ['Hospitals', 'Centralized imaging visibility, doctor/radiologist collaboration, cloud archive, and future RIS/LIMS expansion.'],
-  ['Radiologists', 'Browser viewer access, report improvement assistance, case summaries, and remote-ready review workflows.'],
-  ['Dealers', 'A complete PACS + AI software story to bundle with imaging equipment and grow recurring revenue.'],
-];
-
 const fadeInUp = {
   hidden: { opacity: 0, y: 34 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' as const } },
@@ -70,23 +63,6 @@ export default function HomePage() {
         ))}
       </section>
 
-      <section className="pm-section pm-split pm-image-section">
-        <div>
-          <span className="pm-kicker">Serious healthcare SaaS</span>
-          <h2>One company. Five products. A full diagnostic workflow roadmap.</h2>
-          <p>Proxomind is focused on diagnostic software: ProxoPACS and ProxoAI are live today, with ProxoRIS, ProxoLIMS, and TeleReporting expanding the platform into a complete diagnostic operating system.</p>
-          <button onClick={() => navigate('/products')} className="pm-btn primary">View Full Platform</button>
-        </div>
-        <div className="pm-audience-grid">
-          {audiences.map(([title, copy]) => (
-            <article key={title}>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="pm-section pm-ai-command">
         <div className="pm-ai-command-copy">
           <span className="pm-kicker">ProxoAI command layer</span>
@@ -110,7 +86,25 @@ export default function HomePage() {
           </div>
         </div>
         <div className="pm-ai-command-visual">
-          <img src="/images/ai-report-panel.svg" alt="ProxoAI assistive report review panel with radiology scan" />
+          <div className="pm-ai-console">
+            <div className="pm-ai-console-head"><span/><span/><span/><strong>ProxoAI Review Layer</strong></div>
+            <div className="pm-ai-console-body">
+              <div className="pm-ai-console-scan">
+                <i/>
+                <b/>
+                <small>CT / XR / MR context</small>
+              </div>
+              <div className="pm-ai-console-report">
+                <strong>Report Review</strong>
+                <p>Findings extracted, impression cleaned, clinical summary prepared.</p>
+                <ul>
+                  <li>Prior report context</li>
+                  <li>Assistive triage note</li>
+                  <li>Doctor-friendly summary</li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <div className="pm-ai-floating-card one"><strong>Clinical context</strong><span>Extract key details before review</span></div>
           <div className="pm-ai-floating-card two"><strong>Assistive only</strong><span>Final judgment stays with clinicians</span></div>
         </div>
