@@ -554,6 +554,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 100;
   padding: 1rem 3rem;
   pointer-events: none;
+  min-height: 86px;
   transition: all 0.3s ease;
 }
 
@@ -578,6 +579,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   pointer-events: auto;
+  position: relative;
 }
 
 .logo {
@@ -595,6 +597,38 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+}
+
+.nav-punchline {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.68rem;
+  font-weight: 850;
+  left: 50%;
+  letter-spacing: 0.18em;
+  pointer-events: none;
+  position: absolute;
+  text-transform: uppercase;
+  top: calc(100% + 10px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.nav-punchline::before,
+.nav-punchline::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 51, 51, 0.52), transparent);
+  content: '';
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  width: 54px;
+}
+
+.nav-punchline::before {
+  right: calc(100% + 14px);
+}
+
+.nav-punchline::after {
+  left: calc(100% + 14px);
 }
 
 .nav-link {
@@ -637,6 +671,49 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, rgba(129, 140, 248, 0.3), rgba(192, 132, 252, 0.3));
 }
 
+.theme-toggle {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 999px;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  gap: 0.55rem;
+  min-height: 38px;
+  padding: 0.45rem 0.8rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 51, 51, 0.1);
+  border-color: rgba(255, 51, 51, 0.32);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-track {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  display: inline-flex;
+  height: 18px;
+  padding: 2px;
+  width: 34px;
+}
+
+.theme-toggle-knob {
+  background: var(--pm-red, #ff3333);
+  border-radius: 999px;
+  box-shadow: 0 0 14px rgba(255, 51, 51, 0.52);
+  height: 12px;
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+  width: 12px;
+}
+
 .mobile-menu-btn {
   display: none;
   background: rgba(255, 255, 255, 0.05);
@@ -649,8 +726,13 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 900px) {
   .nav { display: none; }
+  .nav-punchline { display: none; }
   .mobile-menu-btn { display: block; }
   .header { padding: 1rem; }
+}
+
+@media (max-width: 1280px) {
+  .nav-punchline { display: none; }
 }
 
 /* =========================================
@@ -1931,6 +2013,208 @@ body {
 
 .check-icon {
   color: var(--pm-red) !important;
+}
+
+html[data-theme='light'] {
+  --primary: #ff3333;
+  --secondary: #d91f2b;
+  --accent: #0f766e;
+  --dark: #f7f4ef;
+  --darker: #fffaf5;
+  --text: #111318;
+  --text-muted: #5d6470;
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-border: rgba(17, 24, 39, 0.1);
+  --glass-glow: rgba(255, 51, 51, 0.11);
+  --glass-glow-strong: rgba(255, 51, 51, 0.2);
+  --pm-bg: #f7f4ef;
+  --pm-panel: rgba(255, 255, 255, 0.7);
+  --pm-panel-strong: rgba(255, 255, 255, 0.88);
+  --pm-line: rgba(18, 24, 33, 0.13);
+  --pm-red: #ef233c;
+  --pm-red-soft: rgba(239, 35, 60, 0.1);
+  --pm-red-line: rgba(239, 35, 60, 0.26);
+  --pm-text: #111318;
+  --pm-muted: #5f6673;
+  --pm-dim: #8a919d;
+  --pm-green: #087f5b;
+  --pm-blue: #0369a1;
+}
+
+@keyframes pmLightOrbitOne {
+  0% { transform: translate3d(-8vw, -2vh, 0) scale(1); }
+  50% { transform: translate3d(7vw, 6vh, 0) scale(1.08); }
+  100% { transform: translate3d(-8vw, -2vh, 0) scale(1); }
+}
+
+@keyframes pmLightOrbitTwo {
+  0% { transform: translate3d(8vw, 4vh, 0) scale(1); }
+  50% { transform: translate3d(-6vw, -5vh, 0) scale(1.12); }
+  100% { transform: translate3d(8vw, 4vh, 0) scale(1); }
+}
+
+.app {
+  isolation: isolate;
+  min-height: 100vh;
+  position: relative;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-theme='light'] body {
+  background: #f7f4ef !important;
+  color: var(--pm-text);
+}
+
+html[data-theme='light'] .app,
+html[data-theme='light'] .content,
+html[data-theme='light'] .pm-page,
+html[data-theme='light'] .page-container {
+  background:
+    linear-gradient(90deg, rgba(239, 35, 60, 0.045) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(17, 24, 39, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 76% -12%, rgba(239, 35, 60, 0.15), transparent 28%),
+    radial-gradient(circle at 8% 16%, rgba(14, 165, 233, 0.12), transparent 26%),
+    linear-gradient(180deg, #fffaf5 0%, #f5f1ea 48%, #ffffff 100%) !important;
+  background-size: 92px 92px, 92px 92px, auto, auto, auto;
+}
+
+html[data-theme='light'] .app::before,
+html[data-theme='light'] .app::after {
+  border-radius: 999px;
+  content: '';
+  filter: blur(42px);
+  opacity: 0.34;
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
+}
+
+html[data-theme='light'] .app::before {
+  animation: pmLightOrbitOne 18s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(239, 35, 60, 0.42), transparent 64%);
+  height: 420px;
+  left: -120px;
+  top: 130px;
+  width: 420px;
+}
+
+html[data-theme='light'] .app::after {
+  animation: pmLightOrbitTwo 22s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(239, 35, 60, 0.28), rgba(14, 165, 233, 0.1) 42%, transparent 68%);
+  bottom: 8vh;
+  height: 520px;
+  right: -160px;
+  width: 520px;
+}
+
+html[data-theme='light'] .header::before {
+  background:
+    linear-gradient(180deg, rgba(255, 250, 245, 0.84), rgba(255, 250, 245, 0.42) 58%, transparent),
+    radial-gradient(circle at 50% 0%, rgba(239, 35, 60, 0.12), transparent 42%);
+}
+
+html[data-theme='light'] .brand-copy strong,
+html[data-theme='light'] .pm-product-name,
+html[data-theme='light'] .pm-hero h1,
+html[data-theme='light'] .pm-section-head h2,
+html[data-theme='light'] .pm-card h3,
+html[data-theme='light'] .pm-final-cta h2,
+html[data-theme='light'] .pm-ai-command-copy h2,
+html[data-theme='light'] .pm-image-section h2,
+html[data-theme='light'] .footer-col h4 {
+  color: #111318 !important;
+}
+
+html[data-theme='light'] .pm-hero p,
+html[data-theme='light'] .pm-card p,
+html[data-theme='light'] .pm-section-head p,
+html[data-theme='light'] .pm-final-cta p,
+html[data-theme='light'] .pm-ai-command-copy p,
+html[data-theme='light'] .footer-brand p,
+html[data-theme='light'] .footer-copy,
+html[data-theme='light'] .footer-col a,
+html[data-theme='light'] .nav-link {
+  color: var(--pm-muted) !important;
+}
+
+html[data-theme='light'] .pm-dashboard-mock,
+html[data-theme='light'] .pm-card,
+html[data-theme='light'] .pm-final-cta,
+html[data-theme='light'] .pm-comparison > div,
+html[data-theme='light'] .pm-ui-mock,
+html[data-theme='light'] .glass-card,
+html[data-theme='light'] .glass-panel,
+html[data-theme='light'] .pm-image-card,
+html[data-theme='light'] .pm-workstation-hero,
+html[data-theme='light'] .pm-product-tile,
+html[data-theme='light'] .pm-impact-tile,
+html[data-theme='light'] .pm-problem-card,
+html[data-theme='light'] .pm-workflow-node,
+html[data-theme='light'] .pm-roadmap div,
+html[data-theme='light'] .pm-faq details {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border-color: rgba(17, 24, 39, 0.1) !important;
+  box-shadow: 0 30px 100px rgba(68, 27, 34, 0.12) !important;
+}
+
+html[data-theme='light'] .pm-btn.secondary,
+html[data-theme='light'] .pm-btn.ghost,
+html[data-theme='light'] .btn-glass-secondary {
+  background: rgba(255, 255, 255, 0.72) !important;
+  color: #111318 !important;
+}
+
+html[data-theme='light'] .cta-btn,
+html[data-theme='light'] .pm-btn.primary {
+  color: #ffffff !important;
+}
+
+html[data-theme='light'] .theme-toggle {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(17, 24, 39, 0.12);
+  color: #111318;
+  box-shadow: 0 18px 50px rgba(68, 27, 34, 0.1);
+}
+
+html[data-theme='light'] .theme-toggle-track {
+  background: rgba(239, 35, 60, 0.12);
+  border-color: rgba(239, 35, 60, 0.2);
+}
+
+html[data-theme='light'] .theme-toggle-knob {
+  transform: translateX(15px);
+}
+
+html[data-theme='light'] .nav-punchline {
+  color: rgba(17, 19, 24, 0.56);
+}
+
+html[data-theme='light'] .nav-punchline::before,
+html[data-theme='light'] .nav-punchline::after {
+  background: linear-gradient(90deg, transparent, rgba(239, 35, 60, 0.48), transparent);
+}
+
+html[data-theme='light'] .footer {
+  background: rgba(255, 255, 255, 0.54);
+  border-top-color: rgba(17, 24, 39, 0.1);
+}
+
+html[data-theme='light'] .pm-image-hero::before,
+html[data-theme='light'] .pm-product-hero::before,
+html[data-theme='light'] .pm-dealer-hero::before {
+  opacity: 0.2;
+}
+
+html[data-theme='light'] .pm-ai-command,
+html[data-theme='light'] .pm-ai-deep,
+html[data-theme='light'] .pm-image-section {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(239, 35, 60, 0.12), transparent 34%),
+    rgba(255, 255, 255, 0.5) !important;
 }
 
 @media (max-width: 1180px) {
