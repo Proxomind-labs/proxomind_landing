@@ -11,6 +11,25 @@ const products = [
   { name: 'TeleReporting', status: 'Coming', title: 'Remote Reads', copy: 'Remote reporting, case assignment, radiologist network, urgent routing, and secure report delivery.' },
 ];
 
+const searchSnapshot = [
+  {
+    title: 'What Proxomind Labs builds',
+    copy: 'Proxomind Labs builds healthcare cloud software for diagnostic imaging centers, hospitals, radiologists, and channel partners. The platform connects cloud PACS, DICOM viewing, AI-assisted report review, RIS, LIMS, and remote reporting workflows.',
+  },
+  {
+    title: 'Main live products',
+    copy: 'ProxoPACS is a live browser-first cloud PACS for DICOM upload, study access, cloud storage, secure sharing, and radiologist workflows. ProxoAI is a live medical AI assistance layer for report review, image review support, clinical summaries, and workflow acceleration.',
+  },
+  {
+    title: 'Best-fit customers',
+    copy: 'Proxomind is designed for X-ray centers, CT centers, MRI centers, ultrasound centers, multi-location diagnostic chains, hospital radiology departments, independent radiologists, and partners selling healthcare software with imaging equipment.',
+  },
+  {
+    title: 'Clinical safety position',
+    copy: 'ProxoAI is an assistive decision-support and workflow tool. It supports clinical context extraction and reporting productivity, but final diagnosis and clinical decisions remain with qualified medical professionals.',
+  },
+];
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 34 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' as const } },
@@ -55,6 +74,24 @@ export default function HomePage() {
             {product.href && <a href={product.href} target="_blank" rel="noopener noreferrer" className="pm-card-link">Open ProxoPACS</a>}
           </article>
         ))}
+      </section>
+
+      <section className="pm-section pm-seo-snapshot" aria-labelledby="platform-snapshot-title">
+        <div className="pm-section-head">
+          <span className="pm-kicker">Platform Snapshot</span>
+          <h2 id="platform-snapshot-title">Cloud PACS, medical AI, RIS, LIMS, and TeleReporting in one diagnostic software stack.</h2>
+          <p>
+            Proxomind is a healthcare SaaS platform for diagnostic centers moving from local imaging systems to cloud-connected workflows.
+          </p>
+        </div>
+        <div className="pm-seo-grid">
+          {searchSnapshot.map((item) => (
+            <article className="pm-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="pm-section pm-ai-command">

@@ -44,6 +44,25 @@ const aiGroups: [string, string[]][] = [
   ['Workflow Intelligence', ['Case summary', 'Doctor-friendly explanation', 'Patient summary', 'Report quality checks']],
 ];
 
+const productFaqs = [
+  {
+    question: 'What is ProxoPACS?',
+    answer: 'ProxoPACS is a browser-first cloud PACS from Proxomind Labs for DICOM upload, cloud study access, image viewing, reporting workflow, secure sharing, and multi-center diagnostic operations.',
+  },
+  {
+    question: 'What is ProxoAI?',
+    answer: 'ProxoAI is a medical AI assistance layer for report review, image review support, finding extraction, clinical summaries, impression drafting support, and radiologist productivity workflows.',
+  },
+  {
+    question: 'Who is Proxomind built for?',
+    answer: 'Proxomind is built for diagnostic imaging centers, hospitals, radiology departments, independent radiologists, multi-branch diagnostic chains, and channel partners deploying imaging software.',
+  },
+  {
+    question: 'Does ProxoAI replace radiologists or doctors?',
+    answer: 'No. ProxoAI is an assistive workflow and decision-support layer. Final diagnosis, report approval, and clinical decision-making must be performed by qualified medical professionals.',
+  },
+];
+
 function StatusBadge({ status }: { status: string }) {
   return <span className={`pm-status ${status === 'Live' ? 'live' : ''}`}>{status}</span>;
 }
@@ -121,6 +140,21 @@ export default function ProductsPage() {
         <p className="pm-disclaimer">
           ProxoAI supports review and workflow acceleration. Final diagnosis and clinical decisions remain with qualified medical professionals.
         </p>
+      </section>
+
+      <section className="pm-section pm-search-faq" aria-labelledby="product-answer-title">
+        <div className="pm-section-head">
+          <span className="pm-kicker">Product Answers</span>
+          <h2 id="product-answer-title">Clear product facts for diagnostic buyers and healthcare partners.</h2>
+        </div>
+        <div className="pm-grid cols-4">
+          {productFaqs.map((item) => (
+            <article className="pm-card" key={item.question}>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="pm-final-cta">

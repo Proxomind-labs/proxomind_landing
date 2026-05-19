@@ -1613,6 +1613,7 @@ body {
 }
 
 .pm-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pm-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .pm-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .pm-grid.five { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .pm-product-ecosystem { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
@@ -1816,6 +1817,36 @@ body {
   gap: 32px;
   grid-template-columns: 0.9fr 1.1fr;
   overflow: hidden;
+}
+
+.pm-seo-snapshot,
+.pm-search-faq {
+  padding-top: 68px;
+}
+
+.pm-seo-grid {
+  align-items: stretch;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.pm-seo-snapshot .pm-card,
+.pm-search-faq .pm-card {
+  min-height: 260px;
+}
+
+.pm-seo-snapshot .pm-card h3,
+.pm-search-faq .pm-card h3 {
+  font-size: 22px;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.pm-seo-snapshot .pm-card p,
+.pm-search-faq .pm-card p {
+  font-size: 14px;
+  line-height: 1.65;
 }
 
 .pm-ai-command-copy h2 {
@@ -2522,6 +2553,8 @@ html[data-theme='light'] .pm-contact-left > p {
   .pm-product-ecosystem,
   .pm-product-strip,
   .pm-impact-strip,
+  .pm-seo-grid,
+  .pm-grid.cols-4,
   .pm-grid.five,
   .pm-grid.four,
   .pm-workflow,
@@ -2542,6 +2575,8 @@ html[data-theme='light'] .pm-contact-left > p {
   .pm-product-ecosystem,
   .pm-product-strip,
   .pm-impact-strip,
+  .pm-seo-grid,
+  .pm-grid.cols-4,
   .pm-grid.cols-3,
   .pm-grid.five,
   .pm-grid.four,
