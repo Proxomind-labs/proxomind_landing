@@ -50,12 +50,6 @@ export default function HomePage() {
 
         <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="pm-workstation-hero">
           <img src="/images/dicom-workstation.svg" alt="ProxoPACS DICOM workstation showing worklist and CT scan viewers" />
-          <div className="pm-hero-metrics">
-            <span><strong>Live</strong> ProxoPACS</span>
-            <span><strong>Live</strong> ProxoAI</span>
-            <span><strong>Upcoming</strong> RIS + LIMS</span>
-            <span><strong>Coming</strong> TeleReporting</span>
-          </div>
         </motion.div>
       </section>
 

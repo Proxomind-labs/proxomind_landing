@@ -78,12 +78,6 @@ export default function ProductsPage() {
         </div>
         <div className="pm-workstation-hero product-dashboard">
           <img src="/images/dicom-workstation.svg" alt="DICOM viewer workstation with worklist and CT scan panels" />
-          <div className="pm-hero-metrics">
-            <span><strong>92%</strong> upload queue</span>
-            <span><strong>Multi-center</strong> access</span>
-            <span><strong>AI-assisted</strong> report review</span>
-            <span><strong>Dealer</strong> deployment ready</span>
-          </div>
         </div>
       </section>
 
