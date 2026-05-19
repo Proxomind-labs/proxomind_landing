@@ -1,6 +1,7 @@
 const Logo = () => {
   return (
-    <div className="brand-lockup brand-lockup-text" aria-label="Proxomind Labs">
+    <div className="brand-lockup" aria-label="Proxomind Labs">
+      <img src="/favicon.svg" alt="" className="brand-mark" />
       <div className="brand-copy">
         <strong><span>Proxo</span><em>Mind</em></strong>
         <small>Labs</small>

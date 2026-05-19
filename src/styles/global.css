@@ -974,7 +974,15 @@ body {
 .brand-lockup {
   display: inline-flex;
   align-items: center;
-  min-width: 144px;
+  gap: 10px;
+  min-width: 178px;
+}
+
+.brand-mark {
+  height: 28px;
+  object-fit: contain;
+  width: 28px;
+  filter: drop-shadow(0 0 12px rgba(255, 51, 51, 0.45));
 }
 
 .brand-copy {
