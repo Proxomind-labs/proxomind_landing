@@ -1272,6 +1272,19 @@ body {
   max-width: 690px;
 }
 
+.pm-product-hero {
+  min-height: 76vh;
+  padding-bottom: 32px;
+}
+
+.pm-product-hero .pm-workstation-hero {
+  min-height: 500px;
+}
+
+.pm-products-first {
+  padding-top: 44px;
+}
+
 .pm-actions {
   display: flex;
   flex-wrap: wrap;
@@ -2371,9 +2384,9 @@ html[data-theme='light'] .proxoai-console-card img,
 html[data-theme='light'] .pm-image-card img,
 html[data-theme='light'] .pm-scan-preview img,
 html[data-theme='light'] .dealer-board img {
-  filter: saturate(0.35) contrast(0.82) brightness(1.16) drop-shadow(0 26px 50px rgba(239, 35, 60, 0.11)) !important;
-  mix-blend-mode: screen;
-  opacity: 0.78;
+  filter: saturate(0.92) contrast(1.02) brightness(1.04) drop-shadow(0 28px 54px rgba(119, 24, 38, 0.16)) !important;
+  mix-blend-mode: normal;
+  opacity: 0.94;
 }
 
 html[data-theme='light'] .pm-image-card {

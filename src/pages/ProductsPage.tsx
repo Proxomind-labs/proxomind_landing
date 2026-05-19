@@ -31,27 +31,6 @@ const productCards = [
   },
 ];
 
-const impact = [
-  ['Cloud study access', 'Open studies from browser-ready cloud workspaces.'],
-  ['Multi-center workflow', 'Connect branches, admins, and radiologists in one view.'],
-  ['AI-assisted reporting', 'Use ProxoAI for report review and clinical context support.'],
-  ['Browser-first viewer', 'Reduce workstation dependency with web-based access.'],
-  ['Dealer deployment support', 'Give partners a clean demo, setup, and activation story.'],
-  ['Remote reporting ready', 'Prepare centers for secure remote radiology operations.'],
-  ['Scalable cloud storage', 'Move away from fragile local-only image archives.'],
-  ['DICOM workflow support', 'Upload, search, view, and coordinate diagnostic studies.'],
-];
-
-const problems = [
-  ['Local PACS lock-in', 'Studies sit on one machine, backups are fragile, and access depends on local IT.'],
-  ['Slow image sharing', 'Centers still burn CDs, send files manually, or depend on physical visits.'],
-  ['Remote reads are messy', 'Radiologists need clean browser access without fighting center systems.'],
-  ['Report review takes time', 'Context, prior notes, findings, and impressions stay scattered.'],
-  ['Dealer deployment is hard', 'Dealers need a reliable software layer they can explain, demo, and support.'],
-  ['Branch visibility is limited', 'Owners cannot easily see studies, status, and workflow across locations.'],
-  ['Lab and radiology silos', 'Imaging, lab reporting, and center operations rarely speak the same language.'],
-  ['AI sits outside workflow', 'Most AI tools feel separate instead of working beside PACS and reporting.'],
-];
 const workflow = ['Modality', 'Local Uploader', 'Cloud PACS', 'DICOM Viewer', 'AI Assistance', 'Report Review', 'Doctor / Center', 'Dealer Support'];
 const pacsFeatures = ['DICOM upload from local machine', 'Local uploader / bridge app', 'Cloud study access', 'Browser DICOM viewer', 'X-ray, CT, MRI, US support', 'Study search', 'Patient-wise access', 'Center-wise dashboard', 'Multi-user login', 'Viewer-only access', 'Radiologist access', 'Secure sharing links', 'Report attachment', 'Study status', 'Upload retry handling', 'Cloud storage backend', 'Audit trail ready', 'Backup-ready architecture', 'Dealer onboarding support', 'Future DICOM print support', 'Future modality worklist support'];
 const aiGroups = [
@@ -84,18 +63,13 @@ export default function ProductsPage() {
     <div className="pm-page pm-product-page">
       <section className="pm-hero pm-product-hero">
         <div className="pm-hero-copy wide">
-          <span className="pm-hero-line">Local imaging. Cloud PACS. AI-assisted reporting.</span>
-          <span className="pm-kicker">Proxomind Labs healthcare product ecosystem</span>
           <h1>Cloud PACS + Medical AI for the Next Generation of Diagnostic Centers</h1>
-          <p>Proxomind brings cloud imaging, DICOM workflow, AI-assisted report analysis, image review support, RIS, LIMS, and remote reporting into one connected healthcare platform.</p>
+          <p>Proxomind brings ProxoPACS and ProxoAI live today, with RIS, LIMS, and TeleReporting modules expanding the same diagnostic cloud platform.</p>
           <div className="pm-actions">
             <button onClick={() => navigate('/contact')} className="pm-btn primary">Book a Demo</button>
             <button onClick={() => navigate('/dealers')} className="pm-btn secondary">Become a Dealer</button>
             <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn ghost">Open ProxoPACS</a>
             <button className="pm-btn ghost">View ProxoAI</button>
-          </div>
-          <div className="pm-badge-row">
-            {['Live: ProxoPACS', 'Live: ProxoAI', 'Upcoming: RIS + LIMS', 'Coming: TeleReporting', 'Dealer Friendly', 'Cloud Ready', 'Multi-Center Ready'].map((badge) => <span key={badge}>{badge}</span>)}
           </div>
         </div>
         <div className="pm-workstation-hero product-dashboard">
@@ -103,20 +77,8 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="pm-impact-strip">{impact.map(([title, copy], index) => <div key={title} data-index={String(index + 1).padStart(2, '0')}><strong>{String(index + 1).padStart(2, '0')}</strong><span>{title}</span><p>{copy}</p></div>)}</section>
-
-      <section className="pm-section">
-        <div className="pm-section-head"><span className="pm-kicker">The Problem</span><h2>Diagnostic centers are growing, but imaging workflow is still fragmented.</h2></div>
-        <div className="pm-grid four pm-problem-grid">{problems.map(([title, copy], index) => <article className="pm-card pm-problem-card" key={title}><strong>{String(index + 1).padStart(2, '0')}</strong><h3>{title}</h3><p>{copy}</p></article>)}</div>
-      </section>
-
-      <section className="pm-section pm-solution-section">
-        <div className="pm-section-head"><span className="pm-kicker">The Solution</span><h2>One connected platform for imaging, reporting, AI, labs, and remote reads.</h2><p>Proxomind connects imaging centers, hospitals, radiologists, and dealers through a cloud-first diagnostic workflow.</p></div>
-        <div className="pm-workflow">{workflow.map((step) => <div key={step}>{step}</div>)}</div>
-      </section>
-
-      <section className="pm-section">
-        <div className="pm-section-head"><span className="pm-kicker">Product Ecosystem</span><h2>One platform. Five products. Endless diagnostic workflow possibilities.</h2></div>
+      <section className="pm-section pm-products-first">
+        <div className="pm-section-head"><span className="pm-kicker">Product Ecosystem</span><h2>Live products first. Roadmap modules next.</h2></div>
         <div className="pm-product-ecosystem">
           {productCards.map((product) => (
             <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="pm-card pm-ecosystem-card" key={product.name}>
@@ -129,6 +91,11 @@ export default function ProductsPage() {
             </motion.article>
           ))}
         </div>
+      </section>
+
+      <section className="pm-section pm-solution-section">
+        <div className="pm-section-head"><span className="pm-kicker">Connected Workflow</span><h2>From modality upload to PACS, AI assistance, and reporting.</h2><p>Proxomind connects imaging centers, hospitals, radiologists, and dealers through a cloud-first diagnostic workflow.</p></div>
+        <div className="pm-workflow">{workflow.map((step) => <div key={step}>{step}</div>)}</div>
       </section>
 
       <section className="pm-section pm-deep-section pacs">
