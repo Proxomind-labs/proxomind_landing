@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ProductName from '../components/ProductName';
 
 const products = [
   { name: 'ProxoPACS', status: 'Live', title: 'Cloud PACS', copy: 'DICOM upload, browser viewer, study list, reporting workflow, secure sharing, and multi-center access.' },
@@ -56,9 +57,8 @@ export default function HomePage() {
       <section className="pm-section pm-product-strip">
         {products.map((product) => (
           <article key={product.name} className="pm-product-tile">
-            <img src="/proxopacs-mark.svg" alt="" />
             <StatusBadge status={product.status} />
-            <h3>{product.name}</h3>
+            <h3><ProductName name={product.name} /></h3>
             <strong>{product.title}</strong>
             <p>{product.copy}</p>
           </article>

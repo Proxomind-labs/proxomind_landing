@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ProductName from '../components/ProductName';
 
 const productCards = [
   {
@@ -98,9 +99,8 @@ export default function ProductsPage() {
         <div className="pm-product-ecosystem">
           {productCards.map((product) => (
             <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="pm-card pm-ecosystem-card" key={product.name}>
-              <img src="/proxopacs-mark.svg" alt="" />
               <StatusBadge status={product.status} />
-              <h3>{product.name}</h3>
+              <h3><ProductName name={product.name} /></h3>
               <strong>{product.headline}</strong>
               <p>{product.description}</p>
               <FeatureList items={product.features} />

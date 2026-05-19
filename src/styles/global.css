@@ -1004,6 +1004,25 @@ body {
   font-style: normal;
 }
 
+.pm-product-name {
+  color: #ffffff;
+  display: inline-flex;
+  font-family: Inter, sans-serif;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.pm-product-name em {
+  color: var(--pm-red);
+  font-style: normal;
+}
+
+.footer-product-name {
+  font-size: 1em;
+  letter-spacing: -0.015em;
+}
+
 .brand-copy small {
   color: var(--pm-dim);
   font-size: 10px;
@@ -1432,15 +1451,9 @@ body {
   font-weight: 850;
 }
 
-.pm-ecosystem-card img {
-  filter: drop-shadow(0 0 10px rgba(255, 51, 51, 0.45));
-  height: 34px;
-  width: 34px;
-}
-
 .pm-ecosystem-card h3 {
-  font-size: 28px;
-  margin: 22px 0 10px;
+  font-size: 30px;
+  margin: 26px 0 12px;
 }
 
 .pm-ecosystem-card strong {
@@ -1627,19 +1640,17 @@ body {
 .pm-product-tile,
 .pm-audience-grid article {
   border: 1px solid var(--pm-line);
-  background: rgba(8, 8, 10, 0.8);
+  background:
+    linear-gradient(145deg, rgba(255, 51, 51, 0.08), transparent 44%),
+    rgba(8, 8, 10, 0.82);
   border-radius: 18px;
   padding: 18px;
 }
 
-.pm-product-tile img {
-  height: 30px;
-  width: 30px;
-}
-
 .pm-product-tile h3 {
   color: #ffffff;
-  margin-top: 16px;
+  font-size: 24px;
+  margin-top: 22px;
 }
 
 .pm-product-tile strong {

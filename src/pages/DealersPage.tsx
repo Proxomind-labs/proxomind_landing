@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ProductName from '../components/ProductName';
 
 const dealerBenefits = [
   'Cloud-first deployment story',
@@ -80,8 +81,7 @@ export default function DealersPage() {
         <div className="pm-product-ecosystem">
           {dealerProducts.map(([name, copy]) => (
             <article className="pm-card pm-ecosystem-card" key={name}>
-              <img src="/proxopacs-mark.svg" alt="" />
-              <h3>{name}</h3>
+              <h3><ProductName name={name} /></h3>
               <p>{copy}</p>
             </article>
           ))}

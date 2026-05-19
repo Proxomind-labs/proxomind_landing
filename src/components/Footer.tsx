@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Logo from './Logo';
+import ProductName from './ProductName';
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -17,11 +18,13 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Products</h4>
             <ul>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>ProxoPACS</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>ProxoAI</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>ProxoLIMS</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>ProxoRIS</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>TeleReporting</a></li>
+              {['ProxoPACS', 'ProxoAI', 'ProxoLIMS', 'ProxoRIS', 'TeleReporting'].map((name) => (
+                <li key={name}>
+                  <a href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>
+                    <ProductName name={name} className="footer-product-name" />
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="footer-col">
