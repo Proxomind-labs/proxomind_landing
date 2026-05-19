@@ -77,7 +77,7 @@ export default function ProductsPage() {
           </div>
         </div>
         <div className="pm-workstation-hero product-dashboard">
-          <img src="/images/dicom-workstation.svg" alt="DICOM viewer workstation with worklist and CT scan panels" />
+          <img src="/images/pacs-workstation.avif" alt="DICOM viewer workstation with worklist and CT scan panels" />
         </div>
       </section>
 
@@ -111,7 +111,7 @@ export default function ProductsPage() {
 
       <section className="pm-section pm-deep-section pacs">
         <div className="pm-section-head"><span className="pm-kicker">Deep Dive</span><h2>ProxoPACS: Everything an imaging center needs to move from local to cloud.</h2></div>
-        <div className="pm-deep-grid"><FeatureList items={pacsFeatures} /><div className="pm-image-card"><img src="/images/dicom-workstation.svg" alt="ProxoPACS workstation with DICOM worklist and scan viewers" /></div></div>
+        <div className="pm-deep-grid"><FeatureList items={pacsFeatures} /><div className="pm-image-card"><img src="/images/pacs-workstation.avif" alt="ProxoPACS workstation with DICOM worklist and scan viewers" /></div></div>
       </section>
 
       <section className="pm-section pm-ai-deep">

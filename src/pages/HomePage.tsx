@@ -49,7 +49,7 @@ export default function HomePage() {
         </div>
 
         <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="pm-workstation-hero">
-          <img src="/images/dicom-workstation.svg" alt="ProxoPACS DICOM workstation showing worklist and CT scan viewers" />
+          <img src="/images/pacs-workstation.avif" alt="ProxoPACS DICOM workstation showing worklist and CT scan viewers" />
         </motion.div>
       </section>
 

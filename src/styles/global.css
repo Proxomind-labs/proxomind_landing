@@ -740,11 +740,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ============ MEDICAL IMAGE BACKGROUNDS (NO THREE.JS) ============ */
 :root {
-  --img-radiology-review: url('/images/dicom-workstation.svg');
-  --img-mri-center: url('/images/dicom-workstation.svg');
+  --img-radiology-review: url('/images/pacs-workstation.avif');
+  --img-mri-center: url('/images/pacs-workstation.avif');
   --img-xray-doctor: url('/images/ai-report-panel.svg');
   --img-xray-team: url('/images/ai-report-panel.svg');
-  --img-xray-office: url('/images/dicom-workstation.svg');
+  --img-xray-office: url('/images/pacs-workstation.avif');
 }
 
 .content::before {
@@ -911,11 +911,11 @@ h1, h2, h3, h4, h5, h6 {
   --accent: #7dd3fc;
   --glass-glow: rgba(255, 51, 51, 0.16);
   --glass-glow-strong: rgba(255, 51, 51, 0.26);
-  --img-radiology-review: url('/images/dicom-workstation.svg');
-  --img-mri-center: url('/images/dicom-workstation.svg');
+  --img-radiology-review: url('/images/pacs-workstation.avif');
+  --img-mri-center: url('/images/pacs-workstation.avif');
   --img-xray-doctor: url('/images/ai-report-panel.svg');
   --img-xray-team: url('/images/ai-report-panel.svg');
-  --img-xray-office: url('/images/dicom-workstation.svg');
+  --img-xray-office: url('/images/pacs-workstation.avif');
   --pm-bg: #030303;
   --pm-panel: rgba(9, 9, 11, 0.84);
   --pm-panel-strong: rgba(13, 13, 16, 0.94);
@@ -929,11 +929,11 @@ h1, h2, h3, h4, h5, h6 {
   --pm-green: #37d399;
   --pm-blue: #7dd3fc;
   --pm-radius: 22px;
-  --img-rad: url('/images/dicom-workstation.svg');
-  --img-mri: url('/images/dicom-workstation.svg');
+  --img-rad: url('/images/pacs-workstation.avif');
+  --img-mri: url('/images/pacs-workstation.avif');
   --img-xray: url('/images/ai-report-panel.svg');
   --img-team: url('/images/ai-report-panel.svg');
-  --img-office: url('/images/dicom-workstation.svg');
+  --img-office: url('/images/pacs-workstation.avif');
 }
 
 body {
@@ -1203,9 +1203,10 @@ body {
   filter: drop-shadow(0 48px 72px rgba(0, 0, 0, 0.86));
   height: auto;
   margin-inline: auto;
-  max-width: min(980px, 112%);
-  transform: translateX(-2%);
-  width: 112%;
+  max-width: min(940px, 108%);
+  object-fit: contain;
+  transform: translateX(-1%);
+  width: 108%;
 }
 
 .dealer-board img {
@@ -1519,6 +1520,7 @@ body {
   border-radius: 20px;
   display: block;
   height: auto;
+  object-fit: contain;
   width: 100%;
 }
 
@@ -1671,7 +1673,7 @@ body {
 }
 
 .pm-dealer-hero::before {
-  background-image: url('/images/dicom-workstation.svg');
+  background-image: url('/images/pacs-workstation.avif');
 }
 
 .pm-image-section h2 {

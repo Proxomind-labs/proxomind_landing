@@ -68,7 +68,7 @@ export default function DealersPage() {
               </article>
             ))}
           </div>
-          <img src="/images/dicom-workstation.svg" alt="Dealer-ready ProxoPACS DICOM workstation visual" />
+          <img src="/images/pacs-workstation.avif" alt="Dealer-ready ProxoPACS DICOM workstation visual" />
         </div>
       </section>
 
