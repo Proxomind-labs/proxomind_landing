@@ -974,15 +974,7 @@ body {
 .brand-lockup {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-width: 178px;
-}
-
-.brand-mark {
-  width: 34px;
-  height: 34px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 12px rgba(124, 99, 255, 0.48));
+  min-width: 144px;
 }
 
 .brand-copy {
@@ -1125,6 +1117,20 @@ body {
   letter-spacing: 0.18em;
   margin-bottom: 14px;
   text-transform: uppercase;
+}
+
+.pm-hero-line {
+  border: 1px solid rgba(255, 51, 51, 0.28);
+  background:
+    linear-gradient(90deg, rgba(255, 51, 51, 0.16), rgba(255, 255, 255, 0.035));
+  border-radius: 999px;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.02em;
+  margin-bottom: 18px;
+  padding: 9px 14px;
 }
 
 .pm-hero h1 {
@@ -1393,29 +1399,58 @@ body {
 }
 
 .pm-impact-strip {
-  border-block: 1px solid var(--pm-line);
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  padding: 0 max(28px, calc((100vw - 1280px) / 2));
+  gap: 14px;
+  padding: 42px max(28px, calc((100vw - 1280px) / 2));
 }
 
 .pm-impact-strip div {
-  border-right: 1px solid var(--pm-line);
-  min-height: 128px;
-  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(255, 51, 51, 0.24), transparent 32%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border-radius: 22px;
+  min-height: 176px;
+  overflow: hidden;
+  padding: 22px;
+  position: relative;
+}
+
+.pm-impact-strip div::after {
+  bottom: -28px;
+  color: rgba(255, 255, 255, 0.035);
+  content: attr(data-index);
+  font-size: 88px;
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  position: absolute;
+  right: 14px;
 }
 
 .pm-impact-strip strong {
   color: var(--pm-red);
   display: block;
-  font-size: 13px;
-  margin-bottom: 20px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  margin-bottom: 30px;
+  text-transform: uppercase;
 }
 
 .pm-impact-strip span {
   color: #ffffff;
-  font-size: 16px;
-  font-weight: 800;
+  display: block;
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.pm-impact-strip p {
+  color: var(--pm-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 12px;
 }
 
 .pm-grid,
@@ -1449,6 +1484,41 @@ body {
   display: flex;
   font-size: 17px;
   font-weight: 850;
+}
+
+.pm-problem-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+}
+
+.pm-problem-card strong {
+  align-items: center;
+  border: 1px solid var(--pm-red-line);
+  background: rgba(255, 51, 51, 0.09);
+  border-radius: 999px;
+  color: var(--pm-red);
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 900;
+  height: 34px;
+  justify-content: center;
+  margin-bottom: 34px;
+  width: 54px;
+}
+
+.pm-problem-card h3 {
+  font-size: 23px;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.pm-problem-card p {
+  color: var(--pm-muted);
+  font-size: 14px;
+  line-height: 1.55;
+  margin-top: auto;
 }
 
 .pm-ecosystem-card h3 {

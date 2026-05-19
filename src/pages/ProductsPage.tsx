@@ -30,8 +30,27 @@ const productCards = [
   },
 ];
 
-const impact = ['Cloud study access', 'Multi-center workflow', 'AI-assisted reporting', 'Browser-first viewer', 'Dealer deployment support', 'Remote reporting ready', 'Scalable cloud storage', 'DICOM workflow support'];
-const problems = ['Local PACS is hard to maintain', 'Images are difficult to share', 'Radiologists need remote access', 'Reports take time to review', 'Dealers need easy deployment', 'Centers need multi-branch visibility', 'Labs and radiology departments work in silos', 'AI tools are disconnected from daily workflow'];
+const impact = [
+  ['Cloud study access', 'Open studies from browser-ready cloud workspaces.'],
+  ['Multi-center workflow', 'Connect branches, admins, and radiologists in one view.'],
+  ['AI-assisted reporting', 'Use ProxoAI for report review and clinical context support.'],
+  ['Browser-first viewer', 'Reduce workstation dependency with web-based access.'],
+  ['Dealer deployment support', 'Give partners a clean demo, setup, and activation story.'],
+  ['Remote reporting ready', 'Prepare centers for secure remote radiology operations.'],
+  ['Scalable cloud storage', 'Move away from fragile local-only image archives.'],
+  ['DICOM workflow support', 'Upload, search, view, and coordinate diagnostic studies.'],
+];
+
+const problems = [
+  ['Local PACS lock-in', 'Studies sit on one machine, backups are fragile, and access depends on local IT.'],
+  ['Slow image sharing', 'Centers still burn CDs, send files manually, or depend on physical visits.'],
+  ['Remote reads are messy', 'Radiologists need clean browser access without fighting center systems.'],
+  ['Report review takes time', 'Context, prior notes, findings, and impressions stay scattered.'],
+  ['Dealer deployment is hard', 'Dealers need a reliable software layer they can explain, demo, and support.'],
+  ['Branch visibility is limited', 'Owners cannot easily see studies, status, and workflow across locations.'],
+  ['Lab and radiology silos', 'Imaging, lab reporting, and center operations rarely speak the same language.'],
+  ['AI sits outside workflow', 'Most AI tools feel separate instead of working beside PACS and reporting.'],
+];
 const workflow = ['Modality', 'Local Uploader', 'Cloud PACS', 'DICOM Viewer', 'AI Assistance', 'Report Review', 'Doctor / Center', 'Dealer Support'];
 const pacsFeatures = ['DICOM upload from local machine', 'Local uploader / bridge app', 'Cloud study access', 'Browser DICOM viewer', 'X-ray, CT, MRI, US support', 'Study search', 'Patient-wise access', 'Center-wise dashboard', 'Multi-user login', 'Viewer-only access', 'Radiologist access', 'Secure sharing links', 'Report attachment', 'Study status', 'Upload retry handling', 'Cloud storage backend', 'Audit trail ready', 'Backup-ready architecture', 'Dealer onboarding support', 'Future DICOM print support', 'Future modality worklist support'];
 const aiGroups = [
@@ -64,6 +83,7 @@ export default function ProductsPage() {
     <div className="pm-page pm-product-page">
       <section className="pm-hero pm-product-hero">
         <div className="pm-hero-copy wide">
+          <span className="pm-hero-line">Bring every diagnostic center into the cloud era.</span>
           <span className="pm-kicker">Proxomind Labs healthcare product ecosystem</span>
           <h1>Cloud PACS + Medical AI for the Next Generation of Diagnostic Centers</h1>
           <p>Proxomind brings cloud imaging, DICOM workflow, AI-assisted report analysis, image review support, RIS, LIMS, and remote reporting into one connected healthcare platform.</p>
@@ -82,11 +102,11 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="pm-impact-strip">{impact.map((item, index) => <div key={item}><strong>{String(index + 1).padStart(2, '0')}</strong><span>{item}</span></div>)}</section>
+      <section className="pm-impact-strip">{impact.map(([title, copy], index) => <div key={title} data-index={String(index + 1).padStart(2, '0')}><strong>{String(index + 1).padStart(2, '0')}</strong><span>{title}</span><p>{copy}</p></div>)}</section>
 
       <section className="pm-section">
         <div className="pm-section-head"><span className="pm-kicker">The Problem</span><h2>Diagnostic centers are growing, but imaging workflow is still fragmented.</h2></div>
-        <div className="pm-grid four">{problems.map((item) => <article className="pm-card compact" key={item}>{item}</article>)}</div>
+        <div className="pm-grid four pm-problem-grid">{problems.map(([title, copy], index) => <article className="pm-card pm-problem-card" key={title}><strong>{String(index + 1).padStart(2, '0')}</strong><h3>{title}</h3><p>{copy}</p></article>)}</div>
       </section>
 
       <section className="pm-section pm-solution-section">

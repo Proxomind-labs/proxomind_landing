@@ -33,6 +33,9 @@ export default function HomePage() {
     <div className="pm-page">
       <section className="pm-hero pm-image-hero">
         <div className="pm-hero-copy">
+          <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-hero-line">
+            Bring every diagnostic center into the cloud era.
+          </motion.div>
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-kicker">
             Proxomind Labs diagnostic cloud platform
           </motion.div>
