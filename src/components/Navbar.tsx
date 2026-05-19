@@ -1,27 +1,9 @@
-import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const header = document.querySelector('.header') as HTMLElement;
-      if (header) {
-        if (window.scrollY > 50) {
-          header.style.background = 'rgba(3, 3, 8, 0.9)';
-          header.style.backdropFilter = 'blur(20px)';
-        } else {
-          header.style.background = 'transparent';
-          header.style.backdropFilter = 'none';
-        }
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -31,6 +13,7 @@ export default function Navbar() {
         <a href="/" className="logo" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
           <Logo />
         </a>
+        <div className="nav-punchline">Bring every diagnostic center into the cloud era.</div>
         <nav className="nav">
           <button
             onClick={() => navigate('/')}
