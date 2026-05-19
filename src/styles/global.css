@@ -1843,7 +1843,7 @@ body {
   background:
     radial-gradient(circle at 50% 58%, rgba(255, 51, 51, 0.25), transparent 52%),
     radial-gradient(circle at 55% 95%, rgba(255, 255, 255, 0.12), transparent 32%);
-  aspect-ratio: 2.12 / 1;
+  aspect-ratio: 16 / 9;
   border-radius: 0;
   overflow: hidden;
   padding: 0;
@@ -1852,12 +1852,12 @@ body {
 
 .pm-ai-dashboard-image,
 .proxoai-console-card img {
-  aspect-ratio: 2.12 / 1;
+  aspect-ratio: 16 / 9;
   border-radius: 24px;
   display: block;
   filter: drop-shadow(0 28px 54px rgba(0, 0, 0, 0.68));
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
   width: 100%;
 }
@@ -2696,6 +2696,56 @@ html[data-theme='light'] textarea::placeholder {
   background: rgba(255, 51, 51, 0.1);
   border: 1px solid var(--pm-red-line);
   color: #ffd7d7;
+}
+
+.pm-product-page .pm-product-ecosystem {
+  gap: 22px;
+}
+
+.pm-product-page .pm-ecosystem-card:nth-child(1),
+.pm-product-page .pm-ecosystem-card:nth-child(2) {
+  box-shadow: inset 0 0 0 1px rgba(255, 51, 51, 0.18), 0 30px 90px rgba(255, 51, 51, 0.08) !important;
+}
+
+.pm-dealer-hero .pm-dashboard-mock {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 51, 51, 0.18), transparent 34%),
+    radial-gradient(circle at 88% 70%, rgba(125, 211, 252, 0.12), transparent 34%),
+    rgba(8, 8, 10, 0.78) !important;
+}
+
+.pm-dealer-inquiry {
+  padding-top: 64px;
+}
+
+.pm-dealer-inquiry .pm-contact-form-wrap {
+  max-width: 1080px;
+}
+
+html[data-theme='light'] .pm-product-page .pm-ecosystem-card,
+html[data-theme='light'] .pm-product-page .pm-card,
+html[data-theme='light'] .pm-dealer-inquiry .pm-contact-form-wrap,
+html[data-theme='light'] .pm-dealer-hero .pm-dashboard-mock {
+  background:
+    linear-gradient(120deg, rgba(239, 35, 60, 0.045), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent) !important;
+}
+
+html[data-theme='light'] .pm-product-page .pm-ecosystem-card:nth-child(1),
+html[data-theme='light'] .pm-product-page .pm-ecosystem-card:nth-child(2) {
+  border-top-color: rgba(239, 35, 60, 0.24) !important;
+}
+
+html[data-theme='light'] .pm-product-page .pm-ecosystem-card:nth-child(3),
+html[data-theme='light'] .pm-product-page .pm-ecosystem-card:nth-child(4),
+html[data-theme='light'] .pm-product-page .pm-ecosystem-card:nth-child(5) {
+  border-top-color: rgba(20, 184, 166, 0.18) !important;
+}
+
+html[data-theme='light'] .pm-dealer-hero .pm-dashboard-mock,
+html[data-theme='light'] .pm-dealer-inquiry .pm-contact-form-wrap {
+  border-top: 1px solid rgba(239, 35, 60, 0.18) !important;
+  box-shadow: 0 34px 90px rgba(119, 24, 38, 0.08) !important;
 }
 
 @media (max-width: 1180px) {

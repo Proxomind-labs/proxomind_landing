@@ -6,10 +6,10 @@ type Theme = 'dark' | 'light';
 
 const getStoredTheme = (): Theme => {
   if (typeof window === 'undefined') {
-    return 'dark';
+    return 'light';
   }
 
-  return window.localStorage.getItem('proxomind-theme') === 'light' ? 'light' : 'dark';
+  return window.localStorage.getItem('proxomind-theme') === 'dark' ? 'dark' : 'light';
 };
 
 export default function Navbar() {
@@ -24,6 +24,12 @@ export default function Navbar() {
 
   const isActive = (path: string) => location.pathname === path;
   const nextTheme = theme === 'light' ? 'dark' : 'light';
+  const goToDealerInquiry = () => {
+    navigate('/dealers#dealer-inquiry');
+    window.setTimeout(() => {
+      document.getElementById('dealer-inquiry')?.scrollIntoView({ behavior: 'smooth' });
+    }, 80);
+  };
 
   return (
     <header className="header">
@@ -49,7 +55,7 @@ export default function Navbar() {
             onClick={() => navigate('/contact')}
             className={`nav-link${isActive('/contact') ? ' nav-link-active' : ''}`}
           >Contact</button>
-          <button className="cta-btn" onClick={() => navigate('/contact')}>Dealer Inquiry</button>
+          <button className="cta-btn" onClick={goToDealerInquiry}>Dealer Inquiry</button>
         </nav>
         <button
           type="button"

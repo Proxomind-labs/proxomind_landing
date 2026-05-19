@@ -1,5 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import InquiryPanel from '../components/InquiryPanel';
 import ProductName from '../components/ProductName';
 
 const dealerBenefits = [
@@ -42,6 +44,14 @@ function ChipList({ items }: { items: string[] }) {
 
 export default function DealersPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const scrollToInquiry = () => document.getElementById('dealer-inquiry')?.scrollIntoView({ behavior: 'smooth' });
+
+  useEffect(() => {
+    if (location.hash === '#dealer-inquiry') {
+      window.setTimeout(scrollToInquiry, 80);
+    }
+  }, [location.hash]);
 
   return (
     <div className="pm-page">
@@ -57,7 +67,7 @@ export default function DealersPage() {
             Proxomind gives dealers a clean cloud PACS + medical AI story today, with RIS, LIMS, and TeleReporting modules that grow long-term customer value.
           </motion.p>
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-actions">
-            <button onClick={() => navigate('/contact')} className="pm-btn primary">Become a Dealer</button>
+            <button onClick={scrollToInquiry} className="pm-btn primary">Become a Dealer</button>
             <button onClick={() => navigate('/products')} className="pm-btn secondary">View Platform</button>
           </motion.div>
         </div>
@@ -108,7 +118,7 @@ export default function DealersPage() {
           <p>
             ProxoPACS makes the operational pain obvious in a demo. ProxoAI adds a strong AI workflow layer. The upcoming RIS, LIMS, and TeleReporting modules make the account expandable after the first deployment.
           </p>
-          <button onClick={() => navigate('/contact')} className="pm-btn primary">Start Dealer Conversation</button>
+          <button onClick={scrollToInquiry} className="pm-btn primary">Start Dealer Conversation</button>
         </div>
         <div className="pm-card">
           <h3>Dealer advantages</h3>
@@ -130,9 +140,28 @@ export default function DealersPage() {
         <h2>Ready to sell the next generation of diagnostic software?</h2>
         <p>Proxomind provides demo environment, training, and ongoing support for dealer partners.</p>
         <div className="pm-actions">
-          <button onClick={() => navigate('/contact')} className="pm-btn primary">Start Dealer Conversation</button>
+          <button onClick={scrollToInquiry} className="pm-btn primary">Start Dealer Conversation</button>
           <button onClick={() => navigate('/products')} className="pm-btn ghost">View Full Platform</button>
         </div>
+      </section>
+
+      <section className="pm-section pm-contact-section pm-dealer-inquiry" id="dealer-inquiry">
+        <div className="pm-section-head">
+          <span className="pm-kicker">Dealer enquiry</span>
+          <h2>Contact and dealer onboarding now live in one place.</h2>
+          <p>Share your region, center network, modality mix, or dealer plan. The same Proxomind team handles sales, onboarding, and product demo conversations.</p>
+        </div>
+        <InquiryPanel
+          title="Dealer Enquiry"
+          intro="Use this form for dealer partnerships, center demos, ProxoPACS rollout questions, or ProxoAI workflow evaluation."
+          items={[
+            'Dealer / Reseller partnership',
+            'Demo environment access',
+            'Center onboarding and activation',
+            'PACS + AI bundle discussion',
+            'Regional partner opportunity',
+          ]}
+        />
       </section>
     </div>
   );
