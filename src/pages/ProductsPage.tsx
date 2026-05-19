@@ -84,7 +84,7 @@ export default function ProductsPage() {
     <div className="pm-page pm-product-page">
       <section className="pm-hero pm-product-hero">
         <div className="pm-hero-copy wide">
-          <span className="pm-hero-line">Bring every diagnostic center into the cloud era.</span>
+          <span className="pm-hero-line">Local imaging. Cloud PACS. AI-assisted reporting.</span>
           <span className="pm-kicker">Proxomind Labs healthcare product ecosystem</span>
           <h1>Cloud PACS + Medical AI for the Next Generation of Diagnostic Centers</h1>
           <p>Proxomind brings cloud imaging, DICOM workflow, AI-assisted report analysis, image review support, RIS, LIMS, and remote reporting into one connected healthcare platform.</p>
@@ -161,7 +161,7 @@ export default function ProductsPage() {
       <section className="pm-section"><div className="pm-section-head"><span className="pm-kicker">Roadmap</span><h2>From PACS to full diagnostic operating system.</h2></div><div className="pm-roadmap">{roadmap.map((x, i) => <div key={x}><span>{String(i + 1).padStart(2, '0')}</span><strong>{x}</strong></div>)}</div></section>
       <section className="pm-section"><div className="pm-section-head"><span className="pm-kicker">Pricing Preview</span><h2>Choose a plan path. Contact for demo pricing.</h2></div><div className="pm-grid five">{pricing.map((x) => <article className="pm-card compact" key={x}><h3>{x}</h3><p>Contact for demo pricing</p></article>)}</div></section>
       <section className="pm-section"><div className="pm-section-head"><span className="pm-kicker">FAQ</span><h2>Common questions</h2></div><div className="pm-faq">{faqs.map((q) => <details key={q}><summary>{q}</summary><p>Talk to Proxomind Labs for deployment details, module availability, onboarding, and integration requirements.</p></details>)}</div></section>
-      <section className="pm-final-cta"><h2>Bring your diagnostic center into the cloud era.</h2><p>Cloud PACS is only the beginning. From DICOM upload to AI-assisted reporting, Proxomind connects the full diagnostic workflow.</p><div className="pm-actions"><button onClick={() => navigate('/contact')} className="pm-btn primary">Book Live Demo</button><a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open ProxoPACS</a><button onClick={() => navigate('/dealers')} className="pm-btn ghost">Become a Dealer</button><button onClick={() => navigate('/contact')} className="pm-btn ghost">Talk to Proxomind</button></div></section>
+      <section className="pm-final-cta"><h2>Turn local imaging centers into cloud-connected diagnostic networks.</h2><p>Cloud PACS is only the beginning. From DICOM upload to AI-assisted reporting, Proxomind connects the full diagnostic workflow.</p><div className="pm-actions"><button onClick={() => navigate('/contact')} className="pm-btn primary">Book Live Demo</button><a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open ProxoPACS</a><button onClick={() => navigate('/dealers')} className="pm-btn ghost">Become a Dealer</button><button onClick={() => navigate('/contact')} className="pm-btn ghost">Talk to Proxomind</button></div></section>
     </div>
   );
 }
