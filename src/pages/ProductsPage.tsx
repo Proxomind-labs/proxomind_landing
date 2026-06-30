@@ -5,9 +5,19 @@ import { PROXOPACS_URL } from '../constants';
 
 const productCards = [
   {
-    name: 'ProxoPACS', status: 'Live', headline: 'Browser-first cloud PACS for diagnostic centers.',
+    name: 'ProxoPACS Cloud', status: 'Live', headline: 'Browser-first cloud PACS for diagnostic centers.',
     description: 'DICOM upload, study access, browser viewing, reporting workflow, multi-site operations, and secure sharing.',
     features: ['DICOM upload workflow', 'Browser DICOM viewer', 'Study list and patient access', 'Cloud storage', 'Multi-center support', 'Role-based access', 'Report workflow support', 'Secure sharing'],
+  },
+  {
+    name: 'ProxoPACS Lite', status: 'Live', headline: 'Lightweight local PACS for quick deployments.',
+    description: 'Simplified local PACS solution for smaller clinics and diagnostic centers.',
+    features: ['Local DICOM storage', 'Basic viewing', 'Fast deployment', 'Study list'],
+  },
+  {
+    name: 'ProxoPrism', status: 'Live', headline: 'Diagnostic workstation connected to detector and PACS.',
+    description: 'Workstation that connects directly with your imaging detector and PACS solution for seamless workflow.',
+    features: ['Detector integration', 'PACS connectivity', 'Local viewing', 'Modality interface'],
   },
   {
     name: 'ProxoAI', status: 'Live', headline: 'Medical AI assistant layer for review and workflow.',
@@ -25,8 +35,13 @@ const productCards = [
     features: ['Appointment scheduling', 'Modality worklists', 'Radiologist assignment', 'Patient flow tracking', 'Center utilization view'],
   },
   {
-    name: 'TeleReporting', status: 'Coming', headline: 'Secure remote radiology reporting workflow.',
-    description: 'Remote reporting for diagnostic centers, hospitals, and radiologists needing secure remote reads.',
+    name: 'ProxoHMS', status: 'Upcoming', headline: 'Hospital management system for connected care.',
+    description: 'Hospital information workflow connecting clinical care, billing, and administration workflows.',
+    features: ['Patient tracking', 'Billing & invoicing', 'Department flow', 'EMR integration'],
+  },
+  {
+    name: 'ProxoReporting', status: 'Coming', headline: 'Secure remote radiology reporting workflow.',
+    description: 'Telereporting for diagnostic centers, hospitals, and radiologists needing secure remote reads.',
     features: ['Remote reads', 'Radiologist network', 'Case assignment', 'Urgent study routing', 'Secure cloud access'],
   },
 ];
@@ -46,8 +61,8 @@ const aiGroups: [string, string[]][] = [
 
 const productFaqs = [
   {
-    question: 'What is ProxoPACS?',
-    answer: 'ProxoPACS is a browser-first cloud PACS from Proxomind Labs for DICOM upload, cloud study access, image viewing, reporting workflow, secure sharing, and multi-center diagnostic operations.',
+    question: 'What is ProxoPACS Cloud?',
+    answer: 'ProxoPACS Cloud is a browser-first cloud PACS from Proxomind Labs for DICOM upload, cloud study access, image viewing, reporting workflow, secure sharing, and multi-center diagnostic operations.',
   },
   {
     question: 'What is ProxoAI?',
@@ -79,7 +94,7 @@ export default function ProductsPage() {
       <section className="pm-section pm-products-top">
         <div className="pm-section-head">
           <span className="pm-kicker">Product Ecosystem</span>
-          <h2>Five products. One connected diagnostic platform.</h2>
+          <h2>Eight products. One connected diagnostic platform.</h2>
         </div>
         <div className="pm-product-ecosystem">
           {productCards.map((product) => (
@@ -95,9 +110,9 @@ export default function ProductsPage() {
               <strong>{product.headline}</strong>
               <p>{product.description}</p>
               <FeatureList items={product.features} />
-              {product.name === 'ProxoPACS' && (
+              {product.name === 'ProxoPACS Cloud' && (
                 <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-card-link">
-                  Launch ProxoPACS
+                  Launch ProxoPACS Cloud
                 </a>
               )}
             </motion.article>
@@ -107,13 +122,13 @@ export default function ProductsPage() {
 
       <section className="pm-section pm-deep-section pacs">
         <div className="pm-section-head">
-          <span className="pm-kicker">ProxoPACS</span>
+          <span className="pm-kicker">ProxoPACS Cloud</span>
           <h2>Everything an imaging center needs to move from local to cloud.</h2>
         </div>
         <div className="pm-deep-grid">
           <FeatureList items={pacsFeatures} />
           <div className="pm-image-card">
-            <img src="/images/pacs-workstation.avif" alt="ProxoPACS workstation with DICOM worklist and scan viewers" />
+            <img src="/images/pacs-workstation.avif" alt="ProxoPACS Cloud workstation with DICOM worklist and scan viewers" />
           </div>
         </div>
       </section>
@@ -162,7 +177,7 @@ export default function ProductsPage() {
         <p>From DICOM upload to AI-assisted reporting, Proxomind connects the full diagnostic workflow.</p>
         <div className="pm-actions">
           <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn primary">Book Live Demo</button>
-          <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open ProxoPACS</a>
+          <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open ProxoPACS Cloud</a>
           <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn ghost">Partner With Us</button>
         </div>
       </section>

@@ -4,11 +4,14 @@ import ProductName from '../components/ProductName';
 import { PROXOPACS_URL } from '../constants';
 
 const products = [
-  { name: 'ProxoPACS', status: 'Live', title: 'Cloud PACS', href: PROXOPACS_URL, copy: 'DICOM upload, browser viewer, study list, reporting workflow, secure sharing, and multi-center access.' },
+  { name: 'ProxoPACS Cloud', status: 'Live', title: 'Cloud PACS', href: PROXOPACS_URL, copy: 'DICOM upload, browser viewer, study list, reporting workflow, secure sharing, and multi-center access.' },
+  { name: 'ProxoPACS Lite', status: 'Live', title: 'Local PACS', copy: 'Lightweight local PACS solution for quick deployments.' },
+  { name: 'ProxoPrism', status: 'Live', title: 'Workstation', copy: 'Workstation that connects with detector and PACS solution.' },
   { name: 'ProxoAI', status: 'Live', title: 'Medical AI Assistant', copy: 'AI-assisted report review, image analysis support, clinical summaries, and workflow acceleration.' },
   { name: 'ProxoLIMS', status: 'Upcoming', title: 'Lab Workflow', copy: 'Sample lifecycle, lab orders, reports, barcode-ready workflows, and diagnostics coordination.' },
   { name: 'ProxoRIS', status: 'Upcoming', title: 'Radiology Operations', copy: 'Appointments, modality worklists, radiologist assignment, utilization views, and department flow.' },
-  { name: 'TeleReporting', status: 'Coming', title: 'Remote Reads', copy: 'Remote reporting, case assignment, radiologist network, urgent routing, and secure report delivery.' },
+  { name: 'ProxoHMS', status: 'Upcoming', title: 'Hospital Management', copy: 'Hospital information workflow and clinical care coordination.' },
+  { name: 'ProxoReporting', status: 'Coming', title: 'Telereporting', copy: 'Telereporting, case assignment, radiologist network, urgent routing, and secure report delivery.' },
 ];
 
 const searchSnapshot = [
@@ -18,7 +21,7 @@ const searchSnapshot = [
   },
   {
     title: 'Main live products',
-    copy: 'ProxoPACS is a live browser-first cloud PACS for DICOM upload, study access, cloud storage, secure sharing, and radiologist workflows. ProxoAI is a live medical AI assistance layer for report review, image review support, clinical summaries, and workflow acceleration.',
+    copy: 'ProxoPACS Cloud is a live browser-first cloud PACS for DICOM upload, study access, cloud storage, secure sharing, and radiologist workflows. ProxoAI is a live medical AI assistance layer for report review, image review support, clinical summaries, and workflow acceleration.',
   },
   {
     title: 'Best-fit customers',
@@ -50,7 +53,7 @@ export default function HomePage() {
             Cloud PACS and medical AI for modern diagnostic networks.
           </motion.h1>
           <motion.p initial="hidden" animate="visible" variants={fadeInUp}>
-            ProxoPACS and ProxoAI are live today, with ProxoRIS, ProxoLIMS, and TeleReporting completing one partner-ready healthcare platform.
+            ProxoPACS Cloud, ProxoPACS Lite, ProxoPrism, and ProxoAI are live today, with ProxoRIS, ProxoLIMS, and TeleReporting completing one partner-ready healthcare platform.
           </motion.p>
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-actions">
             <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn primary">Book a Demo</button>
@@ -71,7 +74,7 @@ export default function HomePage() {
             <h3><ProductName name={product.name} /></h3>
             <strong>{product.title}</strong>
             <p>{product.copy}</p>
-            {product.href && <a href={product.href} target="_blank" rel="noopener noreferrer" className="pm-card-link">Open ProxoPACS</a>}
+            {product.href && <a href={product.href} target="_blank" rel="noopener noreferrer" className="pm-card-link">Open ProxoPACS Cloud</a>}
           </article>
         ))}
       </section>
@@ -113,7 +116,7 @@ export default function HomePage() {
           </div>
           <div className="pm-actions">
             <button onClick={() => navigate('/products')} className="pm-btn primary">Explore ProxoAI</button>
-            <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open ProxoPACS</a>
+            <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open ProxoPACS Cloud</a>
           </div>
         </div>
         <div className="pm-ai-command-visual">

@@ -2861,3 +2861,24 @@ html[data-theme='light'] .pm-partner-inquiry .pm-contact-form-wrap {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 900px) {
+  .nav.nav-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 86px;
+    left: 0;
+    right: 0;
+    background: rgba(3,3,3,0.95);
+    backdrop-filter: blur(14px);
+    padding: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    pointer-events: auto;
+  }
+}
+
+html[data-theme='light'] .nav.nav-open {
+  background: rgba(255,255,255,0.95);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}

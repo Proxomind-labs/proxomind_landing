@@ -10,14 +10,12 @@
       (function () {
         try {
           var theme = localStorage.getItem('proxomind-theme');
-          document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+          document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
         } catch (error) {
-          document.documentElement.dataset.theme = 'light';
+          document.documentElement.dataset.theme = 'dark';
         }
       })();
     </script>
-
-    <!-- Primary SEO -->
     <title>Proxomind Labs | Cloud PACS, Medical AI, RIS, LIMS and TeleReporting</title>
     <meta name="description" content="ProxoPACS is a browser-first cloud PACS for diagnostic imaging centers - DICOM upload, browser viewer, AI-assisted reporting, multi-center access, and secure sharing. ProxoAI adds clinical AI workflow support. Built for channel partners, hospitals, and diagnostic networks." />
     <meta name="keywords" content="cloud PACS, DICOM viewer, DICOM cloud storage, ProxoPACS, ProxoAI, medical imaging software, radiology software, hospital PACS, diagnostic center software, medical AI reporting, AI radiology, cloud RIS, cloud LIMS, TeleReporting, remote radiology, DICOM uploader, browser DICOM viewer, imaging center software, teleradiology platform, cloud radiology, best cloud PACS India, PACS software for partners" />

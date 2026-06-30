@@ -19,14 +19,14 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Products</h4>
             <ul>
-              {['ProxoPACS', 'ProxoAI', 'ProxoLIMS', 'ProxoRIS', 'TeleReporting'].map((name) => (
+              {['ProxoPACS Cloud', 'ProxoPACS Lite', 'ProxoPrism', 'ProxoAI', 'ProxoLIMS', 'ProxoRIS', 'ProxoHMS', 'ProxoReporting'].map((name) => (
                 <li key={name}>
                   <a
-                    href={name === 'ProxoPACS' ? PROXOPACS_URL : '#'}
-                    target={name === 'ProxoPACS' ? '_blank' : undefined}
-                    rel={name === 'ProxoPACS' ? 'noopener noreferrer' : undefined}
+                    href={name === 'ProxoPACS Cloud' ? PROXOPACS_URL : '#'}
+                    target={name === 'ProxoPACS Cloud' ? '_blank' : undefined}
+                    rel={name === 'ProxoPACS Cloud' ? 'noopener noreferrer' : undefined}
                     onClick={(e) => {
-                      if (name !== 'ProxoPACS') {
+                      if (name !== 'ProxoPACS Cloud') {
                         e.preventDefault();
                         navigate('/products');
                       }
@@ -54,6 +54,7 @@ export default function Footer() {
               <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/partners#partner-inquiry'); }}>Partner Enquiry</a></li>
               <li><a href="mailto:contact@proxomind.com">contact@proxomind.com</a></li>
               <li><a href="https://proxomind.com">proxomind.com</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); navigate('/privacy-policy'); }}>Privacy Policy</a></li>
             </ul>
           </div>
         </div>

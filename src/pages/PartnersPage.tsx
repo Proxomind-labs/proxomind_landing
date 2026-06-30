@@ -26,11 +26,14 @@ const salesFlow = [
 ];
 
 const partnerProducts = [
-  ['ProxoPACS', 'Live cloud PACS for upload, viewing, sharing, reporting workflow, and multi-center access.'],
+  ['ProxoPACS Cloud', 'Live cloud PACS for upload, viewing, sharing, reporting workflow, and multi-center access.'],
+  ['ProxoPACS Lite', 'Live lightweight local PACS solution for quick deployments and smaller clinics.'],
+  ['ProxoPrism', 'Live diagnostic workstation connected directly to your detector and PACS solution.'],
   ['ProxoAI', 'Live assistive layer for report review, image analysis support, and clinical summaries.'],
   ['ProxoRIS', 'Upcoming scheduling, worklists, assignments, and radiology operations visibility.'],
   ['ProxoLIMS', 'Upcoming lab sample tracking, lab reports, and center-to-lab coordination.'],
-  ['TeleReporting', 'Coming remote reads, case assignment, urgent routing, and report delivery.'],
+  ['ProxoHMS', 'Upcoming hospital management system for connected clinical care.'],
+  ['ProxoReporting', 'Coming telereporting, remote reads, case assignment, urgent routing, and report delivery.'],
 ];
 
 const fadeInUp = {
