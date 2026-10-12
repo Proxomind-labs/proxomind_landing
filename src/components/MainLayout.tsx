@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Lenis from 'lenis';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import MouseGlow from './MouseGlow';
 
 export default function MainLayout() {
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function MainLayout() {
 
   return (
     <div className="app">
+      <MouseGlow />
       <div className="content">
         <Navbar />
         <main>

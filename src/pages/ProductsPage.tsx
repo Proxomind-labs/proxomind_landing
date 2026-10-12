@@ -5,52 +5,52 @@ import { PROXOPACS_URL } from '../constants';
 
 const productCards = [
   {
-    name: 'ProxoPACS Cloud', status: 'Live', headline: 'Browser-first cloud PACS for diagnostic centers.',
-    description: 'DICOM upload, study access, browser viewing, reporting workflow, multi-site operations, and secure sharing.',
-    features: ['DICOM upload workflow', 'Browser DICOM viewer', 'Study list and patient access', 'Cloud storage', 'Multi-center support', 'Role-based access', 'Report workflow support', 'Secure sharing'],
+    name: 'Sonar', status: 'Live', headline: 'Remote & Enterprise PACS with zero monthly subscription fees.',
+    description: 'Ultra-fast remote and enterprise PACS engine. Sub-second image load times, local high-speed mesh transfer, and full remote access with no recurring subscription fees.',
+    features: ['Zero monthly subscription', 'Remote & cloud access', 'Sub-second image loading', 'DICOM C-STORE/C-ECHO gateway', 'P2P mesh transfer', 'Diagnostic radiologist client'],
   },
   {
-    name: 'ProxoPACS Lite', status: 'Live', headline: 'Lightweight local PACS for quick deployments.',
-    description: 'Simplified local PACS solution for smaller clinics and diagnostic centers.',
-    features: ['Local DICOM storage', 'Basic viewing', 'Fast deployment', 'Study list'],
+    name: 'CloudPACS', status: 'Live', headline: 'Browser-first cloud PACS for diagnostic imaging networks.',
+    description: 'Browser-native DICOM viewer, cloud study archive, multi-center operations, and secure study sharing.',
+    features: ['Browser DICOM viewer', 'Cloud study access', 'Multi-center support', 'Role-based access', 'Report workflow', 'Secure sharing links', 'Cloud storage backend'],
   },
   {
-    name: 'ProxoPrism', status: 'Live', headline: 'Diagnostic workstation connected to detector and PACS.',
-    description: 'Workstation that connects directly with your imaging detector and PACS solution for seamless workflow.',
-    features: ['Detector integration', 'PACS connectivity', 'Local viewing', 'Modality interface'],
+    name: 'Prism', status: 'Live', headline: 'Diagnostic workstation connected directly to flat-panel detectors.',
+    description: 'Hardware acquisition workstation linking digital radiography detectors with PACS with zero intermediate delay.',
+    features: ['Detector hardware integration', 'PACS auto-push', 'Local acquisition viewing', 'Calibration & QC tools', 'Modality interface'],
   },
   {
-    name: 'ProxoAI', status: 'Live', headline: 'Medical AI assistant layer for review and workflow.',
-    description: 'AI-assisted report review, image analysis support, clinical summaries, findings extraction, and decision-support.',
-    features: ['Report analysis', 'Image analysis assistance', 'Impression drafting support', 'Finding summarization', 'Report quality review', 'Clinical summary', 'Radiologist productivity support'],
+    name: 'ProxoAI', status: 'Live', headline: 'Medical AI assistant layer for report review and workflow.',
+    description: 'Assistive finding extraction, clinical summaries, impression drafting, and radiologist productivity support.',
+    features: ['Report analysis', 'Assistive triage notes', 'Impression drafting', 'Finding extraction', 'Report quality review', 'Clinical summary'],
   },
   {
-    name: 'ProxoLIMS', status: 'Upcoming', headline: 'Laboratory workflow connected to diagnostic operations.',
-    description: 'Lab information workflow for sample tracking, diagnostics coordination, and report flow.',
-    features: ['Sample lifecycle tracking', 'Lab order management', 'Report generation', 'Barcode-ready', 'Patient sample status'],
+    name: 'HMS', status: 'Live', headline: 'Connected hospital management for clinical care coordination.',
+    description: 'Live hospital information workflow connecting patient administration, clinical care, EMR integration, and billing.',
+    features: ['Patient flow tracking', 'Billing & invoicing', 'Department coordination', 'EMR integration', 'Clinical documentation'],
   },
   {
-    name: 'ProxoRIS', status: 'Upcoming', headline: 'Radiology information system for department coordination.',
-    description: 'Appointments, modality scheduling, worklists, and department coordination for imaging centers.',
-    features: ['Appointment scheduling', 'Modality worklists', 'Radiologist assignment', 'Patient flow tracking', 'Center utilization view'],
+    name: 'RIS', status: 'Upcoming', headline: 'Radiology operations & modality department flow.',
+    description: 'Appointments, modality worklists, radiologist assignments, and imaging center operations.',
+    features: ['Modality worklists', 'Appointment scheduling', 'Radiologist assignment', 'Patient tracking', 'Center utilization'],
   },
   {
-    name: 'ProxoHMS', status: 'Upcoming', headline: 'Hospital management system for connected care.',
-    description: 'Hospital information workflow connecting clinical care, billing, and administration workflows.',
-    features: ['Patient tracking', 'Billing & invoicing', 'Department flow', 'EMR integration'],
+    name: 'LIMS', status: 'Upcoming', headline: 'Laboratory information workflow connected to diagnostics.',
+    description: 'Sample lifecycle tracking, barcode-ready workflows, and automated diagnostic reports.',
+    features: ['Sample barcode tracking', 'Lab order management', 'Automated reports', 'Diagnostics coordination', 'Sample status tracking'],
   },
   {
-    name: 'ProxoReporting', status: 'Coming', headline: 'Secure remote radiology reporting workflow.',
-    description: 'Telereporting for diagnostic centers, hospitals, and radiologists needing secure remote reads.',
-    features: ['Remote reads', 'Radiologist network', 'Case assignment', 'Urgent study routing', 'Secure cloud access'],
+    name: 'TeleReporting', status: 'Coming', headline: 'Secure remote radiology reporting network.',
+    description: 'Encrypted remote reads, urgent study routing, case assignment, and fast report delivery.',
+    features: ['Remote reads', 'Radiologist network', 'Case assignment', 'Urgent study routing', 'Encrypted cloud delivery'],
   },
 ];
 
 const pacsFeatures = [
-  'DICOM upload from local machine', 'Local uploader bridge app', 'Browser DICOM viewer',
+  'Zero monthly fees with Sonar', 'Browser DICOM viewer', 'Local uploader bridge app',
   'X-ray, CT, MRI, US support', 'Study search and filtering', 'Patient-wise access',
   'Multi-user login', 'Viewer-only access', 'Radiologist access', 'Secure sharing links',
-  'Report attachment', 'Cloud storage backend',
+  'Report attachment', 'AWS S3 cloud storage backend',
 ];
 
 const aiGroups: [string, string[]][] = [
@@ -61,20 +61,20 @@ const aiGroups: [string, string[]][] = [
 
 const productFaqs = [
   {
-    question: 'What is ProxoPACS Cloud?',
-    answer: 'ProxoPACS Cloud is a browser-first cloud PACS from Proxomind Labs for DICOM upload, cloud study access, image viewing, reporting workflow, secure sharing, and multi-center diagnostic operations.',
+    question: 'What is Sonar Enterprise PACS?',
+    answer: 'Sonar is a high-speed remote and enterprise PACS without monthly subscription fees. It offers sub-second diagnostic image loading, local mesh networking, and full remote access.',
   },
   {
-    question: 'What is ProxoAI?',
-    answer: 'ProxoAI is a medical AI assistance layer for report review, image review support, finding extraction, clinical summaries, impression drafting support, and radiologist productivity workflows.',
+    question: 'What is CloudPACS?',
+    answer: 'CloudPACS is a browser-first cloud PACS offering instant DICOM viewing, scalable cloud storage, multi-center access, and secure sharing.',
   },
   {
-    question: 'Who is Proxomind built for?',
-    answer: 'Proxomind is built for diagnostic imaging centers, hospitals, radiology departments, independent radiologists, multi-branch diagnostic chains, and channel partners deploying imaging software.',
+    question: 'What is HMS?',
+    answer: 'HMS is Proxomind Labs\' live hospital management system for unified patient care, clinical records, department flow, and billing.',
   },
   {
-    question: 'Does ProxoAI replace radiologists or doctors?',
-    answer: 'No. ProxoAI is an assistive workflow and decision-support layer. Final diagnosis, report approval, and clinical decision-making must be performed by qualified medical professionals.',
+    question: 'What is Prism?',
+    answer: 'Prism is a diagnostic workstation that interfaces directly with flat-panel DR detectors and pushes acquired scans straight into your PACS pipeline.',
   },
 ];
 
@@ -110,9 +110,9 @@ export default function ProductsPage() {
               <strong>{product.headline}</strong>
               <p>{product.description}</p>
               <FeatureList items={product.features} />
-              {product.name === 'ProxoPACS Cloud' && (
+              {product.name === 'CloudPACS' && (
                 <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-card-link">
-                  Launch ProxoPACS Cloud
+                  Launch CloudPACS
                 </a>
               )}
             </motion.article>
@@ -122,13 +122,13 @@ export default function ProductsPage() {
 
       <section className="pm-section pm-deep-section pacs">
         <div className="pm-section-head">
-          <span className="pm-kicker">ProxoPACS Cloud</span>
-          <h2>Everything an imaging center needs to move from local to cloud.</h2>
+          <span className="pm-kicker">PACS Solutions</span>
+          <h2>Remote, Cloud, and Enterprise imaging built for maximum speed.</h2>
         </div>
         <div className="pm-deep-grid">
           <FeatureList items={pacsFeatures} />
           <div className="pm-image-card">
-            <img src="/images/pacs-workstation.avif" alt="ProxoPACS Cloud workstation with DICOM worklist and scan viewers" />
+            <img src="/images/pacs-workstation.avif" alt="PACS workstation with DICOM worklist and scan viewers" />
           </div>
         </div>
       </section>
@@ -177,7 +177,7 @@ export default function ProductsPage() {
         <p>From DICOM upload to AI-assisted reporting, Proxomind connects the full diagnostic workflow.</p>
         <div className="pm-actions">
           <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn primary">Book Live Demo</button>
-          <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open ProxoPACS Cloud</a>
+          <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open CloudPACS</a>
           <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn ghost">Partner With Us</button>
         </div>
       </section>

@@ -6,10 +6,10 @@ type Theme = 'dark' | 'light';
 
 const getStoredTheme = (): Theme => {
   if (typeof window === 'undefined') {
-    return 'dark';
+    return 'light';
   }
 
-  return window.localStorage.getItem('proxomind-theme') === 'light' ? 'light' : 'dark';
+  return window.localStorage.getItem('proxomind-theme-mode') === 'dark' ? 'dark' : 'light';
 };
 
 export default function Navbar() {
@@ -19,7 +19,7 @@ export default function Navbar() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    window.localStorage.setItem('proxomind-theme', theme);
+    window.localStorage.setItem('proxomind-theme-mode', theme);
   }, [theme]);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,7 +44,6 @@ export default function Navbar() {
         <a href="/" className="logo" onClick={(e) => { e.preventDefault(); handleNavigate('/'); }}>
           <Logo />
         </a>
-        <div className="nav-punchline">Bring every diagnostic center into the cloud era.</div>
         <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
           <button
             onClick={() => handleNavigate('/')}
@@ -60,20 +59,22 @@ export default function Navbar() {
           >Partners</button>
           <button className="cta-btn" onClick={goToPartnerInquiry}>Partner Enquiry</button>
         </nav>
-        <button
-          type="button"
-          className="theme-toggle"
-          aria-label={`Switch to ${nextTheme} mode`}
-          onClick={() => setTheme(nextTheme)}
-        >
-          <span className="theme-toggle-track"><span className="theme-toggle-knob" /></span>
-          <span>{nextTheme === 'light' ? 'Light' : 'Dark'}</span>
-        </button>
-        <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        <div className="header-right">
+          <button
+            type="button"
+            className="theme-toggle"
+            aria-label={`Switch to ${nextTheme} mode`}
+            onClick={() => setTheme(nextTheme)}
+          >
+            <span className="theme-toggle-track"><span className="theme-toggle-knob" /></span>
+            <span>{nextTheme === 'light' ? 'Light' : 'Dark'}</span>
+          </button>
+          <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
   );

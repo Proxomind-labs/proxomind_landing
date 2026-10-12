@@ -8,6 +8,10 @@ export default function ProductName({ name, className = '' }: ProductNameProps) 
 
   if (name === 'TeleReporting') {
     parts = ['Tele', 'Reporting'];
+  } else if (name === 'CloudPACS' || name.startsWith('CloudPACS')) {
+    const remainder = name.slice(9).trim();
+    const words = remainder ? remainder.split(' ') : [];
+    parts = ['Cloud', 'PACS', ...words];
   } else if (name.startsWith('Proxo')) {
     const remainder = name.slice(5).trim();
     const words = remainder.split(' ');

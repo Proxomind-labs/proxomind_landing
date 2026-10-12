@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Theme (persisted across sessions) -->
+    <!-- Theme (light mode by default, persisted across sessions) -->
     <script>
       (function () {
         try {
-          var theme = localStorage.getItem('proxomind-theme');
-          document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+          var theme = localStorage.getItem('proxomind-theme-mode');
+          document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
         } catch (error) {
-          document.documentElement.dataset.theme = 'dark';
+          document.documentElement.dataset.theme = 'light';
         }
       })();
     </script>

@@ -19,14 +19,14 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Products</h4>
             <ul>
-              {['ProxoPACS Cloud', 'ProxoPACS Lite', 'ProxoPrism', 'ProxoAI', 'ProxoLIMS', 'ProxoRIS', 'ProxoHMS', 'ProxoReporting'].map((name) => (
+              {['Sonar', 'CloudPACS', 'Prism', 'ProxoAI', 'HMS', 'RIS', 'LIMS', 'TeleReporting'].map((name) => (
                 <li key={name}>
                   <a
-                    href={name === 'ProxoPACS Cloud' ? PROXOPACS_URL : '#'}
-                    target={name === 'ProxoPACS Cloud' ? '_blank' : undefined}
-                    rel={name === 'ProxoPACS Cloud' ? 'noopener noreferrer' : undefined}
+                    href={name === 'CloudPACS' ? PROXOPACS_URL : '#'}
+                    target={name === 'CloudPACS' ? '_blank' : undefined}
+                    rel={name === 'CloudPACS' ? 'noopener noreferrer' : undefined}
                     onClick={(e) => {
-                      if (name !== 'ProxoPACS Cloud') {
+                      if (name !== 'CloudPACS') {
                         e.preventDefault();
                         navigate('/products');
                       }

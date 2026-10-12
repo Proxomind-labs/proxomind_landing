@@ -4,7 +4,7 @@ const Logo = () => {
       <img src="/favicon.svg" alt="" className="brand-mark" />
       <div className="brand-copy">
         <strong><span>Proxo</span><em>Mind</em></strong>
-        <small>Labs</small>
+        <span className="brand-tagline">Bringing AI & Cloud Diagnostics into the Cloud Era</span>
       </div>
     </div>
   );

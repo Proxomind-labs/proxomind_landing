@@ -671,6 +671,12 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, rgba(129, 140, 248, 0.3), rgba(192, 132, 252, 0.3));
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .theme-toggle {
   align-items: center;
   background: rgba(255, 255, 255, 0.055);
@@ -1039,10 +1045,7 @@ body {
   color: var(--pm-text);
 }
 
-.app,
-.content,
-.pm-page,
-.page-container {
+.app {
   background:
     linear-gradient(90deg, rgba(255, 51, 51, 0.035) 1px, transparent 1px),
     linear-gradient(180deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
@@ -1050,6 +1053,16 @@ body {
     radial-gradient(circle at 6% 20%, rgba(124, 99, 255, 0.12), transparent 24%),
     #030303;
   background-size: 92px 92px, 92px 92px, auto, auto, auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+.content,
+.pm-page,
+.page-container {
+  background: transparent !important;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-title-main {
@@ -2149,17 +2162,22 @@ html[data-theme='light'] body {
   color: var(--pm-text);
 }
 
-html[data-theme='light'] .app,
-html[data-theme='light'] .content,
-html[data-theme='light'] .pm-page,
-html[data-theme='light'] .page-container {
+html[data-theme='light'] .app {
   background:
     linear-gradient(90deg, rgba(239, 35, 60, 0.045) 1px, transparent 1px),
     linear-gradient(180deg, rgba(17, 24, 39, 0.045) 1px, transparent 1px),
-    radial-gradient(circle at 76% -12%, rgba(239, 35, 60, 0.15), transparent 28%),
-    radial-gradient(circle at 8% 16%, rgba(14, 165, 233, 0.12), transparent 26%),
     linear-gradient(180deg, #fffaf5 0%, #f5f1ea 48%, #ffffff 100%) !important;
-  background-size: 92px 92px, 92px 92px, auto, auto, auto;
+  background-size: 92px 92px, 92px 92px, auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+html[data-theme='light'] .content,
+html[data-theme='light'] .pm-page,
+html[data-theme='light'] .page-container {
+  background: transparent !important;
+  position: relative;
+  z-index: 2;
 }
 
 html[data-theme='light'] .app::before,
@@ -2329,7 +2347,7 @@ html[data-theme='light'] .pm-hero::after {
   background:
     radial-gradient(circle at 68% 18%, rgba(239, 35, 60, 0.13), transparent 33%),
     radial-gradient(circle at 18% 78%, rgba(20, 184, 166, 0.07), transparent 28%),
-    linear-gradient(105deg, rgba(255, 250, 244, 0.95) 0%, rgba(255, 250, 244, 0.76) 42%, rgba(255, 255, 255, 0.58) 100%) !important;
+    linear-gradient(105deg, rgba(255, 250, 244, 0.45) 0%, rgba(255, 250, 244, 0.25) 42%, rgba(255, 255, 255, 0.1) 100%) !important;
 }
 
 html[data-theme='light'] .pm-dashboard-mock,
@@ -2881,4 +2899,162 @@ html[data-theme='light'] .pm-partner-inquiry .pm-contact-form-wrap {
 html[data-theme='light'] .nav.nav-open {
   background: rgba(255,255,255,0.95);
   border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   MOUSE-FOLLOWING BACKGROUND GLOW & CARD SPOTLIGHT
+   ========================================= */
+
+/* Strictly Background Glow Layer (z-index: 1) */
+.pm-mouse-glow-bg-wrapper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.pm-mouse-glow-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 950px;
+  height: 950px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(255, 51, 51, 0.42) 0%,
+    rgba(255, 51, 51, 0.20) 28%,
+    rgba(255, 51, 51, 0.07) 55%,
+    rgba(124, 99, 255, 0.03) 72%,
+    transparent 82%
+  );
+  filter: blur(55px);
+  will-change: transform;
+}
+
+/* Light Mode: Greatly increased radius (1400px) & radiant coral-rose wash */
+html[data-theme='light'] .pm-mouse-glow-bg {
+  width: 1400px;
+  height: 1400px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 51, 51, 0.22) 0%,
+    rgba(255, 51, 51, 0.12) 30%,
+    rgba(255, 51, 51, 0.04) 58%,
+    transparent 78%
+  );
+  filter: blur(75px);
+}
+
+/* Card Spotlight & Enhanced Less-is-More Glass */
+.pm-product-tile,
+.pm-card,
+.pm-ecosystem-card {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease,
+              background 0.3s ease;
+}
+
+.pm-product-tile:hover,
+.pm-card:hover,
+.pm-ecosystem-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 51, 51, 0.45) !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), 0 0 28px rgba(255, 51, 51, 0.14) !important;
+}
+
+html[data-theme='light'] .pm-product-tile:hover,
+html[data-theme='light'] .pm-card:hover,
+html[data-theme='light'] .pm-ecosystem-card:hover {
+  border-color: rgba(255, 51, 51, 0.4) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1), 0 0 24px rgba(255, 51, 51, 0.1) !important;
+}
+
+/* Typewriter Headline Styles */
+.pm-typewriter {
+  display: inline-grid;
+  grid-template-areas: "typewriter-stack";
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+  text-align: left;
+}
+
+.pm-typewriter-sizer {
+  grid-area: typewriter-stack;
+  display: grid;
+  grid-template-areas: "sizer-stack";
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  line-height: inherit;
+}
+
+.pm-typewriter-sizer-item {
+  grid-area: sizer-stack;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+  line-height: inherit;
+}
+
+.pm-typewriter-live {
+  grid-area: typewriter-stack;
+  align-self: start;
+  justify-self: start;
+  width: 100%;
+  line-height: inherit;
+}
+
+.pm-typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--pm-red);
+  font-weight: 300;
+  animation: pmBlinkCursor 0.9s infinite;
+  text-shadow: 0 0 14px rgba(255, 51, 51, 0.9);
+}
+
+@keyframes pmBlinkCursor {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.pm-hero-sub-headline {
+  display: block;
+  margin-top: 8px;
+  color: #f4f6f8;
+}
+
+html[data-theme='light'] .pm-hero-sub-headline {
+  color: #27272a;
+}
+
+/* Brand Tagline below Logo */
+.brand-tagline {
+  color: var(--pm-dim);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-top: 3px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  display: block;
+}
+
+html[data-theme='light'] .brand-tagline {
+  color: #71717a;
+}
+
+@media (max-width: 640px) {
+  .brand-tagline {
+    font-size: 7.2px;
+    letter-spacing: 0.035em;
+  }
 }

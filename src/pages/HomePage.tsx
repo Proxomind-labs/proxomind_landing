@@ -1,35 +1,42 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ProductName from '../components/ProductName';
+import TypewriterText from '../components/TypewriterText';
 import { PROXOPACS_URL } from '../constants';
 
+const heroPhrases = [
+  'Remote PACS with zero monthly subscription.',
+  'Medical AI and Cloud Diagnostics.',
+  'Sub-second radiology built for speed.',
+];
+
 const products = [
-  { name: 'ProxoPACS Cloud', status: 'Live', title: 'Cloud PACS', href: PROXOPACS_URL, copy: 'DICOM upload, browser viewer, study list, reporting workflow, secure sharing, and multi-center access.' },
-  { name: 'ProxoPACS Lite', status: 'Live', title: 'Local PACS', copy: 'Lightweight local PACS solution for quick deployments.' },
-  { name: 'ProxoPrism', status: 'Live', title: 'Workstation', copy: 'Workstation that connects with detector and PACS solution.' },
-  { name: 'ProxoAI', status: 'Live', title: 'Medical AI Assistant', copy: 'AI-assisted report review, image analysis support, clinical summaries, and workflow acceleration.' },
-  { name: 'ProxoLIMS', status: 'Upcoming', title: 'Lab Workflow', copy: 'Sample lifecycle, lab orders, reports, barcode-ready workflows, and diagnostics coordination.' },
-  { name: 'ProxoRIS', status: 'Upcoming', title: 'Radiology Operations', copy: 'Appointments, modality worklists, radiologist assignment, utilization views, and department flow.' },
-  { name: 'ProxoHMS', status: 'Upcoming', title: 'Hospital Management', copy: 'Hospital information workflow and clinical care coordination.' },
-  { name: 'ProxoReporting', status: 'Coming', title: 'Telereporting', copy: 'Telereporting, case assignment, radiologist network, urgent routing, and secure report delivery.' },
+  { name: 'Sonar', status: 'Live', title: 'Remote & Enterprise PACS • No Monthly Fees', copy: 'Remote & Enterprise PACS without monthly subscription fees. Sub-second image load times, local high-speed mesh, and remote access.' },
+  { name: 'CloudPACS', status: 'Live', title: 'Cloud PACS', href: PROXOPACS_URL, copy: 'Browser-first cloud PACS for upload, cloud storage, study access, reporting workflow, and secure multi-center sharing.' },
+  { name: 'Prism', status: 'Live', title: 'Diagnostic Workstation', copy: 'Hardware-connected diagnostic workstation linking flat-panel detectors directly with PACS.' },
+  { name: 'ProxoAI', status: 'Live', title: 'Medical AI Copilot', copy: 'Assistive finding extraction, clinical summaries, report review, and radiologist acceleration.' },
+  { name: 'HMS', status: 'Live', title: 'Hospital Management', copy: 'Live connected hospital coordination, patient administration, EMR clinical records, and billing.' },
+  { name: 'RIS', status: 'Upcoming', title: 'Radiology Operations', copy: 'Modality worklists, appointment scheduling, radiologist assignments, and department flow.' },
+  { name: 'LIMS', status: 'Upcoming', title: 'Lab Workflow', copy: 'Sample barcode tracking, lab orders, diagnostics coordination, and automated reports.' },
+  { name: 'TeleReporting', status: 'Coming', title: 'Teleradiology Network', copy: 'Encrypted remote reads, urgent study routing, case assignment, and fast report delivery.' },
 ];
 
 const searchSnapshot = [
   {
-    title: 'What Proxomind Labs builds',
-    copy: 'Proxomind Labs builds healthcare cloud software for diagnostic imaging centers, hospitals, radiologists, and channel partners. The platform connects cloud PACS, DICOM viewing, AI-assisted report review, RIS, LIMS, and remote reporting workflows.',
+    title: 'Sonar: Remote PACS with zero monthly fees',
+    copy: 'Sonar delivers enterprise and remote PACS speed with sub-second image loading and no recurring subscription costs.',
   },
   {
-    title: 'Main live products',
-    copy: 'ProxoPACS Cloud is a live browser-first cloud PACS for DICOM upload, study access, cloud storage, secure sharing, and radiologist workflows. ProxoAI is a live medical AI assistance layer for report review, image review support, clinical summaries, and workflow acceleration.',
+    title: 'CloudPACS: Managed cloud workflows',
+    copy: 'CloudPACS provides browser-native DICOM storage, cloud study access, and secure sharing across diagnostic centers.',
   },
   {
-    title: 'Best-fit customers',
-    copy: 'Proxomind is designed for X-ray centers, CT centers, MRI centers, ultrasound centers, multi-location diagnostic chains, hospital radiology departments, independent radiologists, and partners selling healthcare software with imaging equipment.',
+    title: 'Live Hospital Suite: Prism & HMS',
+    copy: 'Prism connects DR detectors directly to PACS, while HMS coordinates clinical care, patient records, and billing.',
   },
   {
-    title: 'Clinical safety position',
-    copy: 'ProxoAI is an assistive decision-support and workflow tool. It supports clinical context extraction and reporting productivity, but final diagnosis and clinical decisions remain with qualified medical professionals.',
+    title: 'Clinical AI Decision-Support',
+    copy: 'ProxoAI operates strictly as an assistive workflow layer. Final diagnostic decisions remain with qualified doctors.',
   },
 ];
 
@@ -50,10 +57,10 @@ export default function HomePage() {
       <section className="pm-hero pm-image-hero">
         <div className="pm-hero-copy">
           <motion.h1 initial="hidden" animate="visible" variants={fadeInUp}>
-            Cloud PACS and medical AI for modern diagnostic networks.
+            <TypewriterText phrases={heroPhrases} holdDelay={5000} />
           </motion.h1>
           <motion.p initial="hidden" animate="visible" variants={fadeInUp}>
-            ProxoPACS Cloud, ProxoPACS Lite, ProxoPrism, and ProxoAI are live today, with ProxoRIS, ProxoLIMS, and TeleReporting completing one partner-ready healthcare platform.
+            Sonar Remote PACS (zero monthly fees), CloudPACS, Prism, ProxoAI, and HMS — high-performance radiology and hospital operations.
           </motion.p>
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-actions">
             <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn primary">Book a Demo</button>
@@ -63,7 +70,7 @@ export default function HomePage() {
         </div>
 
         <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="pm-workstation-hero">
-          <img src="/images/pacs-workstation.avif" alt="ProxoPACS DICOM workstation showing worklist and CT scan viewers" />
+          <img src="/images/pacs-workstation.avif" alt="CloudPACS and Sonar DICOM workstation showing worklist and CT scan viewers" />
         </motion.div>
       </section>
 
@@ -74,7 +81,7 @@ export default function HomePage() {
             <h3><ProductName name={product.name} /></h3>
             <strong>{product.title}</strong>
             <p>{product.copy}</p>
-            {product.href && <a href={product.href} target="_blank" rel="noopener noreferrer" className="pm-card-link">Open ProxoPACS Cloud</a>}
+            {product.href && <a href={product.href} target="_blank" rel="noopener noreferrer" className="pm-card-link">Open CloudPACS</a>}
           </article>
         ))}
       </section>
@@ -82,9 +89,9 @@ export default function HomePage() {
       <section className="pm-section pm-seo-snapshot" aria-labelledby="platform-snapshot-title">
         <div className="pm-section-head">
           <span className="pm-kicker">Platform Snapshot</span>
-          <h2 id="platform-snapshot-title">Cloud PACS, medical AI, RIS, LIMS, and TeleReporting in one diagnostic software stack.</h2>
+          <h2 id="platform-snapshot-title">Remote PACS, Cloud PACS, medical AI, RIS, and HMS in one cohesive suite.</h2>
           <p>
-            Proxomind is a healthcare SaaS platform for diagnostic centers moving from local imaging systems to cloud-connected workflows.
+            Built for diagnostic centers and hospitals looking for high-speed imaging without unnecessary overhead.
           </p>
         </div>
         <div className="pm-seo-grid">
@@ -116,11 +123,11 @@ export default function HomePage() {
           </div>
           <div className="pm-actions">
             <button onClick={() => navigate('/products')} className="pm-btn primary">Explore ProxoAI</button>
-            <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open ProxoPACS Cloud</a>
+            <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open CloudPACS</a>
           </div>
         </div>
         <div className="pm-ai-command-visual">
-          <img className="pm-ai-dashboard-image" src="/images/proxoai-report-console.png" alt="ProxoPACS reporting console powered by ProxoAI" />
+          <img className="pm-ai-dashboard-image" src="/images/proxoai-report-console.png" alt="CloudPACS reporting console powered by ProxoAI" />
         </div>
       </section>
     </div>

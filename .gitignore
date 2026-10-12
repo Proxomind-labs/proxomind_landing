@@ -27,3 +27,8 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# Tooling & IDE
+.antigravity
+.playwright-mcp
+
