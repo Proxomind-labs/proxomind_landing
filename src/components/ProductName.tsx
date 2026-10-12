@@ -12,6 +12,10 @@ export default function ProductName({ name, className = '' }: ProductNameProps) 
     const remainder = name.slice(9).trim();
     const words = remainder ? remainder.split(' ') : [];
     parts = ['Cloud', 'PACS', ...words];
+  } else if (name === 'Sonar' || name.startsWith('Sonar')) {
+    const remainder = name.slice(5).trim();
+    const words = remainder ? remainder.split(' ') : ['PACS'];
+    parts = ['Sonar', ...words];
   } else if (name.startsWith('Proxo')) {
     const remainder = name.slice(5).trim();
     const words = remainder.split(' ');
