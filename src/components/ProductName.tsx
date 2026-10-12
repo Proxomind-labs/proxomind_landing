@@ -16,6 +16,10 @@ export default function ProductName({ name, className = '' }: ProductNameProps) 
     const remainder = name.slice(5).trim();
     const words = remainder ? remainder.split(' ') : ['PACS'];
     parts = ['Sonar', ...words];
+  } else if (name === 'Proxomind Labs' || name === 'ProxoMind Labs') {
+    parts = ['Proxo', 'Mind', 'Labs'];
+  } else if (name === 'Proxomind' || name === 'ProxoMind') {
+    parts = ['Proxo', 'Mind'];
   } else if (name.startsWith('Proxo')) {
     const remainder = name.slice(5).trim();
     const words = remainder.split(' ');

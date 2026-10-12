@@ -174,7 +174,7 @@ export default function ProductsPage() {
 
       <section className="pm-final-cta">
         <h2>Turn local imaging into cloud-connected diagnostic networks.</h2>
-        <p>From DICOM upload to AI-assisted reporting, Proxomind connects the full diagnostic workflow.</p>
+        <p>From DICOM upload to AI-assisted reporting, Proxomind Labs connects the full diagnostic workflow.</p>
         <div className="pm-actions">
           <button onClick={() => navigate('/partners#partner-inquiry')} className="pm-btn primary">Book Live Demo</button>
           <a href={PROXOPACS_URL} target="_blank" rel="noopener noreferrer" className="pm-btn secondary">Open CloudPACS</a>

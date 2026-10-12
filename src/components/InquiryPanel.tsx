@@ -27,7 +27,7 @@ type InquiryPanelProps = {
 
 export default function InquiryPanel({
   className = '',
-  intro = 'Fill in your details and a Proxomind team member will respond within one business day.',
+  intro = 'Fill in your details and a Proxomind Labs team member will respond within one business day.',
   items = defaultItems,
   title = 'Reach Out',
 }: InquiryPanelProps) {

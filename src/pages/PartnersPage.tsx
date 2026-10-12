@@ -67,7 +67,7 @@ export default function PartnersPage() {
             Sell a serious diagnostic software platform around every imaging center conversation.
           </motion.h1>
           <motion.p initial="hidden" animate="visible" variants={fadeInUp}>
-            Proxomind gives partners a clean cloud PACS + medical AI story today, with RIS, LIMS, and TeleReporting modules that grow long-term customer value.
+            Proxomind Labs gives partners a clean cloud PACS + medical AI story today, with RIS, LIMS, and TeleReporting modules that grow long-term customer value.
           </motion.p>
           <motion.div initial="hidden" animate="visible" variants={fadeInUp} className="pm-actions">
             <button onClick={scrollToInquiry} className="pm-btn primary">Become a Partner</button>
@@ -141,7 +141,7 @@ export default function PartnersPage() {
 
       <section className="pm-final-cta">
         <h2>Ready to sell the next generation of diagnostic software?</h2>
-        <p>Proxomind provides demo environment, training, and ongoing support for channel partners.</p>
+        <p>Proxomind Labs provides demo environment, training, and ongoing support for channel partners.</p>
         <div className="pm-actions">
           <button onClick={scrollToInquiry} className="pm-btn primary">Start Partner Conversation</button>
           <button onClick={() => navigate('/products')} className="pm-btn ghost">View Full Platform</button>
@@ -152,7 +152,7 @@ export default function PartnersPage() {
         <div className="pm-section-head">
           <span className="pm-kicker">Partner enquiry</span>
           <h2>Partner onboarding and product demos in one place.</h2>
-          <p>Share your region, center network, modality mix, or partner plan. The same Proxomind team handles sales, onboarding, and product demo conversations.</p>
+          <p>Share your region, center network, modality mix, or partner plan. The same Proxomind Labs team handles sales, onboarding, and product demo conversations.</p>
         </div>
         <InquiryPanel
           title="Partner Enquiry"
