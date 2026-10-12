@@ -1114,12 +1114,15 @@ body {
   font-style: normal;
 }
 
-.brand-copy .brand-labs,
+.brand-copy .brand-labs {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  margin-left: 3px;
+}
+
 html[data-theme='light'] .brand-copy .brand-labs {
-  color: #94a3b8 !important;
-  font-weight: 500;
-  letter-spacing: -0.2px;
-  margin-left: 2px;
+  color: #52525b !important;
 }
 
 .pm-product-name {

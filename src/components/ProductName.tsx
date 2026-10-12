@@ -34,7 +34,14 @@ export default function ProductName({ name, className = '' }: ProductNameProps) 
     <span className={`pm-product-name ${className}`.trim()}>
       <span>{parts[0]}</span><em>{parts[1]}</em>
       {parts.length > 2 && (
-        <span style={{ color: 'var(--text-muted)', marginLeft: '0.25em', fontWeight: 400 }}>
+        <span
+          className={parts.slice(2).join(' ') === 'Labs' ? 'brand-labs' : ''}
+          style={{
+            color: parts.slice(2).join(' ') === 'Labs' ? undefined : 'var(--text-muted)',
+            marginLeft: '0.25em',
+            fontWeight: parts.slice(2).join(' ') === 'Labs' ? 800 : 600,
+          }}
+        >
           {parts.slice(2).join(' ')}
         </span>
       )}
