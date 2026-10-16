@@ -31,6 +31,7 @@ export default function PrivacyPolicyPage() {
           <p style={{ marginBottom: '12px' }}>We collect the following categories of information:</p>
           <ul style={{ marginBottom: '24px', paddingLeft: '24px', listStyleType: 'disc' }}>
             <li style={{ marginBottom: '8px' }}><strong>Patient Diagnostic Data (PHI):</strong> DICOM images, study metadata, diagnostic reports, and lab results uploaded by healthcare providers.</li>
+            <li style={{ marginBottom: '8px' }}><strong>Microphone & Audio Data:</strong> When using the ProxoPACS mobile app dictation feature, audio is processed in real time solely for speech-to-text transcription into medical reports. Audio recordings are never permanently stored, sold, or shared.</li>
             <li style={{ marginBottom: '8px' }}><strong>Provider & User Information:</strong> Account credentials, names, medical specialties, email addresses, and contact details of radiologists, technicians, and administrators using our platform.</li>
             <li style={{ marginBottom: '8px' }}><strong>System Telemetry & Logs:</strong> IP addresses, browser types, device identifiers, audit logs, and workflow interactions used to ensure security and monitor system performance.</li>
             <li style={{ marginBottom: '8px' }}><strong>Business & Billing Data:</strong> Payment details, billing addresses, and contract information from our Customers and channel partners.</li>
@@ -39,8 +40,8 @@ export default function PrivacyPolicyPage() {
           <h2>3. How We Use the Information</h2>
           <p style={{ marginBottom: '12px' }}>We use the collected information exclusively to:</p>
           <ul style={{ marginBottom: '24px', paddingLeft: '24px', listStyleType: 'disc' }}>
-            <li style={{ marginBottom: '8px' }}>Deliver, operate, and maintain the ProxoPACS and ProxoAI platforms.</li>
-            <li style={{ marginBottom: '8px' }}>Enable diagnostic viewing, secure remote reporting, and AI-assisted clinical summaries for authorized medical professionals.</li>
+            <li style={{ marginBottom: '8px' }}>Deliver, operate, and maintain the ProxoPACS (web & mobile) and ProxoAI platforms.</li>
+            <li style={{ marginBottom: '8px' }}>Enable diagnostic viewing, secure remote reporting, speech-to-text dictation, and AI-assisted clinical summaries for authorized medical professionals.</li>
             <li style={{ marginBottom: '8px' }}>Ensure HIPAA compliance by maintaining strict audit trails of all user access to patient records.</li>
             <li style={{ marginBottom: '8px' }}>Provide customer support, troubleshooting, and platform performance optimization.</li>
           </ul>
